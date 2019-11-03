@@ -1,0 +1,52 @@
+.mbyte-rating-most-rated {
+    list-style: none;
+}
+
+.mbyte-rating-most-rated li {
+    list-style: none;
+}
+
+.mbyte-rating-most-rated li .voted-up {
+    color: #91B309;
+}
+
+.mbyte-rating-most-rated li .voted-up::before {
+    color: #91B309;
+    content: '+';
+}
+
+.mbyte-rating-most-rated li .voted-down {
+    color: #D63810;
+}
+
+.mbyte-rating-most-rated li .voted-down::before {
+    color: #D63810;
+    content: '-';
+}
+
+
+.mbyte-rating-authors {
+    list-style: none;
+}
+
+.mbyte-rating-authors li {
+    list-style: none;
+}
+
+.mbyte-rating-authors li .votes-up {
+    color: #91B309;
+}
+
+.mbyte-rating-authors li .votes-up::before {
+    color: #91B309;
+    content: '+';
+}
+
+.mbyte-rating-authors li .votes-down {
+    color: #D63810;
+}
+
+.mbyte-rating-authors li .votes-down::before {
+    color: #D63810;
+    content: '-';
+}

@@ -1,0 +1,139 @@
+/* CSS Document */
+
+body {
+	background-color:#ffffff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #005825;
+	font-style: normal;
+	
+	
+}
+tr, td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #005825;
+	font-style: normal;
+	
+	
+	
+}
+.menuheight {
+	margin-left: 5px;
+	padding-left: 5px;
+	margin-top: 2px;
+	margin-right: 1px;
+	margin-bottom: 2px;
+	padding-top: 2px;
+	padding-right: 1px;
+	padding-bottom: 2px;
+	height: 16px;
+	background-image: url(/australia_zoo/images/submneu.gif);
+	background-repeat: no-repeat;
+	background-position: right center;
+	
+}
+
+.style13 
+{
+font-family: Verdana, Arial, Helvetica, sans-serif
+}
+
+.style19 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	color: #003300;
+}
+
+.style28 
+{
+color: #000000; 
+font-size: 12px;
+}
+.style49 {
+line-height: normal;
+font-weight: bold; 
+font-variant: normal; 
+text-transform: none; 
+color: #005825; 
+text-decoration: underline; 
+font-style: normal;
+}
+
+.style50 {
+font-size: 12px;
+}
+.style51 {
+color: #000000;
+}
+.style52 {
+font-size: 10pt
+}
+
+style53 {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: x-small;
+color: #003300;
+margin: 10px;
+font-weight: bold;
+}
+
+.imgmargin {
+	margin: 10px 10px 2px 25px;
+	border: 1px solid #008525;
+
+}
+.indentcontent {
+	margin-left: 15px;
+	padding-left: 15px;
+}
+.subbold {
+	font-weight: bold;
+	font-size: 12px;
+	margin: auto;
+	padding-bottom: 15px;
+}
+.img_no_pad {
+	border: 1px solid 005825;
+}
+a:link {
+	color: #005826;
+	
+}
+a:hover {
+	color: #000000;
+	
+}
+a:active {
+	color: #005826;
+	
+}
+a:visited {
+	color: #005826;
+	
+}
+
+.boxmargin{
+	margin: 5px;
+	padding: 5px;
+
+}
+.message {
+	font-size: 14px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+}
+.menuborder{
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-bottom-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+	padding-left: 10px;
+	font-size: 11px;
+
+}

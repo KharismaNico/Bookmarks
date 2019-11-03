@@ -1,0 +1,247 @@
+/* variables
+
+Dark Gray: #4D4F53;
+Dark Teal: #0a6766;
+Light Teal: #A0CDCA;
+Orange: #D95E00;
+Light Orange: #F69240;
+
+*/
+
+img {
+	max-width: 100%;
+	height: auto !important;
+}
+/*
+.nav-login-menu {
+	width: 300px;
+}
+*/
+iframe#loginIframe {
+	max-width: none;
+}
+/* site overrides */
+/* html {
+	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+	font-size: 100%;
+	background: #4D4F53;
+}
+
+body {
+	background-color: #ffffff;
+	color: #4D4F53;
+}
+
+img {
+	max-width: 100%;
+	height: auto !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+	font-weight: 900;
+}
+h1{
+	color:#4D4F53;
+}
+h2, h3, h4, h5, h6 {
+	margin-top: 2em;
+	color: #0a6766;
+}
+
+a {
+	color: #0a6766;
+}
+li {
+	list-style: circle inside !important;
+} */
+
+/*a:hover {
+	color: #0a6766 !important;
+}*/
+
+/* .btn {
+	font-size: 100%;
+	font-weight: 700;
+}
+
+.btn.blue, .btn-blue {
+	background: #A0CDCA;
+	color: black;
+	border-radius: 50px;
+	border: 0;
+}
+.img-responsive{
+	width:auto !important;
+} */
+
+.announcement {
+	background: #4D4F53;
+	color: #ffffff;
+	padding: .5em 0;
+	font-size: 1.4em;
+}
+
+.announcement a { color: #ffffff;}
+
+.homepage .announcement-content {
+    color: white;
+    background-color: #096766;
+}
+
+/* .ht-hero-content-one{
+	width: 100%;
+}
+.ht-hero-content-one .caption {
+	margin: 8em auto auto auto !important;
+	background: rgba(217,94,0,0.9);
+	color: black;
+	padding: 3em;
+	position: static;
+}
+
+.ht-hero-content-one .caption h1, .ht-hero-content-one p {
+	color: black;
+}
+
+.ht-hero-content-one .caption h1 { 
+	font-size: 4.2em;
+}
+@media only screen and (max-width: 767px){
+	.ht-hero-content-one .caption h1 {
+		font-size: 4em;
+	}
+}
+@media only screen and (max-width: 479px){
+	.ht-hero-content-one .caption h1{
+		font-size: 3em;
+	}
+}
+.ht-hero-content-one p {
+	max-width: fit-content;
+	font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+}
+.ht-service-one .content .wrap .text::before {
+	width: 3px;
+	background-color: #F69240;
+}
+@media only screen and (max-width: 767px){
+	.ht-service-one .content .wrap .text p{
+		font-size:.8em !important;
+	}
+}
+.ht-sub-menu li a:hover{
+	color:#A0CDCA !important;
+}
+.ht-hero-slider-one .slick-dots li.slick-active button {
+	display: none;
+}
+.ht-cta-section {
+	background-color: #4D4F53;
+	background-size: cover;
+	background-position: center center;
+}
+.modal-footer .btn + .btn {
+	margin-bottom: auto !important;
+	background-color: #D95E00;
+}
+
+#scrollUp {
+	background: #d95e00;
+}  */
+
+/* content */
+/* .ht-page-banner-section-one {
+	background-size: cover;
+	background-position: top center;
+	padding: 270px 0 100px;
+}
+
+main, .main-wrapper, .main {
+	background: white;
+}
+
+.section {
+	clear: both;
+	float: none;
+}
+
+.home-content {
+	padding: 5em 0;
+	text-align: center;
+}
+
+.first-content {
+	padding: 0 5em;
+}
+@media screen and (max-width: 767px){
+	.first-content {
+		padding: 0;
+	}
+}
+.ht-practice-one-details-content h2 {
+	margin-top: auto;
+}
+.ht-practice-one-details-content p {
+	display:inline-block;
+}
+.ht-service-one .content {
+	background: #0a6766;
+}
+
+.ht-service-one .content a { color: white; } */
+
+/* Table styling*/
+/* @media screen and (max-width: 767px){
+	.table-responsive > .table > tbody > tr > td{
+		white-space: pre-wrap;
+		width:65vw;
+		display: table;
+		margin: 0 auto 15px;
+	}
+} */
+/*Form Styling*/
+/* .form-container{
+	padding-left: 2em;
+}
+.form-input{
+	border: 1px solid black;
+	width: 40%;
+}
+.form-btn{
+	background-color: #D95E00;
+	width: 40%;
+	margin-top: 10px;
+	display: inherit;
+}
+@media screen and (max-width: 767px){
+	.form-input{
+		width:100%;
+	}
+	.form-btn{
+		width: 100%;
+	}
+} */
+/* Footer */
+
+/* footer {
+	background: #4D4F53;
+	color: white;
+	padding: 5em 0;
+	text-align: center;
+}
+
+footer a {
+	color: white;
+}
+
+footer .nav > li > a {
+	padding: 0 1em;
+	border-right: 2px solid #D95E00;
+}
+
+footer .nav > li:last-of-type > a { border: 0; }
+
+footer .copyright {
+	font-size: .9em;
+} */

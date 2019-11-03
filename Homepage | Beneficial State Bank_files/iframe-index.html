@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="stiBanking" class="ng-scope" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <title class="ng-binding"></title>
+    <meta name="description" content="">
+
+    <!-- base href="https://xvault.beneficialstatebank.com/" -->
+
+    <link rel="shortcut icon" href="https://xvault.beneficialstatebank.com/Content/bankCustom/images/favicon.ico">
+
+    <link href="iframe-index_data/css.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="iframe-index_data/font-awesome.css">
+
+    <link rel="stylesheet" href="iframe-index_data/iframe.css">
+
+    <!--[if lt IE 9]>
+      <script src="public/assets/bower_components/html5shiv/dist/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if (gt IE 8) | (IEMobile)]>
+      <link rel="stylesheet" href="public/assets/css/style.css" />
+    <![endif]-->
+
+    <!--
+    IE8 support, see AngularJS Internet Explorer Compatibility http://docs.angularjs.org/guide/ie
+    For Firefox 3.6, you will also need to include jQuery and ECMAScript 5 shim
+  -->
+    <!--[if lt IE 9]>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+      <script>
+        document.createElement("ui-select");
+        document.createElement("ui-select-match");
+        document.createElement("ui-select-choices");
+      </script>
+    <![endif]-->
+  <style type="text/css"></style></head>
+  <body>
+    <section class="login ng-scope" ng-controller="IframeLoginController">
+      <div class="container">
+        <div class="row ng-hide" ng-hide="compliantBrowser">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+            <div>
+              <h3 class="text-center">Online Banking</h3>
+              <p>
+                Sorry! We support IE 10 or newer, as well as recent releases of
+                Chrome, Firefox, and Safari.
+              </p>
+              <p>
+                Please make sure your browser is updated to the latest version
+                or try a different browser.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row" ng-show="compliantBrowser">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+            <h3 class="text-center">Online Banking</h3>
+            <form name="loginForm" dw-loading="loginLoading" ng-submit="login()" novalidate="" class="ng-pristine ng-valid">
+              <div class="form-group">
+                <input type="text" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" id="web_bank_id" placeholder="Web Banking ID" ng-model="custID" name="custID" novalidate="" autofocus="">
+                <input type="password" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" id="password" placeholder="Password" ng-model="password" novalidate="">
+                <button type="submit" class="btn btn-sm btn-primary">
+                  SIGN IN
+                </button>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <a class="back-home" href="#" ng-click="forgotPassword()">Forgot your password?</a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <a class="back-home" href="#" ng-click="enroll()">Enroll</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript" src="iframe-index_data/app-iframe.js"></script>
+  
+
+</body></html>

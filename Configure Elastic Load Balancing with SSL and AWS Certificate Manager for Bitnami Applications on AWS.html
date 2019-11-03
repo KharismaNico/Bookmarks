@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Elastic Load Balancing with SSL and AWS Certificate Manager for Bitnami Applications on AWS</title>
+
+    <meta name="description" content="">
+
+    <meta name="generator" content="Hugo 0.45">
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Configure Elastic Load Balancing with SSL and AWS Certificate Manager for Bitnami Applications on AWS">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:title" content="Configure Elastic Load Balancing with SSL and AWS Certificate Manager for Bitnami Applications on AWS">
+    <meta property="og:type" content="documentation">
+    <meta property="og:description" content="">
+    <meta property="article:published_time" content="2019-05-21">
+    <meta name="addsearch-custom-field" content="type=how-to">
+
+    
+    <script type="text/javascript" async="" src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/analytics.js"></script><script async="" src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/js.js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-1874455-2', { 'page_path': location.pathname + location.search + location.hash });
+    </script>
+    <script>
+      (function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};h._hjSettings={hjid:650911,hjsv:6};a=o.getElementsByTagName('head')[0];r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script><script async="" src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/hotjar-650911.js"></script>
+
+    <link href="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/iwb8jlp.css" media="screen" rel="stylesheet">
+    <link href="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/hex.css" media="screen" rel="stylesheet">
+
+<link rel="stylesheet" href="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/bds.css" integrity="sha256-YIa+1Cn+D3P+yze36rJUl5NzhB1Bwf1W/4qr8AbDc1Q=" media="screen">
+
+    <script src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/hex.js"></script>
+    <script src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/jquery-1.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/jquery-ui.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+
+
+<script src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/bds.js"></script>
+
+
+    <link href="https://docs.bitnami.com/images/img/favicon.png" rel="shortcut icon">
+    <link rel="alternate" type="application/rss+xml" title="Bitnami Documentation" href="https://docs.bitnami.com/index.xml">
+  <script async="" src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/modules.js" charset="utf-8"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style></head>
+
+  <body class="aws how-to">
+
+    <div class="addsearch__index" data-addsearch="include">aws</div>
+
+    
+    <div class="topnav container topnav-no-hero headbloc">
+  <header class="header">
+    <div class="header__logo">
+      <a href="https://docs.bitnami.com/"><img alt="Bitnami Documentation logo" src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/logo.svg"></a>
+    </div>
+    <nav class="header__nav">
+      <button aria-expanded="false" aria-haspopup="true" aria-label="Toggle menu" class="header__nav__hamburguer">
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+      <ul class="header__nav__menu" role="menubar">
+        <li>
+          <a class="header__nav__menu__item" role="menuitem" href="https://bitnami.com/stacks">Applications</a>
+        </li>
+        <li>
+          <a aria-expanded="false" aria-haspopup="true" class="header__nav__menu__item" href="#" role="menuitem" tabindex="0">Kubernetes</a>
+          <ul aria-label="Kubernetes" class="header__nav__submenu header__nav__kubernetes" role="menu" aria-expanded="false">
+            <div class="header__nav__list">
+              
+                
+  <li role="none">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://kubeapps.com/" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>Kubeapps</h3>
+      
+        <p>Your Application Dashboard for Kubernetes</p>
+      
+    </div>
+  </a>
+</li>
+
+              
+                
+  <li role="none">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://docs.bitnami.com/kubernetes/how-to/" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>Kubernetes Tutorials</h3>
+      
+        <p>Move Your Containers to Production</p>
+      
+    </div>
+  </a>
+</li>
+
+              
+            </div>
+            <div class="header__nav__kubernetes__others">
+              
+                <li role="none">
+  <a role="menuitem" class="header__nav__kubernetes__other" href="https://github.com/bitnami-labs/sealed-secrets" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+    Sealed Secrets
+  </a>
+</li>
+
+              
+                <li role="none">
+  <a role="menuitem" class="header__nav__kubernetes__other" href="https://kubeless.io/" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+    Kubeless
+  </a>
+</li>
+
+              
+                <li role="none">
+  <a role="menuitem" class="header__nav__kubernetes__other" href="https://github.com/ksonnet/kubecfg" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+    Kubecfg
+  </a>
+</li>
+
+              
+                <li role="none">
+  <a role="menuitem" class="header__nav__kubernetes__other" href="https://github.com/bitnami/charts" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-disc"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+    Helm Charts
+  </a>
+</li>
+
+              
+              <li role="none">
+                <a role="menuitem" href="https://bitnami.com/kubernetes" class="header__nav__kubernetes__all" target="_blank" rel="noopener noreferrer">See all projects</a>
+              </li>
+            </div>
+          </ul>
+        </li>
+        <li>
+          <a aria-expanded="false" aria-haspopup="true" class="header__nav__menu__item" href="#" role="menuitem" tabindex="0">Developers</a>
+          <ul aria-label="Developers" class="header__nav__submenu header__nav__developers" role="menu" aria-expanded="false">
+            <div class="header__nav__list">
+              
+                
+  <li role="none">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://docs.bitnami.com/">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>Documentation</h3>
+      
+    </div>
+  </a>
+</li>
+
+              
+                
+  <li role="none" class="header-hide-mobile">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://engineering.bitnami.com/" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>Engineering Blog</h3>
+      
+    </div>
+  </a>
+</li>
+
+              
+                
+  <li role="none">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://bitnami.com/support" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>Support</h3>
+      
+    </div>
+  </a>
+</li>
+
+              
+                
+  <li role="none" class="header-hide-mobile">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://bitnami.com/kubernetes-training" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>Training</h3>
+      
+    </div>
+  </a>
+</li>
+
+              
+                
+  <li role="none">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://github.com/bitnami" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>Open Source</h3>
+      
+    </div>
+  </a>
+</li>
+
+              
+                
+  <li role="none">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://bitnami.com/careers" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>We're hiring</h3>
+      
+    </div>
+  </a>
+</li>
+
+              
+            </div>
+            <div class="header__nav__articles">
+              <h3>Latest articles</h3>
+              <ul>
+                
+                  <li><a href="https://engineering.bitnami.com/articles/adding-grafana-plugins-and-configuring-datasources-in-bkpr.html" target="_blank" rel="noopener">Adding Grafana plugins and configuring data sources in BKPR</a></li>
+                
+                  <li><a href="https://engineering.bitnami.com/articles/the-road-to-production-ready-charts.html" target="_blank" rel="noopener">The road to production ready charts</a></li>
+                
+                  <li><a href="https://engineering.bitnami.com/articles/rolling-updates-for-configmap-objects.html" target="_blank" rel="noopener">Rolling Updates for ConfigMap Objects</a></li>
+                
+              </ul>
+              <a href="https://engineering.bitnami.com/" class="header__nav__articles__all" target="_blank" rel="noopener">Read all articles</a>
+            </div>
+          </ul>
+        </li>
+        <li>
+          <a aria-expanded="false" aria-haspopup="true" class="header__nav__menu__item" href="#" role="menuitem" tabindex="0">Company</a>
+          <ul aria-label="Company" class="header__nav__submenu header__nav__company" role="menu" aria-expanded="false">
+            <div class="header__nav__company__links">
+              <div class="header__nav__list">
+                
+                  
+  <li role="none" class="header-hide-mobile">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://bitnami.com/news/blogs" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>Blogs</h3>
+      
+    </div>
+  </a>
+</li>
+
+                
+                  
+  <li role="none">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://bitnami.com/resources" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>Resources</h3>
+      
+    </div>
+  </a>
+</li>
+
+                
+                  
+  <li role="none">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://bitnami.com/news" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>Newsroom</h3>
+      
+    </div>
+  </a>
+</li>
+
+                
+              </div>
+              <div class="header__nav__list">
+                
+                  
+  <li role="none">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://bitnami.com/about-us" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>About Us</h3>
+      
+    </div>
+  </a>
+</li>
+
+                
+                  
+  <li role="none">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://bitnami.com/careers" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>Careers</h3>
+      
+    </div>
+  </a>
+</li>
+
+                
+                  
+  <li role="none" class="header-hide-mobile">
+
+
+  
+    <a class="header__nav__list__item" role="menuitem" href="https://bitnami.com/partners" target="_blank" rel="noopener noreferrer">
+  
+    
+    <div class="header__nav__list__item__info">
+      <h3>Partners</h3>
+      
+    </div>
+  </a>
+</li>
+
+                
+              </div>
+            </div>
+            <div class="header__nav__company__contact">
+              Do you want to talk?
+              <a role="menuitem" href="https://bitnami.com/contact" target="_blank" rel="noopener noreferrer">Contact Us</a>
+            </div>
+          </ul>
+        </li>
+        <div class="tocify header__nav__menu__toc"></div>
+      </ul>
+
+      
+      <div class="header__nav__user">
+        <div class="search search-overlay margin-t-small">
+          <div class="input-group type-small">
+            <div class="search__input">
+              <input type="search" name="q" autocomplete="on" placeholder="Search">
+            </div>
+            
+          </div>
+          <div class="search__results elevation-2 padding-big"></div>
+        </div>
+      </div>
+      
+
+    </nav>
+  </header>
+</div>
+
+<main>
+  
+  <section>
+    <div class="container">
+    <nav class="breadcrumb margin-t-big">
+  
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="https://docs.bitnami.com/">Bitnami Documentation</a> &gt;
+  
+
+  
+  
+  <a href="https://docs.bitnami.com/aws/">AWS Cloud</a> &gt;
+  
+
+  
+  
+  <a href="https://docs.bitnami.com/aws/how-to/">Bitnami How-To Guides for AWS Cloud</a> &gt;
+  
+
+  
+  
+  <a href="https://docs.bitnami.com/aws/how-to/configure-elb-ssl-aws/">Configure Elastic Load Balancing with SSL and AWS Certificate Manager for Bitnami Applications on AWS</a>
+  
+
+</nav>
+
+
+
+    </div>
+  </section>
+  
+
+  <div class="container">
+    <div class="row collapse-on-phone collapse-on-phone-landscape">
+
+      
+        <div class="col-3">
+  <div class="category__Navigation padding-big margin-t-enormous">
+
+  <h4 class="margin-t-reset margin-b-normal">Bitnami How-To Guides for AWS Cloud</h4>
+
+  <nav>
+    <ul class="margin-reset remove-style padding-l-reset focus">
+      
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/understand-bncert/" class="active">Learn about the Bitnami HTTPS Configuration Tool</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/generate-install-lets-encrypt-ssl/" class="active">Generate and Install a Let's Encrypt SSL Certificate for a Bitnami Application</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/understand-bnhelper/" class="active">Learn About the Bitnami Helper Tool</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/understand-bnsupport/" class="active">Learn about the Bitnami Support Tool</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/troubleshoot-ssl-issues/" class="active">Troubleshoot SSL Issues</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/develop-locally-test-remotely-lamp-git/" class="active">Develop Locally, Test Remotely with Bitnami LAMP and Git</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/troubleshoot-ssh-issues/" class="active">Troubleshoot SSH Issues</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/use-svn/" class="active">Run Subversion in the Cloud</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/troubleshoot-wordpress-issues/" class="active">Troubleshoot WordPress Issues</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/get-started-wordpress-aws-marketplace-intermediate/" class="active">Get Started with Bitnami WordPress on AWS Marketplace (for Intermediate Users)</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/migrate-php-app/" class="active">Migrate a PHP Application from PHP 5 to PHP 7 using Lightsail</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal focus">
+          <a href="https://docs.bitnami.com/aws/how-to/configure-elb-ssl-aws/" class="active">Configure Elastic Load Balancing with SSL and AWS Certificate Manager for Bitnami Applications on AWS</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/troubleshoot-magento-issues/" class="active">Troubleshoot Magento Issues</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/ecs-rds-tutorial/" class="active">Take Containers From Development To Amazon ECS</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/install-use-kubeapps/" class="active">Install and Use Kubeapps with the Bitnami Kubernetes Sandbox</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/use-ses/" class="active">Use Amazon Simple Email Service (SES)</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/install-drupal-nginx/" class="active">Install Drupal On Top Of The Bitnami NGINX Stack</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/install-wordpress-nginx/" class="active">Install WordPress On Top Of The Bitnami NGINX Stack</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/configure-advanced-integration-git-redmine/" class="active">Configure Advanced Integration between Git and Redmine</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/migrate-php-application/" class="active">Migrate a Local PHP Application to the Cloud </a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/migrate-wordpress/" class="active">Migrate Data From One WordPress Instance to Another</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/enable-nvidia-gpu-tensorflow-serving/" class="active">Improve TensorFlow Serving Performance with GPU Support</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/get-started-wordpress-aws-marketplace-beginner/" class="active">Get Started with Bitnami WordPress on AWS Marketplace (for Beginners)</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/troubleshoot-kubernetes-deployments/" class="active">Troubleshoot Kubernetes Deployments</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/troubleshoot-permission-issues/" class="active">Troubleshoot Permission Issues</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/use-gitlab/" class="active">Run GitLab in the Cloud</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/troubleshoot-smtp-issues/" class="active">Troubleshoot SMTP Issues</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/use-redmine/" class="active">Run Redmine in the Cloud</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/bitnami-remove-banner/" class="active">Remove the Bitnami Banner</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/migrate-drupal/" class="active">Migrate Data From One Drupal Instance to Another</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/migrate-joomla/" class="active">Migrate Data From One Joomla! Instance to Another</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/migrate-moodle/" class="active">Migrate Data From One Moodle Instance to Another</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/combine-wordpress-multisite/" class="active">Combine Multiple Independent WordPress Websites/Blogs into a Single WordPress Multisite Instance</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/disaster-recovery-aws-regions/" class="active">Plan a Disaster Recovery (DR) using AWS regions</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/attach-ebs-volume/" class="active">Add Elastic Block Storage (EBS) Volumes for Bitnami Applications on AWS</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/monitor-bitnami-stacks-nginx-amplify/" class="active">Monitor Bitnami Stacks with NGINX Amplify</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/upgrade-sugarcrm-suitecrm/" class="active">Upgrade SugarCRM to SuiteCRM</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/migrate-database-rds/" class="active">Migrate Your Application Database to Amazon RDS</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/modify-ebs-volume/" class="active">Modify Elastic Block Storage (EBS) Volumes for Bitnami Applications on AWS</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/create-ci-pipeline/" class="active">Create a Continuous Integration Pipeline with GitLab and Jenkins</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/integrate-drupal-solr/" class="active">Integrate Drupal with Solr</a>
+          
+
+        </li>
+      
+        <li class="margin-b-normal">
+          <a href="https://docs.bitnami.com/aws/how-to/separate-wordpress-multisite/" class="active">Separate a Single WordPress Multisite Instance into Multiple Independent WordPress Websites/Blogs</a>
+          
+
+        </li>
+      
+    </ul>
+  </nav>
+
+</div>
+
+</div>
+
+<div class="col-7">
+  <article class="margin-t-bigger margin-b-enormous padding-h-normal">
+    <h1>
+      Configure Elastic Load Balancing with SSL and AWS Certificate Manager for Bitnami Applications on AWS
+    </h1>
+    <section class="category__Content">
+      
+
+<div name="introduction" data-unique="introduction"></div><h3 id="introduction">Introduction</h3>
+
+<p>Load balancing is a technique commonly used by high-traffic Web sites
+ and Web applications to share traffic across multiple hosts, thereby 
+ensuring quick response times and rapid adaptation to traffic peaks and 
+troughs. The <a href="https://aws.amazon.com/elasticloadbalancing/">Elastic Load Balancing</a> service from <a href="https://aws.amazon.com/">Amazon Web Services (AWS)</a> with Secure Sockets Layer (SSL) support makes it easy to add secure load balancing for Bitnami applications running on AWS.</p>
+
+<p>This guide walks you through the process of configuring and testing 
+an Elastic Load Balancer with an SSL certificate for a Bitnami 
+application running on AWS.</p>
+
+<div name="assumptions-and-prerequisites" data-unique="assumptions-and-prerequisites"></div><h3 id="assumptions-and-prerequisites">Assumptions and prerequisites</h3>
+
+<p>This guide assumes that:</p>
+
+<ul>
+<li>You have a Bitnami application running on AWS, deployed using the <a href="https://docs.bitnami.com/aws/get-started-launchpad">Bitnami Launchpad for AWS</a>, the <a href="https://docs.bitnami.com/aws/get-started-marketplace">AWS Marketplace</a> or the <a href="https://docs.bitnami.com/aws/get-started-console">AWS Console</a>.</li>
+<li>You have the necessary credentials to log in to the Bitnami application instance.</li>
+<li>You own a domain name.</li>
+</ul>
+
+<blockquote class="note">
+<p>NOTE: This guide only covers the process of configuring a load 
+balancer with an SSL certificate for a single Bitnami application. If 
+you wish to balance load across multiple applications, additional steps 
+will be required.</p>
+</blockquote>
+
+<div name="step-1-identify-your-bitnami-application-instance-in-the-aws-ec2-console" data-unique="step-1-identify-your-bitnami-application-instance-in-the-aws-ec2-console"></div><h3 id="step-1-identify-your-bitnami-application-instance-in-the-aws-ec2-console">Step 1: Identify your Bitnami application instance in the AWS EC2 Console</h3>
+
+<p>The first step is to identify your Bitnami application instance and 
+collect various important bits of information, such as the instance ID, 
+DNS name, public IP address, availability zone and Virtual Private Cloud
+ (VPC) ID. To do this:</p>
+
+<ul>
+<li>Log in to the <a href="https://console.aws.amazon.com/ec2/">AWS EC2 console</a>.</li>
+<li>From the “Services” menu, select the “EC2” service.</li>
+<li>From the EC2 Dashboard, select the “Instances -&gt; Instances” menu item.</li>
+<li>Search for and select your Bitnami application instance from the list of available instances.</li>
+<li>From the instance details pane, note the instance ID, DNS name, 
+public IP address, availability zone and VPC ID. You will need these 
+details in subsequent steps.</li>
+</ul>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-1.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-1.png" alt="EC2 instance details"></a></p>
+
+<ul>
+<li>Browse to the instance’s public IP address and confirm that you get a
+ positive response, such as the welcome page of the Bitnami application.
+ This response will be necessary to pass health checks performed by the 
+load balancer.</li>
+</ul>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-2.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-2.png" alt="Bitnami WordPress welcome page"></a></p>
+
+<div name="step-2-create-an-elastic-load-balancer-with-http-and-https-support" data-unique="step-2-create-an-elastic-load-balancer-with-http-and-https-support"></div><h3 id="step-2-create-an-elastic-load-balancer-with-http-and-https-support">Step 2: Create an Elastic Load Balancer with HTTP and HTTPS support</h3>
+
+<p>Next, create an Elastic Load Balancer as follows:</p>
+
+<ul>
+<li>From the EC2 Dashboard, select the “Load Balancing -&gt; Load Balancers” menu item.</li>
+
+<li><p>Click the “Create Load Balancer” button.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-3.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-3.png" alt="Load balancer creation"></a></p></li>
+
+<li><p>On the “Select Load Balancer type” page, select the “Application Load Balancer” option and click “Create”.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-4.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-4.png" alt="Load balancer creation"></a></p></li>
+
+<li><p>On the subsequent “Configure Load Balancer” page:</p>
+
+<ul>
+<li>Enter a name for the load balancer and specify the scheme as “Internet facing”.</li>
+<li>In the “Listeners” section, ensure that there is an HTTP listener on
+ load balancer port 80. Click the “Add listener” button and add a second
+ HTTPS listener on load balancer port 443. This configures the load 
+balancer to handle both HTTP and HTTPS requests from clients.</li>
+<li>In the “Availability Zones” section, select the same VPC as the one 
+used by your Bitnami application instance and select a subnet from each 
+availability zone.</li>
+
+<li><p>Click the “Next: Configure Security Settings” button to proceed.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-5.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-5.png" alt="Load balancer configuration"></a></p></li>
+</ul></li>
+
+<li><p>On the “Configure Security Settings” page, select the “Request a 
+new certificate from ACM” option to create a new SSL certificate for 
+your load balancer. This will launch the <a href="https://aws.amazon.com/certificate-manager/">AWS Certificate Manager (ACM)</a> in a new window.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-6.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-6.png" alt="Load balancer security"></a></p></li>
+
+<li><p>Within the AWS Certificate Manager, on the “Request a 
+certificate” page, enter your domain name. Click “Review and request” to
+ review and confirm the request.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-7.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-7.png" alt="Certificate request"></a></p>
+
+<p>An email will now be sent to the registered owner of the domain with 
+instructions to confirm the certificate request by validating the 
+domain. The domain will appear in the AWS Certificate Manager with 
+status set to “Pending validation”.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-8.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-8.png" alt="Certificate status"></a></p>
+
+<blockquote class="tip">
+<p>TIP: <a href="https://aws.amazon.com/certificate-manager/faqs/">Learn more about the AWS Certificate Manager domain validation process</a>.</p>
+</blockquote>
+
+<p>Once the domain has been validated, the certificate will be issued 
+and will appear in the AWS Certificate Manager with status set to 
+“Issued”.</p></li>
+
+<li><p>Back on the “Configure Security Settings” page for the load 
+balancer, the newly-issued certificate should now appear in the list of 
+available certificates. Select it and click the “Next: Configure 
+Security Group” button to proceed.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-9.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-9.png" alt="Load balancer security"></a></p></li>
+
+<li><p>On the “Configure Security Group” page:</p>
+
+<ul>
+<li>Select the option to “Create a new security group”.</li>
+<li>Add a security rule to allow inbound traffic on port 80 (the HTTP port) with source “Anywhere”.</li>
+<li>Add a second security rule to allow inbound traffic on port 443 (the HTTPS port) with source “Anywhere”.</li>
+
+<li><p>Click the “Next: Configure Routing” button to proceed.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-10.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-10.png" alt="Load balancer security group"></a></p></li>
+</ul></li>
+
+<li><p>On the “Configure Routing” page:</p>
+
+<ul>
+<li>In the “Target group” section, create a new target group and assign 
+it a name. Ensure that the protocol is set to “HTTP”, the port to “80” 
+and the target type to “instance”. With this configuration, traffic 
+between the load balancer and the instance will be transmitted using 
+HTTP, even for HTTPS requests made by the client to the load balancer.</li>
+<li>In the “Health checks” section, define the protocol as “HTTP” and the path to “/”.</li>
+
+<li><p>Click the “Next: Register Targets” button to proceed.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-11.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-11.png" alt="Load balancer routing"></a></p></li>
+</ul></li>
+
+<li><p>On the “Register Targets” page, use the instance ID obtained in 
+Step 1 to identify and select the Bitnami application instance. Click 
+the “Add to registered” button to move the instance into the list of 
+registered targets. Click the “Next: Review” button to proceed.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-12.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-12.png" alt="Load balancer target"></a></p></li>
+
+<li><p>On the “Review” page, review the details of the configured load 
+balancer. Click “Create” to confirm the configuration and deploy the 
+load balancer.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-13.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-13.png" alt="Load balancer review"></a></p></li>
+</ul>
+
+<p>The load balancer will now be created and deployed.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-14.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-14.png" alt="Load balancer deployment"></a></p>
+
+<div name="step-3-point-your-domain-name-to-the-load-balancer-s-ip-address" data-unique="step-3-point-your-domain-name-to-the-load-balancer-s-ip-address"></div><h3 id="step-3-point-your-domain-name-to-the-load-balancer-s-ip-address">Step 3: Point your domain name to the load balancer’s IP address</h3>
+
+<p>Once the deployment is complete, perform the following steps:</p>
+
+<ul>
+<li><p>Visit the EC2 Dashboard and note the DNS name for the configured load balancer.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-15.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-15.png" alt="Load balancer DNS name"></a></p></li>
+
+<li><p>Update your domain’s DNS settings by adding an A record that 
+points to the public DNS name of the load balancer. To do this, you will
+ usually need to log in to your domain name provider’s management 
+console and make the necessary changes.</p>
+
+<blockquote class="note">
+<p>NOTE: Use the DNS name (and not the IP address) of the Elastic Load 
+Balancer in the A record, because Elastic Load Balancer IP addresses are
+ dynamic and can change without warning.</p>
+
+<p>NOTE: Once you make the necessary changes, it can take up to 48 hours for the change to propagate across other DNS servers.</p>
+</blockquote></li>
+</ul>
+
+<div name="step-4-modify-the-web-server-configuration-on-the-bitnami-application-instance" data-unique="step-4-modify-the-web-server-configuration-on-the-bitnami-application-instance"></div><h3 id="step-4-modify-the-web-server-configuration-on-the-bitnami-application-instance">Step 4: Modify the Web server configuration on the Bitnami application instance</h3>
+
+<p>The next step is to update the Apache server configuration on the 
+Bitnami application instance to correctly handle SSL requests from the 
+load balancer. To do this:</p>
+
+<ul>
+<li><a href="https://docs.bitnami.com/aws/faq/get-started/connect-ssh/">Log in to the application instance using SSH</a>.</li>
+
+<li><p>Modify the <em>/opt/bitnami/apps/APPNAME/conf/httpd-prefix.conf</em>
+ and add the following line at the top of the file. This line ensures 
+correct operation of the HTTP connection between the load balancer and 
+the instance, even for load-balanced HTTPS requests.</p>
+
+<pre><code>SetEnvIf x-forwarded-proto https HTTPS=on
+</code></pre></li>
+</ul>
+
+<blockquote>
+<p>In some cases, it is also necessary to modify the Bitnami application
+ configuration to automatically redirect all HTTP traffic to the HTTPS 
+port. The procedure to do this varies per application: some applications
+ may require you to manually edit a configuration file, others may 
+provide an administration interface, and still others may not require 
+any specific changes.</p>
+
+<p>As an example, if you are using WordPress, you would need to edit the <em>/opt/bitnami/apps/wordpress/htdocs/wp-config.php</em> file and add the lines below before the <em>WP_HOME</em> and <em>WP_SITEURL</em> definitions:</p>
+</blockquote>
+
+<pre><code>if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)
+    $_SERVER['HTTPS']='on';
+</code></pre>
+
+<div name="step-5-force-https" data-unique="step-5-force-https"></div><h3 id="step-5-force-https">Step 5: Force HTTPS</h3>
+
+<ul>
+<li><p>Redirect all traffic to HTTPS by adding the following to <em>/opt/bitnami/apache2/conf/bitnami/bitnami.conf</em></p>
+
+<pre><code>&lt;VirtualHost *:80&gt;
+...
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI}
+...
+</code></pre></li>
+
+<li><p>Restart the server:</p>
+
+<pre><code><span class="dollar-symbol"></span>sudo /opt/bitnami/ctlscript.sh restart apache
+</code></pre></li>
+</ul>
+
+<div name="step-6-test-the-load-balancer" data-unique="step-6-test-the-load-balancer"></div><h3 id="step-6-test-the-load-balancer">Step 6: Test the load balancer</h3>
+
+<p>Verify that the changes to your domain name record have propagated by using the <a href="https://www.whatsmydns.net/">Global DNS Propagation Checker</a>
+ and entering your domain name into the search field. After confirming 
+that the domain name now points to the public IP address of the load 
+balancer, you can test it as follows (replace the DOMAIN placeholder 
+with the correct domain name):</p>
+
+<ul>
+<li><p>Browsing to <em>http://DOMAIN</em> should result in the load balancer displaying the insecure welcome page of the Bitnami application.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-17.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-17.png" alt="HTTP load balancing"></a></p></li>
+
+<li><p>Browsing to <em>https://DOMAIN</em> should result in the load 
+balancer displaying the secure welcome page of the Bitnami application. 
+Clicking the padlock icon in the browser address bar should display the 
+details of the domain and SSL certificate.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/configure-elb-ssl-aws/elb-aws-18.png"><img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/elb-aws-18.png" alt="HTTPS load balancing"></a></p></li>
+</ul>
+
+<p>In both cases, the request to the HTTP or HTTPS port of the load 
+balancer is internally transferred to, and satisfied by, the Bitnami 
+application instance.</p>
+
+<p>Your Elastic Load Balancer has now been configured with an SSL certificate for your Bitnami application running on AWS.</p>
+
+<div name="useful-links" data-unique="useful-links"></div><h3 id="useful-links">Useful links</h3>
+
+<p>To learn more about the topics discussed in this guide, consider visiting the following links:</p>
+
+<ul>
+<li><a href="https://docs.bitnami.com/aws">Bitnami documentation for AWS</a></li>
+<li><a href="https://aws.amazon.com/elasticloadbalancing/faqs/">Elastic Load Balancing FAQ</a></li>
+<li><a href="https://aws.amazon.com/certificate-manager/faqs/">AWS Certificate Manager FAQ</a></li>
+</ul>
+
+<p>Check out the following tutorial if you want to learn more about setting up SSL using elastic load balancing:</p>
+
+<div>
+  <iframe src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/QA4X8ntcNBQ.html" allowfullscreen="" width="560" height="360" frameborder="0">
+  </iframe>
+</div>
+
+    </section>
+  </article>
+</div>
+
+<div class="col-2">
+  <aside class="documentable__sidebar padding-big margin-t-bigger margin-b-enormous">
+    <h4 class="margin-t-reset">In this article</h4>
+    <div class="tocify documentable__sidebar__toc"><ul id="tocify-header15" class="tocify-header nav nav-list"><li class="tocify-item active" data-unique="introduction"><a>Introduction</a></li></ul><ul id="tocify-header16" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="assumptions-and-prerequisites"><a>Assumptions and prerequisites</a></li></ul><ul id="tocify-header17" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-1-identify-your-bitnami-application-instance-in-the-aws-ec2-console"><a>Step 1: Identify your Bitnami application instance in the AWS EC2 Console</a></li></ul><ul id="tocify-header18" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-2-create-an-elastic-load-balancer-with-http-and-https-support"><a>Step 2: Create an Elastic Load Balancer with HTTP and HTTPS support</a></li></ul><ul id="tocify-header19" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-3-point-your-domain-name-to-the-load-balancer-s-ip-address"><a>Step 3: Point your domain name to the load balancer’s IP address</a></li></ul><ul id="tocify-header20" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-4-modify-the-web-server-configuration-on-the-bitnami-application-instance"><a>Step 4: Modify the Web server configuration on the Bitnami application instance</a></li></ul><ul id="tocify-header21" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-5-force-https"><a>Step 5: Force HTTPS</a></li></ul><ul id="tocify-header22" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-6-test-the-load-balancer"><a>Step 6: Test the load balancer</a></li></ul><ul id="tocify-header23" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="useful-links"><a>Useful links</a></li></ul></div>
+  </aside>
+
+  
+  <section class="documentable__lastmod padding-big padding-l-bigger margin-v-enormous">
+    Last modification
+    <span class="date">May 21, 2019</span>
+  </section>
+  
+</div>
+      
+
+    </div>
+  </div>
+</main>
+
+
+    <footer class="footer bg-dark type-color-reverse-anchor-reset">
+  <div class="container padding-v-bigger">
+    <div class="row collapse-b-desktop">
+      <div class="col-3 footer__copyright">
+        <h4 class="inverse">
+          <img src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/logo-white.svg" alt="Bitnami Logo" class="footer__logo">
+        </h4>
+        <a href="https://www.facebook.com/BitnamiProject/" class="socialIcon margin-r-small"><svg role="img" aria-label="See the Facebook Profile of Bitnami" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+          <title>facebook</title>
+          <circle fill="currentColor" cx="27" cy="27" r="27"></circle>
+          <path d="M23.723 40h5.235V26.89h3.653L33 22.5h-4.042V20c0-1.035.208-1.444 1.209-1.444H33V14h-3.625c-3.896 0-5.652 1.716-5.652 5v3.5H21v4.444h2.723V40z" fill="currentColor"></path>
+        </svg>
+        </a><a href="https://twitter.com/Bitnami" class="socialIcon margin-r-small"><svg role="img" aria-label="See the Twitter Profile of Bitnami" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+          <title>twitter</title>
+          <circle fill="currentColor" cx="27" cy="27" r="27"></circle>
+          <path d="M14 35.618A15.166 15.166 0 0 0 22.177 38c9.904 0 15.498-8.313 15.162-15.77A10.761 10.761 0 0 0 40 19.485c-.957.422-1.985.707-3.063.834a5.314 5.314 0 0 0 2.344-2.932 10.729 10.729 0 0 1-3.386 1.287A5.344 5.344 0 0 0 32 17c-3.442 0-5.973 3.193-5.195 6.51a15.17 15.17 0 0 1-10.994-5.54 5.288 5.288 0 0 0 1.65 7.078 5.33 5.33 0 0 1-2.417-.663c-.057 2.456 1.714 4.753 4.279 5.265-.751.204-1.573.25-2.408.09a5.33 5.33 0 0 0 4.982 3.683A10.767 10.767 0 0 1 14 35.618" fill="currentColor"></path>
+        </svg>
+        </a><a href="https://github.com/bitnami" class="socialIcon margin-r-small"><svg role="img" aria-label="See the Github Profile of Bitnami" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+          <title>github</title>
+          <circle fill="currentColor" cx="27" cy="27" r="27"></circle>
+          <path d="M27.5 14C20.044 14 14 19.968 14 27.33c0 5.888 3.868 10.885 9.233 12.647.675.122.921-.289.921-.642 0-.317-.011-1.155-.018-2.268-3.755.806-4.547-1.786-4.547-1.786-.614-1.54-1.5-1.95-1.5-1.95-1.225-.827.094-.81.094-.81 1.355.094 2.067 1.373 2.067 1.373 1.204 2.038 3.16 1.45 3.93 1.108.122-.861.47-1.449.856-1.782-2.997-.336-6.149-1.48-6.149-6.588 0-1.455.526-2.644 1.39-3.576-.14-.337-.603-1.693.132-3.527 0 0 1.133-.36 3.712 1.366a13.085 13.085 0 0 1 3.38-.449c1.146.005 2.301.153 3.38.449 2.577-1.725 3.708-1.366 3.708-1.366.737 1.834.273 3.19.134 3.527.865.932 1.388 2.121 1.388 3.576 0 5.12-3.156 6.248-6.164 6.578.485.411.917 1.225.917 2.468 0 1.782-.017 3.22-.017 3.657 0 .356.243.77.928.64C37.135 38.21 41 33.218 41 27.33 41 19.968 34.955 14 27.5 14" fill="currentColor"></path>
+        </svg>
+        </a><a href="https://www.youtube.com/user/bitrock5" class="socialIcon margin-r-small"><svg role="img" aria-label="See the Youtube Profile of Bitnami" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+          <title>youtube</title>
+          <circle fill="currentColor" cx="27" cy="27" r="27"></circle>
+          <path d="M24.2 31.286v-8.572L31.474 27 24.2 31.286zm16.215-11.163a3.543 3.543 0 0 0-2.476-2.526C35.756 17 27 17 27 17s-8.755 0-10.938.597a3.544 3.544 0 0 0-2.476 2.526C13 22.351 13 27 13 27s0 4.649.585 6.877a3.543 3.543 0 0 0 2.476 2.526C18.244 37 27 37 27 37s8.756 0 10.94-.597a3.543 3.543 0 0 0 2.475-2.526C41 31.649 41 27 41 27s0-4.649-.585-6.877z" fill="currentColor"></path>
+        </svg>
+        </a><a href="https://www.linkedin.com/company/bitnami" class="socialIcon"><svg role="img" aria-label="See the LinkedIn Profile of Bitnami" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+          <title>linkedin</title>
+          <circle fill="currentColor" cx="27" cy="27" r="27"></circle>
+          <path d="M20.6 17.8c0 1.542-1.253 2.8-2.8 2.8S15 19.35 15 17.8c0-1.542 1.253-2.8 2.8-2.8s2.8 1.258 2.8 2.8zm0 5.2h-4.8v16h4.8V23zm7.889-.303H23.8V39h4.689v-8.553c0-2.295 1.024-3.656 2.979-3.656 1.802 0 2.666 1.309 2.666 3.656V39H39V28.676c0-4.364-2.395-6.476-5.755-6.476-3.351 0-4.765 2.697-4.765 2.697v-2.2h.009z" fill="currentColor"></path>
+        </svg>
+        </a><p class="type-color-gray type-small">
+          © 2019 Bitnami | All Rights Reserved.
+        </p>
+      </div>
+      <div class="col-9">
+        <div class="row collapse-3-on-phone-land collapse-2-on-phone">
+          <div class="col-2">
+            <ul class="remove-style padding-reset">
+              <h3>Products</h3>
+              
+                <li><a href="https://bitnami.com/stacks">Application Catalog</a></li>
+              
+            </ul>
+          </div>
+          <div class="col-2">
+            <ul class="remove-style padding-reset">
+              <h3>Projects</h3>
+              <li><a href="https://bitnami.com/projects/kubeapps-and-bkpr">Kubeapps + BKPR</a></li>
+            </ul>
+          </div>
+          <div class="col-2">
+            <ul class="remove-style padding-reset">
+              <h3>Solutions</h3>
+              <li><a href="https://bitnami.com/application-packaging">Application Packaging</a></li>
+              <li><a href="https://bitnami.com/cloud-migration">Cloud Migration</a></li>
+              <li><a href="https://bitnami.com/kubernetes">Kubernetes</a></li>
+              <li><a href="https://bitnami.com/partners">Partners</a></li>
+            </ul>
+          </div>
+          <div class="col-2">
+            <ul class="remove-style padding-reset">
+              <h3>Company</h3>
+              <li><a href="https://bitnami.com/about-us">About Us</a></li>
+              <li><a href="https://bitnami.com/careers">Careers</a></li>
+              <li><a href="https://bitnami.com/resources">Resources</a></li>
+              <li><a href="https://bitnami.com/news">News</a></li>
+              <li><a href="https://bitnami.com/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-2">
+            <ul class="remove-style padding-reset">
+              <h3>Legal</h3>
+              <li><a href="https://www.vmware.com/help/legal.html">Terms of Use</a></li>
+              <li><a href="https://www.vmware.com/help/privacy.html">Privacy</a></li>
+              <li><a href="https://bitnami.com/trademark">Trademark</a></li>
+            </ul>
+          </div>
+          <div class="col-2">
+            <ul class="remove-style padding-reset">
+              <h3>Support</h3>
+              <li><a href="https://community.bitnami.com/">Community</a></li>
+              <li><a href="https://bitnami.zendesk.com/">Helpdesk</a></li>
+              <li><a href="https://bitnami.com/resources/webinars">Webinars</a></li>
+              <li><a href="https://bitnami.com/kubernetes-training">Training</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <script>build_search_menu('aws', '', 'how-to')</script>
+    
+  
+
+<iframe style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;" name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="Configure%20Elastic%20Load%20Balancing%20with%20SSL%20and%20AWS%20Certificate%20Manager%20for%20Bitnami%20Applications%20on%20AWS_files/box-74dcf4e32eff343c96838bf3a780ac1d.html"></iframe></body></html>

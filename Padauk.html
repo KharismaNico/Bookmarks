@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" xmlns="http://www.w3.org/1999/xhtml" style="" lang="en-us"><head id="ctl00_PageHead"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>
+	Padauk
+</title>
+<!--uc:eZHeadMeta-->
+
+<!-- Viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Padauk Technology Co., Ltd.">
+<meta name="keywords" content="Padauk Technology Co., Ltd.">
+<meta name="author" content="應廣科技">
+<meta name="copyright" content="Copyrights © 應廣科技 All Rights Reserved">
+<meta name="application-name" content="應廣科技">
+<meta property="og:title" content="Padauk">
+<meta property="og:type" content="article">
+<meta property="og:image" content="http://www.padauk.com.tw/tw/_images/all/logo.png">
+<meta property="og:url" content="http://www.padauk.com.tw/index_en.aspx">
+<meta property="og:description" content="Padauk Technology Co., Ltd.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Padauk">
+<meta name="twitter:description" content="Padauk Technology Co., Ltd.">
+<meta name="twitter:image" content="http://www.padauk.com.tw/tw/_images/all/logo.png">
+
+
+
+<!-- 關閉Skype工具列 -->
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+
+
+ 
+<!-- 網站圖示 favicon.ico -->
+<link rel="shortcut icon" href="http://www.padauk.com.tw/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="http://www.padauk.com.tw/favicon.ico">
+
+
+<!--uc:eZHeadPageRes-->
+
+    <link href="Padauk_files/bootstrap.css" rel="stylesheet">
+    <link href="Padauk_files/bootstrap-theme.css" rel="stylesheet">
+    
+    <link href="Padauk_files/bootstrap-col10.css" rel="stylesheet">
+    
+    <link href="Padauk_files/base.css" rel="stylesheet">
+    <link href="Padauk_files/base_rwd.css" rel="stylesheet">
+    
+    <link href="Padauk_files/style.css" rel="stylesheet">
+     
+    <link href="Padauk_files/hover.css" rel="stylesheet">
+
+    
+    
+        
+        <link href="Padauk_files/style_rwd.css" rel="stylesheet">
+    
+    
+    <script type="text/javascript" src="Padauk_files/jquery-1.js"></script>
+    <script type="text/javascript" src="Padauk_files/jquery.js"></script>
+    <script type="text/javascript" src="Padauk_files/bootstrap.js"></script>
+
+    <script type="text/javascript" src="Padauk_files/jquery_002.js"></script>
+    
+    <link href="Padauk_files/font-awesome.css" rel="stylesheet">
+
+    <script src="Padauk_files/tableHeadFixer.js"></script>
+
+    <link href="Padauk_files/web.css" rel="stylesheet">
+    <script src="Padauk_files/gridviewscroll.js"></script>
+
+    
+    <script type="text/javascript"> 
+
+        $(document).ready(function () {
+            //check ie 
+            if ($.browser.msie && $.browser.version <= "8.0") {
+                $('body').addClass('is_oldie');
+                // please upgrade your browser 
+            }
+            if (Modernizr.touch) {
+                $("body").addClass("is_touch");
+            }
+
+
+            //for editor
+            $(".editor table.scroll").wrap("<div class='table-responsive'></div>");
+
+            $(".editor iframe[src*='youtube']").each(function (e) {
+                if (!$(this).hasClass("embed-responsive-item")) {
+                    var w = ($(this).attr("width")) ? $(this).attr("width") : "",
+                        u = (w && w.search(/px|%/) == -1) ? "px" : "";
+                    $(this)
+                        .removeAttr("height")
+                        .removeAttr("width")
+                        .addClass("embed-responsive-item")
+                        .attr("allowfullscreen", "1")
+                        .wrap("<div class='youtube_wrap' style='max-width:" + w + u + ";margin:auto;'><div class='embed-responsive embed-responsive-16by9' style='width:100%;'></div></div>");
+                }
+            });
+
+            $(window).scroll(function (e) {
+                var win_h = $(window).scrollTop();
+                var win_w = $(window).width();
+                // 視窗捲動超過.header時，#floating 增加.fixed
+                var page_w = $(".main_content > .container").width();
+                var floating_offset_top = $(".header").height() + $(".main_top").height();
+                if (win_h > floating_offset_top) {
+                    $("#floating").addClass("fixed");
+                } else {
+                    $("#floating").removeClass("fixed");
+                }
+                (win_h > 10) ? $("body").addClass("is_scroll") : $("body").removeClass("is_scroll");
+
+            }); 
+
+            $('.btn-floating').click(function (e) {
+                e.preventDefault();
+                $('#floating').toggleClass("open");
+            });
+
+            //側選單的開合按鈕
+            //$('.side-toggle').click(function (e) {
+            //    e.preventDefault();
+            //    $('.side1').toggleClass("menu-open");
+            //});
+
+            $('.same-tall').matchHeight();
+
+
+            //gotop Animate
+            $(".gotop a[href=#]").click(function (e) {
+                $("html,body").animate({ scrollTop: 0 }, 600);
+                return false;
+            });
+
+            // FIXED TABLE
+            cloneRow();
+            DoFixedTable();
+            var oWidth = $("#gvMain_Content_Fixed").outerWidth();
+            var nWidth = $("#gvMain_Content_Fixed").outerWidth() + 23;
+
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $("#gvMain_Content_Fixed").css("width", oWidth);
+            } else {
+
+                if ($("#gvMain_Content_Fixed>table").width() > oWidth) {
+                    $("#gvMain_Content_Fixed").css("width", nWidth);
+                }
+            }
+
+        });
+        function DoFixedTable() {
+            var tbHeight = $(".tb_parent").outerHeight() - 1;
+            var gridViewScroll = new GridViewScroll({
+                elementID: "gvMain",
+                width: "100%",
+                height: tbHeight,
+                freezeColumn: true,
+                freezeFooter: false,
+                freezeColumnCssClass: "GridViewScrollItemFreeze",
+                freezeFooterCssClass: "GridViewScrollFooterFreeze",
+                freezeColumnCount: 1,
+                freezeHeaderRowCount: 2,
+            });
+            gridViewScroll.enhance();
+
+        }
+
+        function cloneRow() {
+            var row = $(".GridViewScrollItem:nth-child(2)");
+            var table = $("#gvMain");
+            var clone = row.clone();
+            table.append(clone);
+
+            $(".GridViewScrollItem:last-child td").text("");
+            if ($(".GridViewScrollItem:last-child th").length > 0) {
+                $(".GridViewScrollItem:last-child th").text("");
+            }
+        }
+    </script>
+
+<!--uc:eZHeadFinal-->
+    <script src="Padauk_files/selectivizr-min.js"></script>
+    <script src="Padauk_files/html5shiv-3.js"></script>
+    <script src="Padauk_files/modernizr-2.js"></script>
+    <link href="Padauk_files/css.css" rel="stylesheet" type="text/css">
+</head>
+<body id="ctl00_PageBody" class="home" data-aos-easing="ease" data-aos-duration="900" data-aos-delay="0">
+    <form name="aspnetForm" method="post" action="./index_en.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPBcAKSDRzSUFBQUFBQUFFQUsxV1RXOGJSUml1SnpaRkRzaDh5RzVCSWgxOENVUzFkMmU5VHVJb0xrb2RJaUhWMUtUcE9ScnRqTzFwZDNkV00yTnYzQk1JSVQ0dWlBdWNrQ29oUVVGdzRZQ1F1UEZmMHFhL0FtYlg2M2hqWXlWQUpXdDN2UHZNODd6dk8rODhzMzlsQ3JsOHBWRkQ5Zlg2WnIxUklDWFExWmNzeUVSRHNCU051NFVTV01rZTBDT1YyOXYycU1MUXh4NXRyZzRaRFFNdTFDcDB1SytvcjVxcklTT3EzeVIweUJ4YWlmOWNoOHhuaW1HM0loM3MwaVphaGNZTm91bEw0TnFsM01lWFU0UmxRcVVqV0tBWTk4dW5uT1VPSm5od0h4NVFwKzl6bC9kR3NNV3IxK0V0UmFwbHpaVlBNOXlubzVBTEl2L2pkRHhRZlM1U2t4OS8rdm54SDk4OStlR3J4MTk4V0o0Qk96d1lDZGJycXhTK05Ya200Wjgvd3ZSc3VPTzZjSC84YXA5S0tvYVV6T3NIZ2NzY0hCV2dFajFaRk1sMFhpQjRRSVVhTmN1OHQ2V1ljdWxjNmd2Um95QU54a0l4SjVyK3oyam00VjRhM2xjcTJES01NQXlyUVN4VGRiaFhWYUdoZjRjeFdCcllkUTFkY1Y0Ti9ONGkzb0Z3TDhMS2ZFS1BEcWxmeFRJNFdzVDEvL3RIaFV3cEtyWWNMRWlLUWc0OEQ0dlJRdmk1aFQ4TGYzWnhQcE5WSVhxYjZ4MmVjMXdzWlM3YjV4N1ZXejh5Z0R6SXhUYVFtVjVqTTFnK2ZQTTlSYjBXSC9nS2dNZ2hZcHNvTHIxcW1XalR0TXgxVkVlb1ZqT3I5NExlSy9md0VJOFQzaHB5UnQ0eTM3NFVHVUFSektCUmhMNzg5UHV2bno3OHlDS3gzRHdwc3Y4TktiTFRwSWlBNWNoM01ya1hKQ01Vd1Q0amhQb0V2RGgrK25KU1IxMVBiVmRlQlZsSjFyRUZYZ01nVjhwM3gwVW9abCtqdnVIVFVCcXl6OE80TGQveEIxNFQxYTNjb2FSdU42L2phRlNRV2JHczdiVzFUdnNPcXU4WThjMXNRWUlWbG4xS0ZSd0Vla3dKckVCQlhZb2xoVU1xcE80TU9FUlZjMk50alV6cXZsalNic3hKMm9ta2RXRXBPNUlDNTBxdHowblZ4MUliNk9hRnRheElhK2xjcmRxTWx0bUkwdHByb2JwOU1TbXphcUpJS251ZVZHMGpMV1UyS3BZZFMrbTBhaGZPcWpaWnJPZVNkc21XbnArMEM4ZzBDaTN1QmRnZndZN2dYZWJTNmNJQ2dLemk1TzF0MGNNK2V4QWZBbkM2SWhwVFcvbGdnRjJtUmhEN0JMN3JENW5ndmhmMWE0ZnJZMk0wTFNrQWxsWFlaWUk2TVlzQjJ6aEl6dHd6VFF5QWpkN1lsbHIzUm52YmlPOVFIMDJNU25qN29BUGJyYnZwSUcwcndlN05ZTnNUN0RSWXUxWWNZL2ZQWXRNeDJ2YlZNZWJtcmQzV0xDeDdDdHUwcnlRaHR1N01vc0E0cGNTQ2tqcXRGMk1QMVFlcEMzZW1KK3FaZW0rOHRFdUgxT1ZCWEw4RHpsMENDaWx2c0U2OTRjcmttMmhxZzRWU1ZuKzdYRDM1NXR1VG54NCsrZTFYYlMwbmozNDVlZlRaOFNjL0gzLzUrOHJ5KzNqSWVycFQ3Z28zOTNya3lUSXhaZnBBaVlGVWlTc1Q4amVUd1pXY2Z3a0FBQT09ZC1pzP304k8v0iSjJW4lfjnGvvwj">
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="096E1D7D">
+</div>
+    <div class="page_wrapper">
+        <div class="header">
+            <div class="wrp-deco top"></div>
+            <div class="header_top">
+                
+
+            </div><!-- /.header_top -->
+            
+            <!-- ↓導覽列↓ -->
+            <div class="navbar" role="navigation">
+                
+<!--uc:nav-->
+<div class="container">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="http://www.padauk.com.tw/index_en.aspx">HOME</a><!-- 網站名稱 or LOGO -->
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+        </button>
+
+    </div><!-- /.navbar-header -->
+
+    
+    <link type="text/css" href="Padauk_files/yamm.css" rel="stylesheet">
+
+    <div class="collapse navbar-collapse yamm">
+        <ul class="nav navbar-nav">
+            <li><a href="http://www.padauk.com.tw/en/about/index.aspx">About Us</a></li>
+            <li><a href="http://www.padauk.com.tw/en/product/index.aspx">Products</a></li>
+            <li><a href="http://www.padauk.com.tw/en/technical/index.aspx">Technical Application</a></li>
+            <li><a href="https://www.104.com.tw/jobbank/custjob/index.php?r=cust&amp;j=5a7043295e463e2252583a1d1d1d1d5f2443a363189j97&amp;jobsource=checkc" target="_blank">Career</a></li>
+            <li><a href="http://www.padauk.com.tw/en/investment/index.aspx">Investor Relations</a></li>
+            <li><a href="http://www.padauk.com.tw/en/member/login.aspx">Login</a></li>
+            <li><a href="http://www.padauk.com.tw/en/contact/index.aspx">Contact Us</a></li>
+                                      
+ 
+        </ul><!-- /.navbar-nav -->
+
+        <div class="btn-group lang">
+        	<ul class="list-inline">
+        		<li>
+        			<a href="http://www.padauk.com.tw/index_en.aspx" class="btn-home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+        		</li>
+        		<li>
+		             <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+		                English <span class="caret"></span>
+		            </button>
+		            <ul class="dropdown-menu" role="menu">
+		                <li><a href="http://www.padauk.com.tw/index.aspx?lang=zh-TW">繁體中文</a></li>
+		                <li><a href="http://www.padauk.com.tw/index.aspx?lang=zh-CN">简体中文</a></li>
+		            </ul>       			
+
+        		</li>
+        	</ul>
+
+        </div><!-- /.lang -->
+
+
+
+    </div><!-- /.nav-collapse -->
+</div><!-- /.container -->
+
+            </div><!-- /.navbar -->
+            <!-- ↑導覽列↑ -->
+
+            <!-- ↓Banner↓ -->
+            <div id="ctl00_banner" class="banner aos-init aos-animate" data-aos="fade-down">
+                
+    
+<!--uc:banner_home-->
+<!-- bxslider -->
+<script type="text/javascript" src="Padauk_files/jquery_003.js"></script>
+<link href="Padauk_files/jquery.css" rel="stylesheet">
+<script>
+    $(document).ready(function () {
+        $('.banner .bxslider').bxSlider({
+            mode: 'fade',  //切換的模式：'horizontal'(左右切換), 'vertical'(上下切換), 'fade'(淡入淡出)
+            speed: 1000, //切換的速度
+            auto: true,  //是否自動播放
+            pause: 8000,  //每張圖停留的時間
+            controls: false,
+            pager: true
+        });
+    });
+</script>
+<style>
+    /* 設定桌機banner高度 */
+    .banner .bxslider li {
+        height: 370px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="wrp_frame border-LT"></div>
+    <div class="wrp_frame border-CT"></div>
+    <div class="wrp_frame border-RT"></div>
+    <div class="wrp_frame border-LM"></div>
+    <div class="wrp_frame border-RM"></div>
+    <div class="wrp_frame border-LB"></div>
+    <div class="wrp_frame border-CB"></div>
+    <div class="wrp_frame border-RB"></div>
+    <div class="bx-wrapper" style="max-width: 100%;"><div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative;"><div class="bx-loading"></div><ul class="bxslider" style="width: auto; position: relative;">
+        
+          <li style="background-image: url(&quot;/upload/banner/201802061511330.jpg&quot;); float: none; list-style: outside none none; position: absolute; width: 1009px; z-index: 50; display: block;">
+            <a href="javascript:void(0)"><img src="Padauk_files/201802061511331.jpg" alt="首頁2"></a>
+        </li>
+            
+          <li style="background-image: url(&quot;/upload/banner/201802061511140.jpg&quot;); float: none; list-style: outside none none; position: absolute; width: 1009px; z-index: 0; display: none;">
+            <a href="javascript:void(0)"><img src="Padauk_files/201802061511141.jpg" alt="首頁1"></a>
+        </li>
+                 
+    </ul></div><div class="bx-controls bx-has-pager"><div class="bx-pager bx-default-pager"><div class="bx-pager-item"><a href="" data-slide-index="0" class="bx-pager-link">1</a></div><div class="bx-pager-item"><a href="" data-slide-index="1" class="bx-pager-link">2</a></div></div></div></div>
+</div>
+
+
+            </div><!-- /.banner -->
+            <!-- ↑Banner↑ -->
+    
+            <div class="header_ex">
+                
+
+            </div><!-- /.header_ex -->
+            <div class="wrp-deco bottom"></div>
+        </div><!-- /.header -->
+
+        <div class="main">
+
+            <div class="main_top">
+                
+
+            </div><!-- /.main_top -->
+            
+            <div class="main_content">
+                <div class="container">
+                    <div class="row">
+                        <div id="ctl00_side1" class="side1 hidden aos-init aos-animate" data-aos="fade-right">
+                            <div class="wrp-deco top"></div>
+                            
+        	                
+
+                            
+                            <div class="wrp-deco bottom"></div>                    
+                        </div><!-- /.side1 -->
+                        
+                        <div id="ctl00_content" class="content col-sm-12">
+                            
+    <div class="row">
+
+        <div class="col-md-6 same-tall home-news-area aos-init aos-animate" data-aos="fade-right" style="height: 505px;">
+            <div class="wid wid-home-news list-box">
+                <h2><span class="txt-en">HOT NEWS</span></h2>
+                <a href="http://www.padauk.com.tw/en/news/index.aspx" class="btn-more hvr-pop">more<span>→</span></a>
+                <ul class="txt-list list-unstyled">
+                    
+                            <li>
+                                <a href="http://www.padauk.com.tw/en/news/show.aspx?num=152" target="_self">
+                                <span>2019-10-22</span>**PMS15A/PMS150C datasheet updated - release version v1.07**</a></li>
+                        
+                            <li>
+                                <a href="http://www.padauk.com.tw/en/news/show.aspx?num=149" target="_self">
+                                <span>2019-10-22</span>**PMS152 datasheet updated - release version v1.04**</a></li>
+                        
+                            <li>
+                                <a href="http://www.padauk.com.tw/en/news/show.aspx?num=146" target="_self">
+                                <span>2019-10-22</span>**PMS171B datasheet updated - release version v1.02**</a></li>
+                        
+                            <li>
+                                <a href="http://www.padauk.com.tw/en/news/show.aspx?num=143" target="_self">
+                                <span>2019-10-09</span>**PFC154 datasheet updated - release version v0.01**</a></li>
+                        
+                            <li>
+                                <a href="http://www.padauk.com.tw/en/news/show.aspx?num=137" target="_self">
+                                <span>2019-09-24</span>**PFS173 datasheet updated - release version v1.03**</a></li>
+                        
+                </ul>
+            </div><!-- /.wid-home-news -->
+        </div>
+        <div class="col-md-6 same-tall home-pro-area aos-init aos-animate" data-aos="fade-left" style="height: 505px;">
+            <div class="wid wid-home-product">
+                <h2>PRODUCTS</h2>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <a href="http://www.padauk.com.tw/en/product/index.aspx?kind=41" class="home-pitem">
+                            <div class="pic">
+                                <img src="Padauk_files/pimg.jpg" class="img-responsive">
+                            </div>
+                            <h4>M series</h4>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6  col-sm-6">
+                        <a href="http://www.padauk.com.tw/en/product/index.aspx?kind=42" class="home-pitem">
+                            <div class="pic">
+                                <img src="Padauk_files/pimg2.jpg" class="img-responsive">
+                            </div>
+                            <h4>F series</h4>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <a href="http://www.padauk.com.tw/en/product/index.aspx?kind=43" class="home-pitem">
+                            <div class="pic">
+                                <img src="Padauk_files/pimg3.jpg" class="img-responsive">
+                            </div>
+                            <h4>R series</h4>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <a href="http://www.padauk.com.tw/en/product/index.aspx?kind=44" class="home-pitem">
+                            <div class="pic">
+                                <img src="Padauk_files/pimg4.jpg" class="img-responsive">
+                            </div>
+                            <h4>BLDC series</h4>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.wid-home-product -->
+        </div>
+    </div>
+        <div class="sitemap-area aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        
+<!--uc:sitemap-->
+<div class="sitemap">
+    <ul class="list-inline wrapfix">
+        <li><a href="http://www.padauk.com.tw/en/about/index.aspx"><h4>About Us</h4></a>
+            <ul class="nav">
+                   
+                        <li><a href="http://www.padauk.com.tw/en/about/index.aspx?kind=9">Company Profile</a></li>
+                    
+                        <li><a href="http://www.padauk.com.tw/en/about/index.aspx?kind=12">Company Organization </a></li>
+                    
+                        <li><a href="http://www.padauk.com.tw/en/about/index.aspx?kind=13">Quality and Environment Policy</a></li>
+                    
+                        <li><a href="http://www.padauk.com.tw/en/about/index.aspx?kind=22">Direction / Map</a></li>
+                                 
+            </ul>
+        </li>
+        <li><a href="http://www.padauk.com.tw/en/product/index.aspx"><h4>Products</h4></a>
+            <ul class="nav">
+                 
+                        <li><a href="http://www.padauk.com.tw/en/product/index.aspx?kind=41"><span>M</span> series OTP MCU</a></li>
+                    
+                        <li><a href="http://www.padauk.com.tw/en/product/index.aspx?kind=42"><span>F</span> series MTP MCU</a></li>
+                    
+                        <li><a href="http://www.padauk.com.tw/en/product/index.aspx?kind=43"><span>R</span> series</a></li>
+                    
+                        <li><a href="http://www.padauk.com.tw/en/product/index.aspx?kind=44"><span>BLDC</span> series</a></li>
+                    
+                        <li><a href="http://www.padauk.com.tw/en/product/index.aspx?kind=84"><span>MCS</span> series</a></li>
+                      
+            </ul>
+        </li>
+        <li><a href="http://www.padauk.com.tw/en/technical/index.aspx"><h4>Technical Application</h4></a>
+            <ul class="nav">
+                
+                        <li><a href="http://www.padauk.com.tw/en/technical/index.aspx?kind=16">Technical Application</a></li>
+                    
+                        <li><a href="http://www.padauk.com.tw/en/technical/index.aspx?kind=17">Development Tool</a></li>
+                    
+            </ul>
+        </li>
+         
+        <li><a href="http://www.padauk.com.tw/en/contact/index.aspx"><h4>Contact Us</h4></a>
+            <ul class="nav">
+                <li><a href="http://www.padauk.com.tw/en/contact/index.aspx">Business contacts</a></li>
+                <li><a href="http://www.padauk.com.tw/en/contact/method.aspx?num=1">Authorized agents</a></li>
+                <li><a href="http://www.padauk.com.tw/en/contact/method.aspx?num=2">Authorized Internet Dealers</a></li>
+            </ul>
+        </li>
+        <li><a href="https://www.104.com.tw/jobbank/custjob/index.php?r=cust&amp;j=5a7043295e463e2252583a1d1d1d1d5f2443a363189j97&amp;jobsource=checkc" target="_blank"><h4>Human Resources</h4> </a>
+            <ul class="nav">
+                <li><a href="https://www.104.com.tw/jobbank/custjob/index.php?r=cust&amp;j=5a7043295e463e2252583a1d1d1d1d5f2443a363189j97&amp;jobsource=checkc" target="_blank">Join us</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="wid wid-home-contact">
+                            <div class="foot-logo">
+                                <img src="Padauk_files/logo.png" class="img-responsive center-block">
+                            </div>
+                            <div class="contact-info">
+                                <h3>PADAUK Technology Co.,Ltd.</h3>
+                                <ul class="list-unstyled">
+                                    <li class="phone">+886-3-5728688</li>
+                                    <li>+886-3-5728589</li>
+                                    <li>6F-6, No.1, Sec.3, Gongdao 5th Rd., HsinChu City 30069, Taiwan, R.O.C.</li>
+                                    <li><a href="mailto:padauk_sales@padauk.com.tw">padauk_sales@padauk.com.tw </a></li>
+                                </ul>
+                            </div>
+                        </div><!-- /.wid-home-contact -->
+                    </div>
+                </div>
+                
+
+            </div>
+
+ 
+
+        </div>
+
+                        </div><!-- /.content -->
+
+                        <div id="ctl00_side2" class="side2 hidden">
+                            <div class="wrp-deco top"></div>
+                            
+        	                
+
+                            
+                            <div class="wrp-deco bottom"></div>
+                        </div><!-- /.side2 -->
+                    </div><!-- /.row -->
+                    <div id="floating">
+                        
+<!--uc:floating-->
+<a href="#" class="btn-floating"><span class="icon icon-arrow"></span></a>
+<ul class="list-unstyled">
+    <li class="b1"><a href="#">購物車 <span class="num">0</span></a></li>
+    <li class="b2"><a href="#">會員登入</a></li>
+    <li class="b3"><a href="#">購物須知</a></li>
+</ul>
+
+                    </div><!-- /#floating -->
+                    <div class="clearfix"><!--計算.main的背景高度用--></div>
+                </div><!-- /.container -->
+            </div><!-- /.main_content -->
+
+            <div class="main_ex">
+                
+
+            </div><!-- /.main_ex -->
+            
+        </div><!-- /.main -->
+        
+        <div class="footer">
+            
+            <div class="footer_top">
+                <!-- footer_top的固定內容 -->
+                
+
+            </div><!-- /.footer_top -->
+            
+            <div class="footer_content">
+                
+<!--uc:footer-->
+<div class="container">
+
+    <div class="copyright">
+        <ul class="list-inline">
+        	<li>Copyright©2018 PADAUK Technology. All Rights Reserved</li>
+            <li>
+<!--uc:eZPowered-->
+<div class="powered">
+    <a href="https://www.eztrust.com.tw/" target="_blank">網頁設計 : 藝誠網頁設計公司</a>
+</div>
+
+
+
+</li>
+        </ul>
+    </div><!-- /.copyright -->
+</div><!-- /.container -->
+     
+    <link href="Padauk_files/aos.css" rel="stylesheet">
+    <script src="Padauk_files/aos.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            AOS.init({
+                duration: 900,
+                disable: 'phone'
+            });
+        });
+    </script> 
+            </div><!-- /.footer_content -->
+
+        </div><!-- /.footer -->
+    </div><!-- /.page_wrapper -->
+    </form>
+
+</body></html>

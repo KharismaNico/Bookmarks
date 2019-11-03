@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:social="http://ef.gy/2012/social" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:math="http://www.w3.org/1998/Math/MathML"><xhtml:head xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:svg="http://www.w3.org/2000/svg">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" /><title>FastCGI is Pointless</title><meta name="author" content="Magnus Achim Deininger" /><meta name="description" content="Why do we have a plethora of gateway interfaces with new protocols that mimic CGI when we could have just used a web server instead?" /><meta name="date" content="2014-01-13T08:05:00Z" /><meta name="mtime" content="2015-06-08T21:00:00Z" /><meta name="category" content="Articles" /><link rel="alternate" type="application/atom+xml" href="https://ef.gy/atom/site" /><link rel="prev" href="https://ef.gy/women-in-it" title="Of women and IT" /><link rel="next" href="https://ef.gy/README" title="ef.gy" /><link rel="author" href="https://plus.google.com/112665844074383187552" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@jyujinX" /><meta name="twitter:creator" content="@jyujinX" /><meta name="twitter:domain" content="ef.gy" /><meta name="twitter:title" content="FastCGI is Pointless" /><meta property="og:title" content="FastCGI is Pointless" /><meta property="og:type" content="article" /><meta property="og:url" content="https://ef.gy/fastcgi-is-pointless" /><meta property="og:site_name" content="ef.gy :: le bloeg d'enfer" /><meta name="twitter:description" content="Why do we have a plethora of gateway interfaces with new protocols that mimic CGI when we could have just used a web server instead?" /><meta property="og:description" content="Why do we have a plethora of gateway interfaces with new protocols that mimic CGI when we could have just used a web server instead?" /><meta property="article:published_time" content="2014-01-13T08:05:00Z" /><meta property="article:modified_time" content="2015-06-08T21:00:00Z" /><link href="https://plus.google.com/106167538536350810461" rel="publisher" /><meta name="viewport" content="width=device-width, initial-scale=1" /><script type="text/javascript" async="async" src="FastCGI%20is%20Pointless_files/highlight.js"></script><style>table.proper th { min-width: 12em; }
+table.proper td { width: 50%; max-width: 50%; }</style><style type="text/css">
+html{font-family:sans-serif;color:#000;background-size:cover;min-height:100%}html#phone{background:url(/jpeg/corded-phone) #000 no-repeat center center fixed;background-size:cover}html#server-grill{background:url(/jpeg/7389234452_a0d7b0fd34_o) #000 no-repeat center center fixed;background-size:cover}html#unicorn-noms{background:url(/jpeg/unicorn-noms) #3c160b no-repeat center center fixed;background-size:cover}html#phylactery-session{background:url(/png/phylactery-corporation-names-session) #000 no-repeat center center fixed;background-size:cover}html#hypercube{background:url(/svg/4-cube-black-white) #fff no-repeat center center fixed;background-size:cover}body{position:relative;margin:0 2.5em 0 20em;background:#fff;background:rgba(255,255,255,0.95);padding:.5em 2em 2em 2em;min-height:100%}img,svg{display:block;position:relative;left:0;right:0;width:100%;width:calc(100% + 4em);height:auto;margin:1em -2em;font-size:inherit}h1,#full h2{margin:1em -1.3em 1em -1.3em;padding:.5em 1.3em;font-size:1.8em}h3{margin:1em 0;font-size:1.2em;font-weight:bold}#feed{padding:0}#feed li{display:block}p{margin:1em 0}a{color:inherit;text-decoration:underline}a:hover{color:#555;text-decoration:underline}h1+ul,ul#meta{position:absolute;left:-20.5em;top:28em;width:14em;margin:0}h1+ul li,ul#meta li{display:block;margin:0}h1+ul li a,ul#meta li a{display:block;text-decoration:none}ul#meta{top:38em}h1+ul li a:hover,ul#meta li a:hover,address p a:hover{text-decoration:underline}ul#meta li#published:before{content:"published ";font-weight:bold}ul#meta li.next a:before{content:"◀";font-weight:bold;margin-right:.5em}ul#meta li.previous a:before{content:"▶";font-weight:bold;margin-right:.5em}#full h1{position:absolute;left:-10em;width:10em}div.auto-abstract{display:none}.share li{display:inline-block;height:1.2em;vertical-align:text-bottom;width:6em;overflow:hidden}iframe{border:0;max-width:100%}#feed li h2+ul{display:none}#feed li ul{margin:1em 0;padding:0 0 0 2em}#feed li ul li{display:list-item}address{margin:0 -2em;padding:0 2em}math,pre code{display:block;border-left:.5em solid purple;margin-left:-1.25em;padding-left:.75em!important}p math{display:inline-block}table.proper thead th,table.proper thead td{background:#eee}table.proper tbody tr th,table.proper tbody tr td{border-top:.1em solid black}table.proper{table-layout:fixed;width:100%;overflow:hidden}pre{white-space:pre-wrap;word-wrap:break-word;font-family:monospace}blockquote{width:auto;max-width:60em;margin:1.5em auto}h2 ~ blockquote{margin:.5em auto}blockquote pre,blockquote p{width:auto;max-width:56em;margin:.5em auto;padding:0 1.5em}blockquote pre:before,blockquote p:before{display:block;content:"\201c";font-size:5em;color:#ccc;margin:0 -0.5em -0.5em -0.5em}blockquote pre:after,blockquote p:after{display:block;content:"\201d";font-size:5em;color:#ccc;text-align:right;margin:0 -0.5em}blockquote[cite]:after{display:block;content:attr(cite);max-width:50em;color:#999;margin:-4em 0 0 7em;font-style:italic;text-align:right}blockquote.twitter-tweet{width:auto;max-width:none;padding:1em;margin:1em}blockquote.twitter-tweet p{width:auto;max-width:none;padding:1em;margin:0}blockquote.twitter-tweet p:before,blockquote.twitter-tweet p:after{display:none}dt{font-weight:bold}li.twitter{background:#00aaf2;color:#fff}li.facebook{background:#3b539a;color:#fff}li.googleplus{background:#d21600;color:#fff}ul.share{margin:0 -2em -2em -2em;padding:0}ul.share li{display:inline-block;width:33.333%;margin:0;padding:0;height:3em}ul.share a{display:block;width:auto;height:3em;color:inherit;text-decoration:none;padding:.5em 1em}ul.share a:hover{text-decoration:underline}ul.share li a span{display:block;text-align:right;color:#ddd}ul.share li a:hover span{text-decoration:none}body{margin:0}ul#meta{position:static;left:0;top:0;width:auto;margin:2em -2em 2em -2.5em}h1,#full h2{margin-right:1em}h1+ul{left:auto;right:0;top:1em;margin:0;width:auto;text-align:right;padding-right:2em}h1+ul li{display:inline-block;margin:0;padding:0 .2em;width:auto}@media(max-width:45em){html{background:#fff!important}p.credit{display:none}body{margin:0}}@media(max-width:37em){h1+ul{display:none}body{padding-top:0}ul#meta{margin-top:-1.5em}}.hljs{display:block;overflow-x:auto;padding:.5em;background:#f0f0f0;-webkit-text-size-adjust:none}.hljs,.hljs-subst,.hljs-tag .hljs-title,.nginx .hljs-title{color:black}.hljs-string,.hljs-title,.hljs-constant,.hljs-parent,.hljs-tag .hljs-value,.hljs-rules .hljs-value,.hljs-preprocessor,.hljs-pragma,.haml .hljs-symbol,.ruby .hljs-symbol,.ruby .hljs-symbol .hljs-string,.hljs-template_tag,.django .hljs-variable,.smalltalk .hljs-class,.hljs-addition,.hljs-flow,.hljs-stream,.bash .hljs-variable,.apache .hljs-tag,.apache .hljs-cbracket,.tex .hljs-command,.tex .hljs-special,.erlang_repl .hljs-function_or_atom,.asciidoc .hljs-header,.markdown .hljs-header,.coffeescript .hljs-attribute{color:#800}.smartquote,.hljs-comment,.hljs-annotation,.hljs-template_comment,.diff .hljs-header,.hljs-chunk,.asciidoc .hljs-blockquote,.markdown .hljs-blockquote{color:#888}.hljs-number,.hljs-date,.hljs-regexp,.hljs-literal,.hljs-hexcolor,.smalltalk .hljs-symbol,.smalltalk .hljs-char,.go .hljs-constant,.hljs-change,.lasso .hljs-variable,.makefile .hljs-variable,.asciidoc .hljs-bullet,.markdown .hljs-bullet,.asciidoc .hljs-link_url,.markdown .hljs-link_url{color:#080}.hljs-label,.hljs-javadoc,.ruby .hljs-string,.hljs-decorator,.hljs-filter .hljs-argument,.hljs-localvars,.hljs-array,.hljs-attr_selector,.hljs-important,.hljs-pseudo,.hljs-pi,.haml .hljs-bullet,.hljs-doctype,.hljs-deletion,.hljs-envvar,.hljs-shebang,.apache .hljs-sqbracket,.nginx .hljs-built_in,.tex .hljs-formula,.erlang_repl .hljs-reserved,.hljs-prompt,.asciidoc .hljs-link_label,.markdown .hljs-link_label,.vhdl .hljs-attribute,.clojure .hljs-attribute,.asciidoc .hljs-attribute,.lasso .hljs-attribute,.coffeescript .hljs-property,.hljs-phony{color:#88f}.hljs-keyword,.hljs-id,.hljs-title,.hljs-built_in,.css .hljs-tag,.hljs-javadoctag,.hljs-phpdoc,.hljs-dartdoc,.hljs-yardoctag,.smalltalk .hljs-class,.hljs-winutils,.bash .hljs-variable,.apache .hljs-tag,.hljs-type,.hljs-typename,.tex .hljs-command,.asciidoc .hljs-strong,.markdown .hljs-strong,.hljs-request,.hljs-status{font-weight:bold}.asciidoc .hljs-emphasis,.markdown .hljs-emphasis{font-style:italic}.nginx .hljs-built_in{font-weight:normal}.coffeescript .javascript,.javascript .xml,.lasso .markup,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style></xhtml:head><body><h1>FastCGI is Pointless</h1><ul><li><a href="https://ef.gy/the-source-fantastic">The Source Fantastic</a></li><li><a href="https://ef.gy/everything">Blog Archive</a></li><li><a href="https://ef.gy/about">About</a></li></ul><ul id="meta"><li id="published"><span class="year">2014</span>-<span class="month">January</span>-<span class="day">13</span></li><li class="next"><a href="https://ef.gy/README">ef.gy</a></li><li class="previous"><a href="https://ef.gy/women-in-it">Of women and IT</a></li></ul><div class="figure auto-abstract"><h2>Summary</h2><p>Why
+ do we have a plethora of gateway interfaces with new protocols that 
+mimic CGI when we could have just used a web server instead?</p></div><h2>This is not the interface you were looking for...</h2><p>I've
+ been writing a lot of web applications over the years, and in doing so 
+I've grown rather fond of our favourite, stateless resource transfer 
+protocol HTTP. It's got a lot going for it: it's simple, stable, 
+reliable, extensible. Some implementations may be broken or a little off
+ but in general it does what it's supposed to rather swell. In fact, 
+it's so versatile that it's quite often used as the basis for completely
+ different protocols. Which makes sense, as HTTP itself is really just 
+MIME with an added request line. About the only thing I don't like about
+ the protocol, is that the headers are plain text and would probably be a
+ lot smaller if we had a binary version of the protocol to use instead. 
+And even that tends to be a bonus when writing software that has to 
+parse or talk HTTP.</p><p>With HTTP being all that great, I have a hard 
+time figuring out why the designers of FastCGI - or pretty much any 
+"updated" CGI variant - had to go out of their way to design a 
+completely new wire protocol for web servers to talk with FastCGI 
+backend servers. For those of you who forgot, FastCGI was designed to 
+solve the problem of the CGI interface wasting resources by spawning a 
+new process every time a resource on a web server that was handled via 
+CGI was accessed. Process creation sounds negligible, but often these 
+CGI binaries were things like perl scripts, which meant that every 
+single time a request was to be handled a fully-blown script interpreter
+ was launched, the script was compiled and run - or interpreted - and 
+then the interpreter instance was killed off. This imposes a natural 
+limit on how many simultaneous connections a web server can process.</p><p>FastCGI's
+ solution to this is to allow the interpreter - or proper programme - to
+ remain in memory, waiting for an incoming network connection to handle.
+ The solution is quite sound, especially compared to the one other 
+typical solution at the time, which was to use an extension API provided
+ by the web server you're using. The advantage of FastCGI, here, is that
+ it's vendor-neutral in that there is a single API for all web servers, 
+and a malfunctioning FastCGI programme cannot nuke the web server 
+itself. By now it has also become a feature that virtually all web 
+servers support, so the vendor-neutrality is a real thing and not just a
+ promise. Nevertheless, FastCGI is, sadly, solving a problem that is not
+ actually there, with new twists that would not have been necessary.</p><h2>FastCGI vs. HTTP</h2><p>"But
+ you just said it's solving the problem CGIs had!" - Indeed I did. The 
+thing is, we already have a vendor-neutral protocol for accessing 
+potentially generated resources from a web server that is supported by 
+all major web servers and doesn't require spawning a new process for 
+each requested resource: it's called HTTP! All decent web servers can 
+proxy incoming requests to other web servers via HTTP. This has been a 
+feature of virtually all web servers since long before FastCGI came 
+around. In fact, the best web server currently alive and kicking - nginx
+ - is famous for this capability. You'll stumble over a lot of guides 
+and howtos describing how to use nginx as a load balancer for "heavy 
+duty" web servers like Apache, by intercepting HTTP requests and 
+proxying them to one of several backend servers. So why would you use 
+FastCGI for your next web application's backend? Let's compare the 
+two...</p><table class="proper"><thead><tr><th>Feature</th><th>FastCGI</th><th>HTTP</th></tr></thead><tbody><tr><th>Purpose</th><td>Generate dynamic responses to HTTP queries</td><td>Allow web clients to talk to web servers</td></tr><tr><th>Specified in...</th><td><a href="http://www.fastcgi.com/drupal/node/22">FastCGI 1.0 [1996]</a></td><td><a href="http://www.w3.org/Protocols/HTTP/AsImplemented.html">HTTP/0.9 [c. 1991]</a>, <a href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945 [1996]</a>, currently <a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616 [1999]</a></td></tr><tr><th colspan="3">Protocol</th></tr><tr><th>Requirements</th><td colspan="2">any bi-directional, stream-based network communication method (TCP/IP, Unix sockets, duplex pipes, ...)</td></tr><tr><th>Standard Use</th><td>FastCGI
+ process is launched by a web server like a CGI binary; fd=0 (stdin) is 
+initialised with a bi-directional communication channel, fd=1 and fd=2 
+(stdout/stderr) are closed; programme then receives requests on fd=0, 
+which it accept()s and subsequently processes. The programme may be kept
+ around to answer to arbitrarily many requests.</td><td>HTTP server is 
+started separately on the server host and will listen on TCP/IP port 
+number 80. Incoming connections are accept()ed by the server, processed 
+and the server closes the connection.</td></tr><tr><th>Common Extensions</th><td>Web servers may support connecting to externally-managed daemons speaking the FastCGI protocol on a TCP/IP or local Unix socket.</td><td>Web
+ servers typically support proxying incoming requests to other web 
+servers accessible via TCP/IP or local Unix sockets. HTTP servers 
+typically allow users to specify the TCP/IP port to bind to, and may 
+support binding to local Unix sockets.</td></tr><tr><th>Common Limitations</th><td>Some
+ web servers do not support starting FastCGI programmes themselves, e.g.
+ nginx; Web servers typically do not support the Filter and Authorizer 
+roles of FastCGI programmes.</td><td>Web servers never support automatic spawning of proxy target HTTP servers, so those would need to be started separately.</td></tr><tr><th>Security</th><td>Some
+ implementations may support SSL encrypted connections to remote FastCGI
+ servers. This is not defined in the original standard (which would not 
+need it as the web server will launch the binary and only communicate 
+with the FastCGI programme through a loopback socket).</td><td>SSL/TLS encryption and authentication is a standard feature defined in <a href="http://www.ietf.org/rfc/rfc2818.txt">RFC 2818 [2000]</a> and generally well-supported.</td></tr><tr><th>Protocol Summary</th><td>Custom binary protocol that multiplexes several streams over a single duplex channel.</td><td>Standard MIME messages with added request/status line.</td></tr><tr><th>Request Summary</th><td>Client and server exchange messages of the form <pre><code class="hljs css"><span class="hljs-tag">VERSION</span><span class="hljs-attr_selector">[1]</span>
+<span class="hljs-tag">TYPE</span><span class="hljs-attr_selector">[1]</span>
+<span class="hljs-tag">REQUESTID</span><span class="hljs-attr_selector">[2]</span>
+<span class="hljs-tag">CONTENTLENGTH</span><span class="hljs-attr_selector">[2]</span>
+<span class="hljs-tag">PADDINGLENGTH</span><span class="hljs-attr_selector">[1]</span>
+<span class="hljs-tag">RESERVED</span><span class="hljs-attr_selector">[1]</span>
+<span class="hljs-tag">CONTENTDATA</span><span class="hljs-attr_selector">[PADDINGLENGTH]</span>
+<span class="hljs-tag">PADDINGDATA</span><span class="hljs-attr_selector">[PADDINGLENGTH]</span></code></pre> (square brackets indicate field length in bytes). The <em>TYPE</em> field is used to distinguish between different streams within the same <em>REQUESTID</em> and to set up new requests or complete old ones. <em>REQUESTID</em>s are managed by the calling application. Supported streams are <em>FCGI_STDIN</em>, <em>FCGI_STDOUT</em> and <em>FCGI_STDERR</em>, mimicking the capabilities of CGI. A simple request taken from the FastCGI specifications in the form <em>{ TYPE, REQUESTID, CONTENTDATA }</em>:
+<pre><code class="hljs http"><span class="hljs-attribute">C</span>: <span class="hljs-string">{FCGI_BEGIN_REQUEST, 1, {FCGI_RESPONDER, 0}}</span>
+<span class="hljs-attribute">C</span>: <span class="hljs-string">{FCGI_PARAMS, 1, "\013\002SERVER_PORT80" "\013\016SERVER_ADDR199.170.183.42 ... "}</span>
+<span class="hljs-attribute">C</span>: <span class="hljs-string">{FCGI_PARAMS, 1, ""}</span>
+<span class="hljs-attribute">C</span>: <span class="hljs-string">{FCGI_STDIN, 1, ""}</span>
+<span class="hljs-attribute">S</span>: <span class="hljs-string">{FCGI_STDOUT, 1, "&lt;MIME HEADER&gt; &lt;CR&gt; &lt;LF&gt; &lt;MIME BODY&gt; ... "}</span>
+<span class="hljs-attribute">S</span>: <span class="hljs-string">{FCGI_STDOUT, 1, ""}</span>
+<span class="hljs-attribute">S</span>: <span class="hljs-string">{FCGI_END_REQUEST, 1, {0, FCGI_REQUEST_COMPLETE}}</span>
+</code></pre></td><td><pre><code class="hljs xml">C: <span class="hljs-tag">&lt;<span class="hljs-title">CONNECTS</span> <span class="hljs-attribute">TO</span> <span class="hljs-attribute">HTTP</span> <span class="hljs-attribute">SERVER</span>&gt;</span>
+C: <span class="hljs-tag">&lt;<span class="hljs-title">METHOD</span>&gt;</span> /<span class="hljs-tag">&lt;<span class="hljs-title">RESOURCE</span>&gt;</span> HTTP/<span class="hljs-tag">&lt;<span class="hljs-title">V.v</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">CR</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">LF</span>&gt;</span>
+C: MIME HEADER <span class="hljs-tag">&lt;<span class="hljs-title">CR</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">LF</span>&gt;</span>
+C: <span class="hljs-tag">&lt;<span class="hljs-title">CR</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">LF</span>&gt;</span>
+C: <span class="hljs-tag">&lt;<span class="hljs-title">MIME</span> <span class="hljs-attribute">BODY</span>&gt;</span>
+S: <span class="hljs-tag">&lt;<span class="hljs-title">CODE</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">DESCRIPTION</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">CR</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">LF</span>&gt;</span>
+S: MIME HEADER <span class="hljs-tag">&lt;<span class="hljs-title">CR</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">LF</span>&gt;</span>
+S: <span class="hljs-tag">&lt;<span class="hljs-title">CR</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">LF</span>&gt;</span>
+S: <span class="hljs-tag">&lt;<span class="hljs-title">MIME</span> <span class="hljs-attribute">BODY</span>&gt;</span>
+S: <span class="hljs-tag">&lt;<span class="hljs-title">DISCONNECT</span>&gt;</span></code></pre></td></tr><tr><th colspan="3">Performance Features</th></tr><tr><th>Pipelining</th><td>supported</td><td>optionally supported</td></tr><tr><th>Multiplexing Requests</th><td>supported</td><td>not supported</td></tr><tr><th>Concurrent Sessions</th><td>optionally supported</td><td>typically supported</td></tr></tbody></table><p>...
+ so what does tell us? Well, basically, it'll be a lot easier to just 
+use or implement your own HTTP server and run that on a Unix socket 
+instead of implementing FastCGI for the same purpose. You'll probably be
+ prone to fewer bugs in other people's code and you'll get the exact 
+request you're trying to respond to, and considering HTTP is a lot 
+easier to read, you'll also be making fewer bugs parsing it yourself. 
+It's quite easy, really, <a href="https://github.com/ef-gy/cxxhttp">I came up with a 900-ish line C++ header-only library that implements an HTTP server and client with ASIO.hpp</a>.</p><p>Using
+ your own HTTP server has another advantage: it's easier to debug since 
+you can just run it on a TCP/IP socket and connect to it with your 
+browser. You can't do that in FastCGI - although you could run that 
+directly on the command line. But then you'd have to set up tons of 
+environment variables and hope the library you're using acts the same 
+with regular CGI requests than with FastCGI requests and the bug isn't 
+just in the latter.</p><p>There's absolutely no point to FastCGI or 
+other "improved" CGI variants these days, so don't fall for them for 
+your next web application project. Go straight for the real thing, use 
+HTTP.</p><p><em>Update: <a href="https://ef.gy/partial-http">I've gotten
+ some very out-of-band feedback to the above proof-of-concept HTTP 
+mini-server, and I've taken some time to write up some thoughts on that 
+feedback in a separate blog post</a>.</em></p><p><em>Update 2: The old link wasn't working anymore because I've forked everything out into <a href="https://github.com/ef-gy/cxxhttp">a different project called CXXHTTP</a>.</em></p><p class="last-modified"><em>Last Modified: 2015-06-08T21:00:00Z</em></p><address><p>Written by <a href="mailto:magnus@ef.gy">Magnus Deininger</a> (<a href="https://twitter.com/jyujinX" class="twitter-follow-button">jyujinX on Twitter</a>).</p></address><ul xmlns:wst="https://github.com/ef-gy/web-stat-tool" class="share"><li class="twitter"><a href="https://twitter.com/share?url=https://ef.gy/fastcgi-is-pointless&amp;via=jyujinX" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">Twitter</a></li><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=https://ef.gy/fastcgi-is-pointless" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=630');return false;">Facebook </a></li><li class="googleplus"><a href="https://plus.google.com/share?url=https://ef.gy/fastcgi-is-pointless" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">Google+ </a></li></ul></body></html>

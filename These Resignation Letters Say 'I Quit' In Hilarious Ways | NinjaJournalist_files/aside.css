@@ -1,0 +1,60 @@
+.aside{
+    margin-top: 50px;
+}
+.aside_item {
+    margin-bottom: 40px;
+}
+
+.aside_item:hover {
+    text-decoration: none;
+    opacity: 0.9;
+    transition: .3s ease-in-out;
+}
+
+#sticky_aside {
+    text-align: right;
+}
+
+.aside_item_img {
+    height: 210px;
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.aside_item_title {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 26px;
+    max-width: 287px;
+    margin-bottom: 5px;
+}
+
+.aside_item_text {
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    max-width: 295px;
+}
+
+.aside_item_meta_date, .aside_item_meta_author {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 33px;
+    font-family: "Open Sans";
+    color: #fff8e5;
+    line-height: 26px;
+    margin-bottom: 5px;
+}
+
+.aside_item_img {
+    margin-bottom: 17px;
+}
+
+.aside_fb-widget {
+    margin-bottom: 30px;
+}

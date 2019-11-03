@@ -1,0 +1,61 @@
+a.gray:link {color:black;}
+a.gray:hover {
+  color: #ecf0f1;
+}
+p.gray
+{    background-color:#27ae60;color:#ffffff;text-align:center;
+}
+span.actionbox
+{
+    color:#ffffff;text-align:center;width:30%;float:left;
+}
+
+input:focus { 
+    outline: none;
+    border: 1px solid #7bc1f7;
+    box-shadow: 0px 0px 8px #7bc1f7;
+    -moz-box-shadow: 0px 0px 8px #7bc1f7;
+    -webkit-box-shadow: 0px 0px 8px #7bc1f7;
+}
+
+div[class*='action-button'] {
+  width: 300px;
+  background-color: #c0392b;
+  color: #FFFFFF;
+  border: solid 1px #08B;
+  border-radius: 3px;
+  box-shadow:  #003246 0px 1px 1px 1px;
+  margin: 3px;
+  padding: 8px;
+  line-height: 23.3833px;
+  text-align: center;
+}
+
+/*#crm-qsearch, #quickSearch {
+  display: none;
+}*/
+
+.price-field-amount {
+  display: none;
+}
+
+body{min-width:500px;}
+.crm-container .crm-section .content {
+    margin-left: 25%;
+}
+
+.crm-container .crm-section .label {
+    float: left;
+    text-align: right;
+    width: 22%;
+}
+
+.crm-profile-tagsandgroups{
+  background:#f6f6f6;
+    margin-bottom:1em!important;
+}
+.crm-profile-tagsandgroups .crm-form-checkbox{
+  margin:5px 10px 0 0;
+}
+
+.payment_options-group{display: block !important;}

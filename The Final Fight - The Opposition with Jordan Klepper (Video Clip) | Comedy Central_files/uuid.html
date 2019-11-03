@@ -1,0 +1,66 @@
+
+	
+	
+	
+	
+
+
+        
+                
+        
+
+
+
+
+
+		
+		
+		
+				
+				 
+						
+							
+						
+		 		
+			
+		
+			//Set the 3PC cookie to 1.
+			document.cookie="vmn_3pc=1";
+		
+	
+
+
+	//Scope 1st-party uuid to persist.
+	var uuid_cookie_date = new Date("December 31, 2038");
+	var domain = getCookieAutoDomain();
+
+	var uuid_cookie = "vmn_uuid=4294845d-0c6c-0b55-e24f-401c3c177fc8;path=/;" + domain;
+	var guid_cookie = "mtvn_guid=4294845d-0c6c-0b55-e24f-401c3c177fc8;path=/;" + domain;
+	if(uuid_cookie_date){
+		uuid_cookie += "expires="+uuid_cookie_date.toGMTString();
+		guid_cookie += "expires="+uuid_cookie_date.toGMTString();
+	}
+	document.cookie = uuid_cookie;
+	document.cookie = guid_cookie;
+	
+	function getCookieAutoDomain(){
+		var domain = document.domain.split("."), dLen = domain.length;
+		//regular 2 part cookie domain
+		var retVal = (dLen > 2)? domain[dLen - 2] + "." + domain[dLen - 1] : document.domain;
+		if(dLen >= 3 && "com.br,co.uk,co.hu,co.il,com.tr,com.pl,com.ru,co.kr,com.au,co.nz,com.tw".match(retVal) != null){
+			//3 part cookie domain
+			retVal = domain[dLen - 3] + "." + domain[dLen - 2] + "." + domain[dLen - 1];
+		}
+		return "domain=" + retVal+";";
+	}
+
+
+//ESI vars
+var vmn_btg_ESIVars = {
+	asnum: "21580",
+	network: "",
+	network_type: "",
+	countryCode: "US",
+	dma: "862"
+};
+

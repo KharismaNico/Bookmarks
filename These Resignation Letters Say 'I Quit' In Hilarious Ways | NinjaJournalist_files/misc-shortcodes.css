@@ -1,0 +1,29 @@
+@media only screen and (min-width:374px) {
+     .amazon_affiliate {
+        width: 250px;
+        height: 50px;
+        padding: 10px;
+        display: block;
+        border: 1px solid #ffd952;
+        border-radius: 50px 50px;
+        background: #ffd952;
+        text-align: center;
+        color: black;
+    }
+}
+
+@media only screen and (max-width:375px) {
+     .amazon_affiliate {
+        width: 250px;
+        height: 50px;
+        padding: 10px;
+        display: block;
+        border: 1px solid #ffd952;
+        border-radius: 50px 50px;
+        margin: 0 auto;
+        background: #ffd952;
+        visibility: visible;
+        text-align: center;
+        color: black;
+    }
+}

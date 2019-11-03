@@ -1,0 +1,5 @@
+(function($){function do_all_client_side_twitter_oembed(){if(typeof twttr===undefined){$.getScript('//platform.twitter.com/widgets.js',function(){$('.pending-tweet').each(do_client_side_twitter_oembed);});}}
+function do_client_side_twitter_oembed(){var $this=$(this),text,url='https://api.twitter.com/1/statuses/oembed.json?omit_script=true&callback=?&';if($this.has('a').length){text=$this.find('a').first().attr('href');}else{text=$this.text();}
+if(text.match(/^http(s|):\/\/twitter\.com(\/\#\!\/|\/)([a-zA-Z0-9_]{1,20})\/status(es)*\/(\d+)$/)){url+='url='+encodeURIComponent(text);}else if(text.match(/^(\d+)$/)){url+='id='+text;}else{return;}
+$.getJSON(url,function(data){if(data.html){$this.html(data.html);$this.show();twttr.widgets.load();}});}
+$(document).ready(do_all_client_side_twitter_oembed);$(document.body).on('post-load',do_all_client_side_twitter_oembed);})(jQuery);

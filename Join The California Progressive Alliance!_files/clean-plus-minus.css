@@ -1,0 +1,40 @@
+/*-----------------------------------------------------------------------------------*/
+/* Thumbs Ratings Styles */
+/*-----------------------------------------------------------------------------------*/
+
+.mbyte-rating-container {
+	padding:1em 0;
+	display: block;
+}
+
+	.mbyte-rating-container .mbyte-rating-up,
+	.mbyte-rating-container .mbyte-rating-down {
+		padding: 0 0.5em 0 26px;
+		display: inline-block;
+		height: 26px;
+		line-height: 26px;
+		cursor: pointer;
+	}
+
+	.mbyte-rating-container .mbyte-rating-up {
+		color: #91B309;
+		background: url(images/plus.png) no-repeat left center;
+	}
+
+	.mbyte-rating-container .mbyte-rating-down {
+		margin-left: 0.5em;
+		color: #D63810;
+		background: url(images/minus.png) no-repeat left center;
+	}
+
+	.mbyte-rating-container .mbyte-rating-already-voted {
+		padding-top: 1em;
+		font-size: 0.9em;
+		display: none;
+		-webkit-transition: (all 0.3s);
+	    transition: (all 0.3s);
+	}
+
+	.mbyte-rating-container .mbyte-rating-already-voted:before {
+		content: attr(data-text);
+	}

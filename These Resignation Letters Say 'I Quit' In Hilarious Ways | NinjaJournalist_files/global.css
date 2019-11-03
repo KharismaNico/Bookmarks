@@ -1,0 +1,54 @@
+body {
+  font-family: "Open Sans";
+}
+
+h1, h2 {
+  font-family: "Roboto";
+  color: #000101;
+  font-weight: 600;
+}
+
+#main_content {
+  min-height: 100vh;
+}
+
+.btn-nav-page {
+  font-family: 'Open Sans';
+  font-size: 33.2px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.5;
+  text-transform: uppercase;
+  min-height: 90px;
+  padding: 2px 12px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+  -webkit-transition: background-color 300ms ease-out;
+  transition: background-color 300ms ease-out;
+  width: 40%;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+@media (min-width: 410px) {
+  .btn-nav-page {
+    padding: 2px 40px;
+  }
+}
+
+.btn:hover {
+  -webkit-transition: background-color 300ms ease-out;
+  transition: background-color 300ms ease-out;
+}
+
+/*CONTENT SETTINGS */
+.entry-content p {
+  color: #444444;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 33px;
+}

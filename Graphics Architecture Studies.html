@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//Netscape Comm. Corp.//DTD HTML//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>
+Graphics Architecture Studies
+</title>
+</head>
+
+<body vlink="#001e73" text="#000000" link="#001e73" bgcolor="#ffffff">
+
+<center>
+<a href="http://www.graphics.stanford.edu/"><img src="Graphics%20Architecture%20Studies_files/cglbanner_icon.gif"></a>
+<a href="http://www.graphics.stanford.edu/projects/flashg/"><img src="Graphics%20Architecture%20Studies_files/banner_icon.gif"></a>
+</center>
+<hr>
+
+<center>
+<h1>
+Graphics Architecture Studies
+</h1>
+</center>
+
+<p>
+
+The design of most graphics architectures involves quantitative study of
+one or more aspects of the graphics pipeline.  We have carried out several
+such studies and have developed a set of tools for making such studies
+easier to perform.  We are currently working on generalizing the tools to
+simulate a broader range of architectures.
+
+</p><h3>
+Studies
+</h3>
+
+<p>
+
+To date, we have completed five studies:
+
+</p><p>
+
+A <a href="http://www.graphics.stanford.edu/projects/flashg/studies/texture_compression">study on texture compression</a> looked at
+the use of vector quantization techniques to allow texture memory to be
+used more efficiently and concluded that compression ratios of up to 35:1
+were possible with acceptable loss of image quality.  Vector quantization
+is amenable to efficient hardware implementation.
+
+</p><p>
+
+A <a href="http://www.graphics.stanford.edu/projects/flashg/studies/texture_cache">study on texture caching</a> examined locality of
+reference with respect to texture accesses and explored the use of caches
+to exploit this locality and reduce memory bandwidth requirements.  The
+study concluded that the use of a texture cache could reduce texture memory
+bandwidth requirements by three to fifteen times.
+
+</p><p>
+
+A <a href="http://www.graphics.stanford.edu/projects/flashg/studies/texture_prefetch">study on texture prefetching</a> proposed a
+specialized prefetching architecture for hiding the latency of texture
+cache misses without introducing additional conflict misses.  A
+cycle-accurate simulation showed that, even in a system with high memory
+latencies, the architecture was over 97% efficient.
+
+</p><p>
+
+A <a href="http://www.graphics.stanford.edu/projects/flashg/papers/bucket_render">study on overlap</a> revealed that
+the impact of overlap in bucket rendering systems was limited in
+scope, despite the observation that large triangles have large overlap
+factors.  The paper concluded that, if current trends continue, the
+efficient use of smaller and smaller tile sizes would be possible.
+
+</p><p>
+
+Finally, a <a href="http://www.graphics.stanford.edu/projects/flashg/papers/parallel_texture">study on parallel
+texture caching</a> examined the efficiency of texture caching in a
+variety of current and proposed parallel rasterization architectures.
+We quantify inefficiencies due to redundant work, inherent parallel
+load imbalance, insufficient memory bandwidth, and resource contention
+and demonstrate that in general parallel texture caching works well.
+
+</p><p>
+
+In addition to the studies we have completed is an ongoing effort to
+<a href="http://www.graphics.stanford.edu/projects/flashg/studies/scenes">acquire and analyze scenes</a>.
+
+</p><h3>
+Tracing
+</h3>
+
+<p>
+
+All of our most recent architectural studies have made use of command
+stream traces gathered from real OpenGL applications.  Such a trace
+captures all of the OpenGL functions calls made by an application, allowing
+the entire graphics portion of the application to be replayed at a later
+time.  Capturing and replaying a trace has two important advantages over
+rerunning the original application:
+
+</p><ol>
+
+<li>
+
+Traces are <em>consistent</em>.  Using a command stream trace removes the
+possibility of rerunning the application with different inputs and
+operating conditions for each run; this is especially true with interactive
+applications.
+
+</li><li>
+
+Traces are <em>portable</em>.  A command stream trace can be captured on
+one host machine and run on another, even if the hosts are of different
+machine types; often, it can be difficult or impossible to run some
+applications on more than a few host machine types.
+
+<!--
+
+<li>
+
+Traces are <em>compact</em>.  A command stream trace is a single file,
+while an application might consist of many different files; traces are
+therefore simpler to store, manage, and distribute.
+
+-->
+
+</li></ol>
+
+<p>
+
+Capturing a trace imposes a small per-command overhead on the running
+application.  Depending on the application, this overhead may or may not
+have an effect on the commands stored in the trace.  Whether or not this
+matters depends on what the trace is used for.  For most architectural
+studies, the effect does not matter.
+
+</p><h3>
+Tools
+</h3>
+
+<p>
+
+In order to collect our traces, we assembled a set of tools for capturing,
+replaying, and analyzing command streams from real applications.  The tools are
+currently center around two command stream file formats:
+
+<a href="http://reality.sgi.com/dunwoody/glsspec.txt">GLS</a>,
+a file format for storing streams of OpenGL commands, and
+<a href="http://www.graphics.stanford.edu/projects/flashg/frugl/tracing">FGLS</a>,
+a similar file format for storing streams of FruGL commands.
+<a href="http://www.graphics.stanford.edu/projects/flashg/frugl">FruGL</a>
+is a light-weight graphics API based on OpenGL and used to interface to our
+research rendering system.
+
+</p><p>
+
+<b>Figure 1</b> illustrates the tools we use and the flow of scene data
+between them.
+
+</p><p>
+
+Most traces are gathered by running real OpenGL applications and tracing
+them with <em>glstrace</em>, a utility written by Phil Lacroute of SGI.
+The resulting GLS streams are then converted into FGLS streams using
+<em>glstofgls</em>.  FGLS streams may also be gathered by tracing FruGL
+applications; however, we rarely collect traces in this manner.
+
+</p><p>
+
+Once a command stream is in the FGLS format, it can be replayed using the
+Argus rendering library, analyzed by a scene analyzer, or run through an
+architectural simulator.
+
+</p><p>
+</p><center>
+<table width="80%" border="0">
+
+<tbody><tr>
+
+<td align="center">
+<img src="Graphics%20Architecture%20Studies_files/flow1.gif" border="0">
+
+</td></tr><tr>
+
+<td align="center">
+
+
+<b>Figure 1:</b> Scene data processing.
+
+</td></tr></tbody></table>
+</center>
+
+<a name="tools_revisited"></a>
+<h3>
+Tools Revisited
+</h3>
+
+<p>
+
+While the tool flow shown in <b>Figure 1</b> serves us well, particular
+aspects were cumbersome enough to warrant the development of a second,
+simpler set of tools.
+
+</p><p>
+
+Our new tracing tools store traces as GLT streams.  GLT streams are similar
+to GLS streams in that both formats store streams of OpenGL commands;
+however, the implementation details of GLT streams are such that we find
+GLT streams to be more efficient and easier to use than GLS streams.
+Moreover, because we developed GLT from scratch, we were able to port the
+tracing software from IRIX to Windows NT, allowing us to collect traces on
+both platforms.
+
+</p><p>
+
+<b>Figure 2</b> shows the data flow for our second generation of tools.
+
+</p><p>
+
+Using the new tools, traces may be gathered only by tracing OpenGL
+applications.  Once in the GLT format, traces may be replayed using any
+OpenGL rendering library.  In addition, traces may be analyzed using a
+scene analyzer or studied with an architectural simulator.
+
+</p><p>
+</p><center>
+<table width="80%" border="0">
+
+<tbody><tr>
+
+<td align="center">
+<img src="Graphics%20Architecture%20Studies_files/flow2.gif" border="0">
+
+</td></tr><tr>
+
+<td align="center">
+<b>Figure 2:</b> Second generation scene data processing.
+
+</td></tr></tbody></table>
+</center>
+
+<p>
+
+Some parts of our rendering system are still based on FruGL and FGLS.
+We support these parts of our rendering system using a tool, not shown
+above, that converts GLT streams into FGLS streams in a manner similar
+to <em>glstofgls</em>.
+
+</p><p>
+
+[Update: Our GLT tools are now in the public domain, and can be <a href="http://graphics.stanford.edu/software/glt/">downloaded</a>.]
+
+</p><p>
+
+</p><hr>
+
+<h3>
+Completed Studies
+</h3>
+
+<p>
+<a href="http://www.graphics.stanford.edu/projects/flashg/studies/texture_cache">Texture Caching</a><br>
+<a href="http://www.graphics.stanford.edu/projects/flashg/studies/texture_compression">Texture Compression</a><br>
+<a href="http://www.graphics.stanford.edu/projects/flashg/studies/texture_prefetch">Texture Prefetching</a><br>
+<a href="http://www.graphics.stanford.edu/projects/flashg/papers/bucket_render">Overlap and Bucket Rendering</a><br>
+
+</p><h3>
+Ongoing Studies
+</h3>
+
+<p>
+<a href="http://www.graphics.stanford.edu/projects/flashg/studies/scenes">Scene Characteristic Analysis</a>
+</p>
+
+<h3>
+Related Topics
+</h3>
+
+<p>
+
+<a href="http://www.graphics.stanford.edu/projects/flashg/frugl/tracing">FruGL Tracing and FGLS</a><br>
+<a href="http://reality.sgi.com/dunwoody/glsspec.txt">OpenGL Tracing and GLS</a><br>
+<a href="http://www.graphics.stanford.edu/projects/flashg/argus/">The Argus Rendering Library</a><br>
+
+
+</p><p>
+</p><hr>
+<address>
+<a href="mailto:kekoa@graphics.stanford.edu">kekoa@graphics.stanford.edu</a>
+</address>
+
+
+</body></html>

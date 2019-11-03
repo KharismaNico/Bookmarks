@@ -1,0 +1,26 @@
+.ubtn-sep-icon.ubtn-sep-icon-at-left .ubtn-icon {
+    left: 10px;
+    opacity: 1;
+}
+.fusion-footer-widget-area .widget-title, .fusion-footer-widget-area h3 {
+    font-family: 'PT Sans';
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 2px;
+}
+.ubtn-ctn-center, .ubtn-ctn-left, .ubtn-ctn-right {
+    margin-bottom:10px;
+}
+.ubtn-ctn-left {
+    margin-bottom:10px;
+}
+.ubtn-text{
+
+    font-size: 13px;
+    font-family: 'PT Sans';
+}
+
+.vc_separator.vc_sep_color_blue .vc_sep_line {
+    border-color: #017dc3;
+}

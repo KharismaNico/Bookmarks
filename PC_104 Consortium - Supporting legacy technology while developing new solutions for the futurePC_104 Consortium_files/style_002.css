@@ -1,0 +1,160 @@
+/*
+Theme Name:     PC104_consortia_bootstrap
+Description:    
+Author:         ddiomede@opensystemsmedia.com
+Template:       strappress
+
+(optional values you can add: Theme URI, Author URI, Version)
+*/
+
+@import url("../strappress/style.css");
+
+color: #2780e3;
+.navbar { margin-bottom: 0px; 
+}
+.navbar-default {
+  background-color:#535353;
+  border-color: #535353;
+}
+.navbar-inverse {
+  background: #45484d;
+  background: -moz-linear-gradient(top,  #45484d 0%, #3d3d3d 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#3d3d3d));
+  background: -webkit-linear-gradient(top,  #45484d 0%,#3d3d3d 100%);
+  background: -o-linear-gradient(top,  #45484d 0%,#3d3d3d 100%);
+  background: -ms-linear-gradient(top,  #45484d 0%,#3d3d3d 100%);
+  background: linear-gradient(to bottom,  #45484d 0%,#3d3d3d 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#3d3d3d',GradientType=0 );
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color: #535353;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #ffffff;
+    background-color: #090909;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #090909;
+    color: #ffffff;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #F7931D;
+}
+
+#wrapper-24 { padding: 20px 20px 20px 20px; }
+a {
+    color: #F7931D;
+    text-decoration: none
+}
+
+a:hover, a:focus {
+    color: fff;
+    text-decoration: underline
+    }
+    .fa {
+    color: #fff;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.btn-primary {
+	background-color: #F7931D !important;
+	border-color: #F7931D !important;
+	
+}
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: #000 !important;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #121212 !important;
+}
+/* backup of styles entered via Options CSS in WP */
+body { padding-top: 165px !important; color: #4C4D4F; font-size: 17px; }
+img.attachment-thumbnail.wp-post-image { float: left; margin: 0px 15px 0px 0px; }
+img.attachment-post-thumbnail.wp-post-image { float: right; margin: 0px 0px 12px 22px; }
+div#author-meta { padding: 10px 25px; font-size: 14px; margin-top: 25px; }
+div.nivo-caption { font-size: 20px; line-height: 1.1em; padding: 13px 20px; }
+.navbar-fixed-top { margin-bottom: 0px !important; }
+ul#menu-top-menu.nav.navbar-nav { font-size: 13px; }
+#logo { margin-left: 0px; padding: 3px 13px 13px 1px; }
+ul#menu-main-menu.nav.navbar-nav { padding: 11px 0px 0px 0px; font-size: 22px; }
+h1.page-title { font-size: 49px; }
+h1.page-title, #content-archive article h1,  #content-archive  h1  {  margin-top: 0px;  }
+#content-archive article h1,  #content-archive  h1  { margin-bottom: 0px;}
+.page-header { border-bottom: none; margin: 0px 0 12px; }
+.widget_ultimate_posts, .widget_ultimate_posts ul, .widget_ultimate_posts ul li, .home #widgets ul, #widgets ul { padding: 0px; list-style: none; margin-bottom: 0; }
+.home .widget-title-home h3, .widget-title, .widget-title-home h3 { font-size: 18px; margin: 0 0 10px 0; padding: 0px; }
+.widget_ultimate_posts ul li, .home #widgets ul li, #widgets ul li { margin-left:0px; padding-bottom: 13px; font-size: 15px;  }
+.widget_ultimate_posts ul li a, .home #widgets ul li a, #widgets ul li a { padding-right: 9px; }
+.widget_ultimate_posts .post-date, .home #widgets .rss-date, #widgets .rss-date { padding: 0; font-size: 12px; white-space: nowrap; }
+.widget_ultimate_posts .post-date, .widget_ultimate_posts .post-title { display: inline; }
+a.rsswidget img[alt="RSS"] { float: right; }
+#widgets { margin-bottom: 30px; }
+#widgets .widget-title img { top: 0px; background-image: url('images/lines.png');
+    background-repeat: repeat-x;
+    background-position: bottom;}
+section.post-entry h1, #content-archive article h1,  #content-archive  h1  { font-size: 23px; }
+div.copyright { font-size: 12px; }
+article table td { font-size: 13px; }
+.footer-menu li a { font-size: 13px; font-weight: bold; }
+.btn-primary { background-color: #51AFD1; border-color: #51AFD1; }
+.post-meta a[rel="bookmark"] { color:black; font-size: 11px; margin-right: 25px; }
+div.entry-summary { font-size: 14.5px; }
+.widget_ultimate_posts a.more-link, .home #widgets a.more-link { display: none; }
+.upw-posts article { margin-bottom: 0; padding-bottom: 0; }
+div.read-more { 
+		text-align: right; 
+		font-size: 14px; 
+		font-weight: bold; 
+		text-transform: uppercase;
+		margin-right: 20px;
+		top: -10px;
+		position: relative; 
+}
+.product-bullets { font-size: 15px; }
+.label { margin-right: 4px; }
+.label-default { background-color: #DADADA; }
+.label-default a { color: #3F4041; }
+.product-side-meta div.panel, .product-side-meta .panel div { padding: 0px; margin: 0px 0px 4px 0px; }
+.product-side-meta div.panel .product-term { display: inline-block; padding: 3px 4px; }
+.product-side-meta div.panel div.panel-heading, .product-side-meta div.panel div.panel-body { padding: 0px 4px; font-size: 12px; }
+.product-side-meta div.panel.panel-default { margin-bottom: 12px; }
+.product-side-meta .label.product-term { font-size: 85%; background-color:#eaeaea; }
+
+#content-archive .panel .panel-heading h2 { margin: 0; }
+#content-archive .products .panel .panel-heading h2 { font-size: 22px; }
+#content-archive .products .panel .panel-body h3 { margin: 0px 0px 13px 0px; font-size: 16px; }
+#content-archive .products .panel .panel-body .post-entry { font-size: 15px; }
+#content-archive .panel .panel-body .article-footer { display: none; }
+#content-archive article { }
+.attachment-medium { float: right; }
+
+.post-data .btn-mini { font-size: 11px; padding: 2px 3px; margin-bottom: 2px;  }
+.post-data .btn-mini.btn-default { background-color: #dfdfdf; color: #3e3e3e; border-top: none; border-left: none; border-right: 1px solid #a9a9a9; border-bottom: 1px solid #a9a9a9; 	}
+#content-archive .post-data { margin-top: 0px; }
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+/* deeper menu */
+
+.dropdown-menu li:hover a+ul {
+     display: block;
+     top: 80%; // optional
+}

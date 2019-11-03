@@ -1,0 +1,3 @@
+$Crabapple.TriforceView_ent_tfv300_v1=function(){};$Crabapple.extend($Crabapple.TriforceView,$Crabapple.TriforceView_ent_tfv300_v1,{coreElement:null,generateCoreElement:function(trackingClass){if(!trackingClass&&this.options&&this.options.trackingClass){trackingClass=this.options.trackingClass;}
+this.coreElement=this.getModuleWrapper(this.moduleElement,trackingClass);},enhance:function(coreElement){this.coreElement=coreElement;},setOutput:function(){if(this.mode!=='append'){this.moduleElement=this.replaceModuleElement(this.moduleElement,this.coreElement);}else{this.moduleElement.append(this.coreElement);}
+return this.moduleElement.show();}});

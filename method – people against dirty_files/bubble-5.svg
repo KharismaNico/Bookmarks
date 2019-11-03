@@ -1,0 +1,12 @@
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .st0{fill:none;stroke:url(#SVGID_1_);stroke-miterlimit:10;}
+  </style>
+  <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="1329.983" y1="946.168" x2="1408.392" y2="946.168" gradientTransform="rotate(172 675.994 -492.135)">
+    <stop offset="0" stop-color="#FCB614"/>
+    <stop offset=".178" stop-color="#F9A122"/>
+    <stop offset=".547" stop-color="#F26A45"/>
+    <stop offset="1" stop-color="#E82076"/>
+  </linearGradient>
+  <ellipse transform="rotate(-63 49.74 50.474)" class="st0" cx="49.7" cy="50.5" rx="38.7" ry="38.7"/>
+</svg>

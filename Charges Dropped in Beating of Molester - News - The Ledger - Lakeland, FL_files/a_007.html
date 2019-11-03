@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-touch"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta charset="utf-8">
+
+<title>Evvnt Discovery Plugin</title>
+
+<link rel="stylesheet" href="a_data_007/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="a_data_007/slick.css">
+<link rel="stylesheet" type="text/css" href="a_data_007/slick-theme.css">
+<link rel="stylesheet" href="a_data_007/evvnt_discovery_plugin.css">
+</head>
+<body class="discovery widget landscape">
+<div class="body-container">
+<div class="loaded" style="display: block;">
+<div class="submission_button_container"><a class="primary-button button submission_button">
+<i class="fa fa-plus"></i> Promote your event
+</a>
+
+<h1>What's On</h1>
+</div>
+<div class="container">
+<div id="theme"><style type="text/css">
+.primary-button {
+background: #444444 !important;
+color: #ffffff !important;
+}
+
+.primary-color {
+color: #444444 !important;
+}
+
+.secondary-button {
+background: #444444 !important;
+color: #ffffff !important;
+}
+
+a {
+color: #444444;
+}
+
+.category-nav-item.selected i, .category-nav-item:hover i {
+color: #444444;
+}
+
+.search-bar .selected i {
+color: #444444;
+}
+
+.search-bar .search-tools span:hover i {
+color: #444444 !important;
+}
+
+.search-bar .search-tools span:hover i.close-icon  {
+color: #444444 !important;
+}
+
+.slick-dots li.slick-active button:before {
+color: #444444 !important;
+font-size: 10px;
+}
+
+.hero-details .primary-action .button, .mobile-action .button {
+background: #444444;
+color: #ffffff;
+}
+
+.tickets .ticket-price {
+color: #444444 !important;
+}
+
+.editors-pick {
+color: #444444 !important;
+}
+
+.hr {
+border-bottom: 1px solid #444444 !important;
+}
+
+.close {
+color: #444444;
+}
+
+</style>
+</div>
+<div id="categories" style="display: none;"></div>
+<div id="search-bar" class="search-bar"><div class="search-tools-wrapper">
+
+<span class="search-tools">
+<button class="primary-button button search-button">Search</button>
+</span>
+</div>
+
+<span class="search-box">
+<i class="fa fa-search"></i>
+<span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;"><input type="text" placeholder="What are you looking for?" id="search" autocomplete="off" class="aa-input" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" style="position: relative; vertical-align: top;" dir="auto"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;Montserrat&quot;, arial, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: optimizelegibility; text-transform: none;"></pre><span class="aa-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;" role="listbox" id="algolia-autocomplete-listbox-0"><div class="aa-dataset-1"></div></span></span>
+</span>
+
+<div class="search-tool-options when-options hidden">
+<div class="arrow-wrapper">
+<div class="arrow-up"></div>
+</div>
+<ul>
+<li data-date-option="today">Today</li>
+<li data-date-option="tomorrow">Tomorrow</li>
+<li data-date-option="next_week">Next Week</li>
+<li data-date-option="this_month">This Month</li>
+<li data-date-option="next_month">Next Month</li>
+</ul>
+</div>
+
+<div class="search-tool-options where-options hidden">
+<div class="arrow-wrapper">
+<div class="arrow-up"></div>
+</div>
+<ul>
+</ul>
+</div>
+</div>
+<div class="fetching_events" style="display: none;">
+<img src="a_data_007/spinner.gif" class="spinner">
+</div>
+<div id="events" style="visibility: visible;">
+<div class="featured-events-wrapper clearfix">
+<ul class="featured-events-carousel featured-events featured-events-3">
+<li>
+<a href="http://www.theledger.com/thingstodo?_ev_id=482343_run_the_race_5k_-christian_fun_run_%26_walk" target="_top">
+<div class="event" data-url="http://www.theledger.com/thingstodo?_ev_id=482343_run_the_race_5k_-christian_fun_run_%26_walk" data-event-id="482343">
+<div class="thumbnail" style="background-image: url('https://s3-eu-west-1.amazonaws.com/evvnt.production/uploads/event_image/462348/event_image/My_Post_Copy.jpg')">
+<div class="date">
+16 Nov
+</div>
+<div class="featured-event-details">
+<div class="featured-event-details-inner h2-lines-measured h2-lines-2">
+<h2>Run The Race 5K -Christian Fun Run &amp; Walk</h2>
+<p class="summary">Run the Race 5K is a Christian Fun Run &amp; Walk designed to facilitate fellowship and promote fitness. The proceeds from this family friendly race will help to support the kidsPACK of Polk County.</p>
+</div>
+
+<div class="tags">
+<span class="tag">
+<i class="fa fa-map-marker"></i> Florida Southern College -Southern Landing Park, Lakeland
+</span>
+<span class="tag">
+<i class="fa fa-clock-o"></i> 8:00 AM
+</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.theledger.com/thingstodo?_ev_id=544994_spf60" target="_top">
+<div class="event" data-url="http://www.theledger.com/thingstodo?_ev_id=544994_spf60" data-event-id="544994">
+<div class="thumbnail" style="background-image: url('https://s3-eu-west-1.amazonaws.com/evvnt.production/uploads/event_image/540346/event_image/Leos_live_best.jpg')">
+<div class="date">
+6 Nov
+</div>
+<div class="featured-event-details">
+<div class="featured-event-details-inner h2-lines-measured h2-lines-1">
+<h2>SPF60</h2>
+<p class="summary">SPF60: 9 to midnight, Nov. 6, Leo's Live Music &amp; Billiards, 5263 S. Florida Ave., Lakeland, free. 863-619-6799. https://leoslivemusic.com/ https://www.facebook.com/leoslivemusicandbilliards/</p>
+</div>
+
+<div class="tags">
+<span class="tag">
+<i class="fa fa-map-marker"></i> Leo's Live Music &amp; Billiards, Lakeland
+</span>
+<span class="tag">
+<i class="fa fa-clock-o"></i> 9:00 PM
+</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.theledger.com/thingstodo?_ev_id=542494_open_mic_with_dan_signor" target="_top">
+<div class="event" data-url="http://www.theledger.com/thingstodo?_ev_id=542494_open_mic_with_dan_signor" data-event-id="542494">
+<div class="thumbnail" style="background-image: url('https://s3-eu-west-1.amazonaws.com/evvnt.production/uploads/event_image/536963/event_image/Union_Hall_open_mic.jpg')">
+<div class="date">
+6 Nov
+</div>
+<div class="featured-event-details">
+<div class="featured-event-details-inner h2-lines-measured h2-lines-1">
+<h2>OPEN MIC with DAN SIGNOR</h2>
+<p class="summary">OPEN MIC with DAN SIGNOR: 8 p.m. to midnight, Wednesdays, Union Hall, 1023 S. Florida Ave, Lakeland, free, 863-999-1013. https://www.facebook.com/unionhallevents/</p>
+</div>
+
+<div class="tags">
+<span class="tag">
+<i class="fa fa-map-marker"></i> Union Hall, Lakeland
+</span>
+<span class="tag">
+<i class="fa fa-clock-o"></i> 8:00 PM
+</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+</ul>
+</div>
+
+<span class="more-wrapper">
+<a href="http://www.theledger.com/thingstodo" class="primary-button button more-events-button" target="_top">More Events</a>
+
+<div class="actions-wrapper">
+<span class="widget-divider">|</span>
+<a class="primary-button button promote-button" target="_top"><i class="fa fa-plus"></i> Promote your event</a>
+<span class="widget-divider second">|</span>
+</div>
+
+<div class="powered_by clearfix">
+<a href="https://evvnt.com/" target="_blank"><img src="a_data_007/powered_by_evvnt.png" alt="powered by evvnt"></a>
+</div>
+</span>
+
+
+<script>
+track_widget();
+</script>
+
+<script type="application/ld+json">
+[]
+</script>
+</div>
+</div>
+</div>
+<div class="loading" id="spinner" style="display: none;">
+<img src="a_data_007/spinner.gif" class="spinner">
+</div>
+<script async="" src="analytics.js"></script><script src="a_data_007/algoliasearch.js"></script>
+<script src="a_data_007/algoliasearch_002.js"></script>
+<script src="a_data_007/respond.js"></script>
+<script src="evvnt_discovery_plugin_s.js"></script>
+<script>
+evvnt_require("evvnt/discovery/application").init();
+</script>
+<script src="a_data_007/autocomplete.js"></script>
+</div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga_evvnt');
+
+
+ga_evvnt('create', 'UA-120060935-2', 'auto');
+
+function track_page(location) {
+if (!window.ga_evvnt) {
+return;
+}
+
+ga_evvnt('send', 'pageview', location);
+}
+
+function track_widget() {
+if (!window.ga_evvnt) {
+return;
+}
+
+ga_evvnt('send', 'pageview');
+}
+
+function track_event(category, action, label) {
+if (!window.ga_evvnt) {
+return;
+}
+
+ga_evvnt('send', 'event', category, action, label + '', label + '');
+}
+</script>
+
+
+</body></html>

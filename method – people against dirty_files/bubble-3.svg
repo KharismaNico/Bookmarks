@@ -1,0 +1,19 @@
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .st0{fill:none;stroke:url(#SVGID_1_);stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} .st1{fill:none;stroke:url(#SVGID_2_);stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+  </style>
+  <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="15.17" y1="404.526" x2="85.291" y2="404.526" gradientTransform="matrix(1 0 0 -1 0 455)">
+    <stop offset="0" stop-color="#0EB9B3"/>
+    <stop offset=".23" stop-color="#22BA9E"/>
+    <stop offset=".704" stop-color="#54BB68"/>
+    <stop offset="1" stop-color="#76BC43"/>
+  </linearGradient>
+  <path class="st0" d="M75.1 74.6c-5.5 5.7-12.9 9.5-21.1 10.3-1.2.1-2.4.2-3.7.2-19.1 0-34.6-15.5-34.6-34.6s15.5-34.6 34.6-34.6 34.6 15.5 34.6 34.6c-.1 9.4-3.8 17.9-9.8 24.1z"/>
+  <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="28.416" y1="419.626" x2="44.696" y2="419.626" gradientTransform="matrix(1 0 0 -1 0 455)">
+    <stop offset="0" stop-color="#0EB9B3"/>
+    <stop offset=".23" stop-color="#22BA9E"/>
+    <stop offset=".704" stop-color="#54BB68"/>
+    <stop offset="1" stop-color="#76BC43"/>
+  </linearGradient>
+  <path class="st1" d="M44.2 27.1c-8.4 0-15.3 7.5-15.3 16.6"/>
+</svg>

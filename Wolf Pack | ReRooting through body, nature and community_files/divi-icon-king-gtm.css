@@ -1,0 +1,258 @@
+.hide_icon,.hide_icon::before,.hide_icon::after{opacity:0!important;}
+
+/* Divi 3.0+ */
+body .divi_font-awesome_icon_gtm::before,
+body .divi_font-awesome_icon_gtm::after,
+body .divi_font-awesome_icon_gtm.et-pb-icon,
+body .et_pb_button.divi_font-awesome_icon_gtm::before,
+body .et_pb_button.divi_font-awesome_icon_gtm::after,
+body .et_pb_more_button.et_pb_button_one.et_pb_button.divi_font-awesome_icon_gtm::before,
+body .et_pb_more_button.et_pb_button_one.et_pb_button.divi_font-awesome_icon_gtm::after,
+body .et_pb_more_button.et_pb_button_two.et_pb_button.divi_font-awesome_icon_gtm::before,
+body .et_pb_more_button.et_pb_button_two.et_pb_button.divi_font-awesome_icon_gtm::after,
+body .et_pb_shop.divi_font-awesome_icon_gtm .et_overlay::before,
+body .et_pb_contact_reset.divi_font-awesome_icon_gtm::before,
+body .et_pb_contact_reset.divi_font-awesome_icon_gtm::after,
+body .et_pb_contact_submit.divi_font-awesome_icon_gtm::before,
+body .et_pb_contact_submit.divi_font-awesome_icon_gtm::after,
+body .et_pb_font_icon.divi_font-awesome_icon_gtm::before,
+body .et_pb_font_icon.divi_font-awesome_icon_gtm::after,
+body .et_pb_newsletter_button.divi_font-awesome_icon_gtm::before,
+body .et_pb_newsletter_button.divi_font-awesome_icon_gtm::after,
+body .et_pb_pricing_table_button.divi_font-awesome_icon_gtm::before,
+body .et_pb_pricing_table_button.divi_font-awesome_icon_gtm::after,
+body .et_pb_promo_button.divi_font-awesome_icon_gtm::before,
+body .et_pb_promo_button.divi_font-awesome_icon_gtm::after,
+body .et_overlay.divi_font-awesome_icon_gtm::before,
+body .et_overlay.divi_font-awesome_icon_gtm::after,
+
+/* More current versions of Divi */
+#et-boc .divi_font-awesome_icon_gtm::before,
+#et-boc .divi_font-awesome_icon_gtm::after,
+#et-boc .divi_font-awesome_icon_gtm.et-pb-icon,
+#et-boc .et_pb_button.divi_font-awesome_icon_gtm::before,
+#et-boc .et_pb_button.divi_font-awesome_icon_gtm::after,
+#et-boc .et_pb_more_button.et_pb_button_one.et_pb_button.divi_font-awesome_icon_gtm::before,
+#et-boc .et_pb_more_button.et_pb_button_one.et_pb_button.divi_font-awesome_icon_gtm::after,
+#et-boc .et_pb_more_button.et_pb_button_two.et_pb_button.divi_font-awesome_icon_gtm::before,
+#et-boc .et_pb_more_button.et_pb_button_two.et_pb_button.divi_font-awesome_icon_gtm::after,
+#et-boc .et_pb_shop.divi_font-awesome_icon_gtm .et_overlay::before,
+#et-boc .et_pb_contact_reset.divi_font-awesome_icon_gtm::before,
+#et-boc .et_pb_contact_reset.divi_font-awesome_icon_gtm::after,
+#et-boc .et_pb_contact_submit.divi_font-awesome_icon_gtm::before,
+#et-boc .et_pb_contact_submit.divi_font-awesome_icon_gtm::after,
+#et-boc .et_pb_font_icon.divi_font-awesome_icon_gtm::before,
+#et-boc .et_pb_font_icon.divi_font-awesome_icon_gtm::after,
+#et-boc .et_pb_newsletter_button.divi_font-awesome_icon_gtm::before,
+#et-boc .et_pb_newsletter_button.divi_font-awesome_icon_gtm::after,
+#et-boc .et_pb_pricing_table_button.divi_font-awesome_icon_gtm::before,
+#et-boc .et_pb_pricing_table_button.divi_font-awesome_icon_gtm::after,
+#et-boc .et_pb_promo_button.divi_font-awesome_icon_gtm::before,
+#et-boc .et_pb_promo_button.divi_font-awesome_icon_gtm::after,
+#et-boc .et_overlay.divi_font-awesome_icon_gtm::before,
+#et-boc .et_overlay.divi_font-awesome_icon_gtm::after,
+
+.et-db #et-boc .et-fb-font-icon-list li.divi_font-awesome_icon_gtm::after, /* Visual Builder icons */
+.et_font_icon li.gtm-divi-king-icon--font-awesome::before {font-family: 'FontAwesome' !important}
+.et_font_icon li.gtm-divi-king-icon--font-awesome {
+	font-size:16px;
+	text-align: center;
+	width: 1em;
+	padding: 10px;
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;}
+
+/* Divi 3.0+ */
+body .divi_material_icon_gtm::before,
+body .divi_material_icon_gtm::after,
+body .divi_material_icon_gtm.et-pb-icon,
+body .et_pb_button.divi_material_icon_gtm::before,
+body .et_pb_button.divi_material_icon_gtm::after,
+body .et_pb_more_button.et_pb_button_one.et_pb_button.divi_material_icon_gtm::before,
+body .et_pb_more_button.et_pb_button_one.et_pb_button.divi_material_icon_gtm::after,
+body .et_pb_more_button.et_pb_button_two.et_pb_button.divi_material_icon_gtm::before,
+body .et_pb_more_button.et_pb_button_two.et_pb_button.divi_material_icon_gtm::after,
+body .et_pb_shop.divi_material_icon_gtm .et_overlay::before,
+body .et_pb_contact_reset.divi_material_icon_gtm::before,
+body .et_pb_contact_reset.divi_material_icon_gtm::after,
+body .et_pb_contact_submit.divi_material_icon_gtm::before,
+body .et_pb_contact_submit.divi_material_icon_gtm::after,
+body .et_pb_font_icon.divi_material_icon_gtm::before,
+body .et_pb_font_icon.divi_material_icon_gtm::after,
+body .et_pb_newsletter_button.divi_material_icon_gtm::before,
+body .et_pb_newsletter_button.divi_material_icon_gtm::after,
+body .et_pb_pricing_table_button.divi_material_icon_gtm::before,
+body .et_pb_pricing_table_button.divi_material_icon_gtm::after,
+body .et_pb_promo_button.divi_material_icon_gtm::before,
+body .et_pb_promo_button.divi_material_icon_gtm::after,
+body .et_overlay.divi_material_icon_gtm::before,
+body .et_overlay.divi_material_icon_gtm::after,
+
+/* More current versions of Divi */
+#et-boc .divi_material_icon_gtm::before,
+#et-boc .divi_material_icon_gtm::after,
+#et-boc .divi_material_icon_gtm.et-pb-icon,
+#et-boc .et_pb_button.divi_material_icon_gtm::before,
+#et-boc .et_pb_button.divi_material_icon_gtm::after,
+#et-boc .et_pb_more_button.et_pb_button_one.et_pb_button.divi_material_icon_gtm::before,
+#et-boc .et_pb_more_button.et_pb_button_one.et_pb_button.divi_material_icon_gtm::after,
+#et-boc .et_pb_more_button.et_pb_button_two.et_pb_button.divi_material_icon_gtm::before,
+#et-boc .et_pb_more_button.et_pb_button_two.et_pb_button.divi_material_icon_gtm::after,
+#et-boc .et_pb_shop.divi_material_icon_gtm .et_overlay::before,
+#et-boc .et_pb_contact_reset.divi_material_icon_gtm::before,
+#et-boc .et_pb_contact_reset.divi_material_icon_gtm::after,
+#et-boc .et_pb_contact_submit.divi_material_icon_gtm::before,
+#et-boc .et_pb_contact_submit.divi_material_icon_gtm::after,
+#et-boc .et_pb_font_icon.divi_material_icon_gtm::before,
+#et-boc .et_pb_font_icon.divi_material_icon_gtm::after,
+#et-boc .et_pb_newsletter_button.divi_material_icon_gtm::before,
+#et-boc .et_pb_newsletter_button.divi_material_icon_gtm::after,
+#et-boc .et_pb_pricing_table_button.divi_material_icon_gtm::before,
+#et-boc .et_pb_pricing_table_button.divi_material_icon_gtm::after,
+#et-boc .et_pb_promo_button.divi_material_icon_gtm::before,
+#et-boc .et_pb_promo_button.divi_material_icon_gtm::after,
+#et-boc .et_overlay.divi_material_icon_gtm::before,
+#et-boc .et_overlay.divi_material_icon_gtm::after,
+.et-db #et-boc .et-fb-font-icon-list li.divi_material_icon_gtm::after, /* Visual Builder icons */
+.et_font_icon li.gtm-divi-king-icon--material::before {font-family: 'Material Icons' !important}
+
+/* Divi 3.0+ */
+body .divi_elegant-themes_icon_gtm::before,
+body .divi_elegant-themes_icon_gtm::after,
+body .divi_elegant-themes_icon_gtm.et-pb-icon,
+body .et_pb_button.divi_elegant-themes_icon_gtm::before,
+body .et_pb_button.divi_elegant-themes_icon_gtm::after,
+body .et_pb_more_button.et_pb_button_one.et_pb_button.divi_elegant-themes_icon_gtm::before,
+body .et_pb_more_button.et_pb_button_one.et_pb_button.divi_elegant-themes_icon_gtm::after,
+body .et_pb_more_button.et_pb_button_two.et_pb_button.divi_elegant-themes_icon_gtm::before,
+body .et_pb_more_button.et_pb_button_two.et_pb_button.divi_elegant-themes_icon_gtm::after,
+body .et_pb_shop.divi_elegant-themes_icon_gtm .et_overlay::before,
+body .et_pb_contact_reset.divi_elegant-themes_icon_gtm::before,
+body .et_pb_contact_reset.divi_elegant-themes_icon_gtm::after,
+body .et_pb_contact_submit.divi_elegant-themes_icon_gtm::before,
+body .et_pb_contact_submit.divi_elegant-themes_icon_gtm::after,
+body .et_pb_font_icon.divi_elegant-themes_icon_gtm::before,
+body .et_pb_font_icon.divi_elegant-themes_icon_gtm::after,
+body .et_pb_newsletter_button.divi_elegant-themes_icon_gtm::before,
+body .et_pb_newsletter_button.divi_elegant-themes_icon_gtm::after,
+body .et_pb_pricing_table_button.divi_elegant-themes_icon_gtm::before,
+body .et_pb_pricing_table_button.divi_elegant-themes_icon_gtm::after,
+body .et_pb_promo_button.divi_elegant-themes_icon_gtm::before,
+body .et_pb_promo_button.divi_elegant-themes_icon_gtm::after,
+body .et_overlay.divi_elegant-themes_icon_gtm::before,
+body .et_overlay.divi_elegant-themes_icon_gtm::after,
+
+/* More current versions of Divi */
+#et-boc .divi_elegant-themes_icon_gtm::before,
+#et-boc .divi_elegant-themes_icon_gtm::after,
+#et-boc .divi_elegant-themes_icon_gtm.et-pb-icon,
+#et-boc .et_pb_button.divi_elegant-themes_icon_gtm::before,
+#et-boc .et_pb_button.divi_elegant-themes_icon_gtm::after,
+#et-boc .et_pb_more_button.et_pb_button_one.et_pb_button.divi_elegant-themes_icon_gtm::before,
+#et-boc .et_pb_more_button.et_pb_button_one.et_pb_button.divi_elegant-themes_icon_gtm::after,
+#et-boc .et_pb_more_button.et_pb_button_two.et_pb_button.divi_elegant-themes_icon_gtm::before,
+#et-boc .et_pb_more_button.et_pb_button_two.et_pb_button.divi_elegant-themes_icon_gtm::after,
+#et-boc .et_pb_shop.divi_elegant-themes_icon_gtm .et_overlay::before,
+#et-boc .et_pb_contact_reset.divi_elegant-themes_icon_gtm::before,
+#et-boc .et_pb_contact_reset.divi_elegant-themes_icon_gtm::after,
+#et-boc .et_pb_contact_submit.divi_elegant-themes_icon_gtm::before,
+#et-boc .et_pb_contact_submit.divi_elegant-themes_icon_gtm::after,
+#et-boc .et_pb_font_icon.divi_elegant-themes_icon_gtm::before,
+#et-boc .et_pb_font_icon.divi_elegant-themes_icon_gtm::after,
+#et-boc .et_pb_newsletter_button.divi_elegant-themes_icon_gtm::before,
+#et-boc .et_pb_newsletter_button.divi_elegant-themes_icon_gtm::after,
+#et-boc .et_pb_pricing_table_button.divi_elegant-themes_icon_gtm::before,
+#et-boc .et_pb_pricing_table_button.divi_elegant-themes_icon_gtm::after,
+#et-boc .et_pb_promo_button.divi_elegant-themes_icon_gtm::before,
+#et-boc .et_pb_promo_button.divi_elegant-themes_icon_gtm::after,
+#et-boc .et_overlay.divi_elegant-themes_icon_gtm::before,
+#et-boc .et_overlay.divi_elegant-themes_icon_gtm::after,
+.et_font_icon li.gtm-divi-king-icon--et::before {font-family: 'ETModules' !important}
+
+.dikg_icon_filter {
+    display:inline-block;
+    padding: 3px;
+    transition: all ease .3s}
+
+.dikg_icon_filter--closed {display:inline-block}
+.dikg_icon_filter--open,
+.dikg_icon_filter--visible {display: block}
+.dikg_icon_filter--hidden {display:none !important}
+
+.dikg_icon_filter__control_option {
+    padding: 3px 5px;
+    border: 1px solid;
+    border-color: transparent;
+    border-radius: 3px;
+    transition: all ease .4s}
+
+.dikg_icon_filter__control_option--active {border-color: #6c36b6;color:#6c36b6;}
+
+.dikg_icon_filter__btn {
+	border: 1px solid;
+	border-color: #eaeaea;
+    border-radius: 3px}
+    
+.dikg_icon_filter__btn,
+.dikg_icon_filter__controls {
+	color: #A0A9B2;
+	font-size: 13px;
+	padding: 3px 6px;
+	font-style: italic}
+.dikg_icon_filter__btn::before {
+	content:'\e007';
+	font-family: 'ETmodules';
+	font-size: 1.1em;
+	font-style: normal;
+	padding-right: 10px;
+	vertical-align: middle}
+
+.dikg_icon_filter__input {
+    display: block;
+    width:100%;
+    padding: 6px 12px;}
+
+.dikg_icon_filter__input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: #A0A9B2;
+	font-style: italic}
+.dikg_icon_filter__input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #A0A9B2;
+   	opacity: 1;
+   	font-style: italic}
+.dikg_icon_filter__input::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #A0A9B2;
+   opacity: 1;
+   font-style: italic}
+.dikg_icon_filter__input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #A0A9B2;
+   font-style: italic}
+.dikg_icon_filter__input::-ms-input-placeholder { /* Microsoft Edge */
+   color: #A0A9B2;
+   font-style: italic}
+
+.dikg_icon_filter__controls {
+	margin-top: 10px;
+	padding: 10px 0;
+	border-top: 1px solid #eaeaea}
+	
+.dikg_icon_filter__control_option {padding: 3px 6px}
+.dikg_icon_filter__control_option:hover {cursor:pointer !important}
+
+.dikg_settings_box {
+	background: #fff;
+    padding: 10px 15px;
+    border-right: 2px solid #e5e5e5;
+    border-bottom: 2px solid #e5e5e5;}
+
+.dikg_settings_box_label_icon::before {padding-right: 10px;color:#ccc}
+.dikg_settings_box_label_icon--unlocked::before {color:#1abc9c}
+
+.dikg_settings_box input[type="text"] {width:25em}
+
+.dikg_credits {
+	display: block;
+	text-align: center;
+	color: #888;
+	font-size: 0.9em}

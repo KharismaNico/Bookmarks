@@ -1,0 +1,37 @@
+/* CSS Document */
+@font-face {
+    font-family:'GraphCondensedWeb';
+	font-style:normal;
+	font-variant:normal;
+	font-weight:700;
+    src:url('graph/graph-condensed-bold-web.eot');
+    src:url('graph/graph-condensed-bold-web.eot?#iefix') format('embedded-opentype'),
+		url('graph/graph-condensed-bold-web.woff') format('woff'),
+		url('graph/graph-condensed-bold-web.woff2') format('woff2'),
+		url('graph/graph-condensed-bold-web.svg#graphcondensedbold') format('svg'),
+		url('graph/graph-condensed-bold-web.ttf') format('truetype');}
+
+
+@font-face {
+    font-family:'KlimaWeb';
+	font-style:normal;
+	font-variant:normal;
+	font-weight:900;
+    src:url('klima/klima-heavy-web.eot');
+    src:url('klima/klima-heavy-web.eot?#iefix') format('embedded-opentype'),
+		url('klima/klima-heavy-web.woff') format('woff'),
+		url('klima/klima-heavy-web.woff2') format('woff2'),
+		url('klima/klima-heavy-web.svg#klimaheavy') format('svg'),
+		url('klima/klima-heavy-web.ttf') format('truetype');}
+
+@font-face {
+    font-family:'tf-icons';
+	font-style:normal;
+	font-variant:normal;
+	font-weight:700;
+    src:url('350icons/350icons-web.eot');
+    src:url('350icons/350icons-web.eot?#iefix') format('embedded-opentype'),
+		url('350icons/350icons-web.woff') format('woff'),
+		url('350icons/350icons-web.woff2') format('woff2'),
+		url('350icons/350icons-web.svg#tficonsregular') format('svg'),
+		url('350icons/350icons-web.ttf') format('truetype');}
