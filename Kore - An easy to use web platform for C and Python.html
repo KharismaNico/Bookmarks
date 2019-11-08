@@ -1,0 +1,303 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<title>Kore - An easy to use web platform for C and Python</title>
+	<meta name="description" content="An easy to use web platform for C and Python" />
+	<meta name="keywords" content="kore web platform, kore web server, kore web server, web server, web server in C, web development, web framework, fast web server, HTTP server, application server, C web server, web server in C, application server in C, C application server, c web framework, c web api, platform, web, Python, Python web framework" />
+	<meta name="author" content="Joris Vink" />
+	<meta name="google-site-verification" content="hRO4NSe-QuhLAGlfj2choIYk1CKRby1pM81tBXv0h0Q" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="css/style.min.css" rel="stylesheet">
+	<script src="js/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse navbar-collapse text-center">
+				<ul class="nav navbar-nav">
+					<li><a href="/">About</a></li>
+					<li><a href="/mail">Mailing lists</a></li>
+					<li><a href="/source">Source</a></li>
+					<li><a href="https://docs.kore.io/3.3.1/" target="_blank">Documentation</a></li>
+					<li><a href="https://blog.kore.io/">Blog</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+		<main class="jumbotron container-fluid" role="main">
+			<div class="logo text-center"><img src="images/logos/logo-mascotte.png" alt=""></div>
+			<div class="text-center">
+				<div class="service mbl mtl">
+					<div class="desc">
+						<p><strong>Kore</strong> is an easy to use web platform for writing scalable, concurrent APIs in C or Python.<br />Its primary goals are security, scalability and allowing rapid development and deployment of such APIs.</p><p>Because of this Kore is an ideal candidate for building robust, scalable and secure web things.</p>
+					</div>
+				</div>
+				<div class="col-sm-4 col-sm-offset-4">
+					<a class="btn btn-lg btn-kore btn-block" href="/releases/3.3.1#source" role="button">Latest release</a>
+					<span style="display: block; margin-top: 5px">release: 3.3.1 | <a href="/releases/3.3.1#changelog">Changelog</a> | <a href="https://docs.kore.io/3.3.1/">Documentation</a></span>
+				</div>
+			</div>
+
+		</main>
+
+		<main class="main" role="main" style="padding-bottom: 0px">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="box">
+							<div class="desc">
+								<i class="fa fa-magic box-icon"></i>
+								<h2>Feature rich</h2>
+								<p>Kore comes packed with tons of amazing features that make it awesome to use.<br>
+								All features are designed so that the <i>secure by default</i> mantra comes first.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-3 ptx">
+						<ul>
+							<li><i class="fa fa-check"></i>&nbsp;TLS with PFS in all major browsers.</li>
+							<li><i class="fa fa-check"></i>&nbsp;Private keys are isolated.</li>
+							<li><i class="fa fa-check"></i>&nbsp;Websocket support.</li>
+							<li><i class="fa fa-check"></i>&nbsp;Built-in parameter validation.</li>
+							<li><i class="fa fa-check"></i>&nbsp;Asynchronous PostgreSQL queries.</li>
+						</ul>
+					</div>
+
+					<div class="col-sm-3 ptx">
+						<ul>
+							<li><i class="fa fa-check"></i>&nbsp;Fully privilege separated.</li>
+							<li><i class="fa fa-check"></i>&nbsp;Per CPU worker processes.</li>
+							<li><i class="fa fa-check"></i>&nbsp;Easy to use background tasks.</li>
+							<li><i class="fa fa-check"></i>&nbsp;Async/await support for Python.</li>
+							<li><i class="fa fa-check"></i>&nbsp;Applications can be reloaded on the fly, even while serving content.</li>
+						</ul>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="box">
+							<div class="desc">
+								<i class="fa fa-terminal box-icon"></i>
+								<h2>Easy to write code for</h2>
+								<p>Kore makes it easy to get started without having to fiddle with build automation tools such as make/cmake thanks to the <strong>kodev</strong> tool bundled with Kore.</p>
+								<p>Using the tool you can create, compile and run Kore applications when developing your next big thing. However if you are a Unix wizard who prefers building Makefiles and linking the libraries together yourself or integrating the build of your Kore application into your build system, you can of course do that.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 ptx">
+						<pre><code>$ kodev create myapp
+$ cd myapp
+$ kodev run
+compiling myapp.c
+myapp built succesfully!
+[parent]: running on https://127.0.0.1:8888
+[parent]: kore is starting up
+[wrk 0]: worker 0 started (cpu#0)
+</code></pre>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="box">
+							<div class="desc">
+								<i class="fa fa-code box-icon"></i>
+								<h2>Non-complex APIs</h2>
+								<p>A lot of C web frameworks or libraries overcomplicate the APIs applications use in order to
+								   create responses, read headers, add headers or deal with request parameters.
+								</p>
+								<p>Kore takes a no-bullshit approach to this and presents the developer with a clean and
+								   easy to use API which makes writing code a breeze and makes the code more readable and
+								  understandable.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 ptx">
+						<div class="example-header">
+						<span>[<a href="#" onclick="return ex('c')">C</a>] [<a href="#" onclick="return ex('python')">Python</a>]</span>
+						</div>
+						<pre id="python-example" class="python" style="display: none; border-radius: 0px 0px 4px 4px; border-radius: 0px 0px 4px 4pxx"><code><span class="c-pp">import</span> kore
+
+<span class="c-keyword">async def</span> makerequest(req):
+    client = kore.httpclient(<span class="c-literal">"https://kore.io"</span>)
+    status, body = <span class="c-keyword">await</span> client.get()
+    req.response(status, body)
+
+<span class="c-keyword">def</span> page(req):
+    hdr = req.request_header(<span class="c-literal">"x-request"</span>)
+    if hdr:
+        req.response_header(<span class="c-literal">"x-response"</span>, hdr)
+
+    req.populate_get()
+    id = req.argument(<span class="c-literal">"id"</span>)
+
+    <span class="c-keyword">if</span> id is <span class="c-keyword">None</span>:
+        req.response(400, b<span class="c-literal">''</span>)
+    <span class="c-keyword">else</span>:
+        kore.log(kore.LOG_INFO, <span class="c-literal">"id parameter: %d"</span> % id)
+        req.response(200, b<span class="c-literal">''</span>)
+</code></pre>
+						<pre id="c-example" style="border-radius: 0px 0px 4px 4px" class="c"><code><span class="c-pp">#include</span> <span class="c-literal">&lt;kore/kore.h&gt;</span>
+<span class="c-pp">#include</span> <span class="c-literal">&lt;kore/http.h&gt;</span>
+
+<span class="c-type">int</span>	page(<span class="c-type">struct</span> http_request *);
+
+<span class="c-type">int</span>
+page(<span class="c-type">struct</span> http_request *req)
+{
+	<span class="c-type">uint16_t</span>	id;
+	<span class="c-type">const char</span>	*hdr;
+
+	<span class="c-keyword">if</span> (http_request_header(req, <span class="c-literal">"x-request"</span>, &amp;hdr))
+		http_response_header(req, <span class="c-literal">"x-response"</span>, hdr);
+
+	http_populate_qs(req);
+
+	<span class="c-keyword">if</span> (!http_argument_get_uint16(req, <span class="c-literal">"id"</span>, &amp;id)) {
+		http_response(req, <span class="c-literal">400</span>, <span class="c-literal">NULL</span>, <span class="c-literal">0</span>);
+		<span class="c-keyword">return</span> (KORE_RESULT_OK);
+	}
+
+	kore_log(LOG_INFO, <span class="c-literal">"id parameter: %u"</span>, id);
+	http_response(req, <span class="c-literal">200</span>, <span class="c-literal">NULL</span>, <span class="c-literal">0</span>);
+
+	<span class="c-keyword">return</span> (KORE_RESULT_OK);
+}</code></pre>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="box">
+							<div class="desc">
+								<i class="fa fa-fighter-jet box-icon"></i>
+								<h2>Fast</h2>
+								<p>Kore is able to process <strong>millions of requests</strong> per second on server hardware.<br>
+								Read more about <a href="https://blog.kore.io/posts/benchmarks" target="_blank">performance</a>.
+								</p>
+								<p>The numbers on the right were produced with the following setup:</p>
+								<p><strong>Hardware</strong><br>
+								Intel Xeon CPU E5-2699 v3 @ 2.30GHz<br>
+								running Linux 3.19.0-generic (ubuntu 14.04.3 LTS)<br>
+								</p>
+								<p><strong>Kore</strong><br>
+								compiled with NOTLS=1<br>
+								8 worker processes<br>
+								no worker affinity<br>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 ptx">
+						<pre>Running 1m test @ http://127.0.0.1:8888
+  8 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   390.46us    2.68ms 218.26ms   99.92%
+    Req/Sec   154.10k    20.12k  189.43k    75.23%
+  Latency Distribution
+     50%  282.00us
+     75%  426.00us
+     90%  586.00us
+     99%    1.10ms
+  73330117 requests in 1.00m, 12.02GB read
+Requests/sec: 1220133.80
+Transfer/sec:    204.80MB
+</pre>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="box">
+							<div class="desc">
+								<i class="fa fa-code box-icon"></i>
+								<h2>Open source</h2>
+								<p>Kore is open software licensed under the ISC license and is developed in my spare time. If you like Kore please consider donating to the project to support future development.</p>
+								<p>If you are using Kore commercially please consider becoming a sponsor.</p>
+								<p>A sponsorship includes:
+								<ul>
+									<li>- Ability to sponsor new features.</li>
+									<li>- Priority support for any issues related to Kore.</li>
+									<li>- Your company listed under our sponsors page (optional).</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-3 ptx">
+						<a class="btn btn-lg btn-kore btn-block" href="/donate" role="button">Donate</a>
+					</div>
+					<div class="col-sm-3 ptx">
+						<a class="btn btn-lg btn-kore btn-block" href="mailto:sponsor@kore.io" role="button">Sponsor</a>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<main class="jumbotron container-fluid" role="main" style="padding: 0px">
+		</main>
+
+		<main class="jumbotron container-fluid" role="main">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-1">
+					<h2><i class="fa fa-level-up box-icon"></i>&nbsp;Sponsors</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="logo text-center"><a href="https://www.tutus.se" target="_blank"><img src="/images/sponsors/tutus.svg" alt="Tutus Data AB"></a></div>
+				</div>
+			</div>
+		</main>
+
+
+	</div>
+	<footer class="footer" role="contentinfo">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<p>Copyright &copy; 2013-2019 <a href="https://twitter.com/sircoma" target="_blank">Joris Vink</a></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.min.js"></script>
+
+<script>
+function ex(which) {
+	if (which == "python") {
+		document.querySelector("#c-example").style.display = "none";
+		document.querySelector("#python-example").style.display = "block";
+	} else {
+		document.querySelector("#c-example").style.display = "block";
+		document.querySelector("#python-example").style.display = "none";
+	}
+
+	return false;
+}
+</script>
+
+</body>
+</html>
