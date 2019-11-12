@@ -1,0 +1,1216 @@
+
+<!DOCTYPE html><html lang="en"><head><title>Care2 is the world's largest social network for good, a community of over 40 million people standing together, starting petitions and sharing stories that inspire action.</title><meta charset="utf-8"/><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwcOUVJQGwYGU1JaAQI=",licenseKey:"5c61b037c4",applicationID:"5673863"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(23),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(24),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError",l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(13),t(12),"addEventListener"in window&&t(6),c.xhrWrappable&&t(14),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(){j++,L=y.hash,this[u]=x.now()}function o(){j--,y.hash!==L&&i(0,!0);var t=x.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+y,e])}function a(t,e){t.on(e,function(){this[e]=x.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,y=w.location,x=t("loader");if(w[v]&&x.xhrWrappable){var g=t(10),b=t(11),E=t(8),R=t(6),O=t(13),C=t(7),P=t(14),T=t(9),N=t("ee"),S=N.get("tracer");t(16),x.features.spa=!0;var L,j=0;N.on(u,r),N.on(p,r),N.on(d,o),N.on(l,o),N.buffer([u,d,"xhr-done","xhr-resolved"]),R.buffer([u]),O.buffer(["setTimeout"+c,"clearTimeout"+s,u]),P.buffer([u,"new-xhr","send-xhr"+s]),C.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),g.buffer([u]),b.buffer(["propagate",p,l,"executor-err","resolve"+s]),S.buffer([u,"no-"+u]),T.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(P,"send-xhr"+s),a(N,"xhr-resolved"),a(N,"xhr-done"),a(C,m+s),a(C,m+"-done"),a(T,"new-jsonp"),a(T,"jsonp-end"),a(T,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,!0),w[v]("load",i,!0),w[v]("popstate",function(){i(0,j>1)},!0)}},{}],5:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(13),s=t(12),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",p="resource",l="-start",h="-end",m="fn"+l,v="fn"+h,w="bstTimer",y="pushState",x=t("loader");x.features.stn=!0,t(8);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=x.now())}),o.on(v,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,x.now()])}),a.on(m,function(t,e,n){this.bstStart=x.now(),this.bstType=n}),a.on(v,function(t,e){i(w,[e,this.bstStart,x.now(),this.bstType])}),s.on(m,function(){this.bstStart=x.now()}),s.on(v,function(t,e){i(w,[e,this.bstStart,x.now(),"requestAnimationFrame"])}),o.on(y+l,function(t){this.time=x.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],6:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(26)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],7:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=r.apply(this,arguments);return o.emit(n+"start",arguments,t),t.then(function(e){return o.emit(n+"end",[null,e],t),e},function(e){throw o.emit(n+"end",[e],t),e})})}var o=t("ee").get("fetch"),i=t(23);e.exports=o;var a=window,s="fetch-",c=s+"body-",f=["arrayBuffer","blob","json","text","formData"],u=a.Request,d=a.Response,p=a.fetch,l="prototype";u&&d&&p&&(i(f,function(t,e){r(u[l],e,c),r(d[l],e,c)}),r(a,"fetch",s),o.on(s+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(s+"done",[null,e],n)}else o.emit(s+"done",[t],n)}))},{}],8:[function(t,e,n){var r=t("ee").get("history"),o=t(26)(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],9:[function(t,e,n){function r(t){function e(){c.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}function n(){c.emit("jsonp-error",[],p),c.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var u=s(a),d="function"==typeof u.parent[u.key];if(d){var p={};f.inPlace(u.parent,[u.key],"cb-",p),t.addEventListener("load",e,!1),t.addEventListener("error",n,!1),c.emit("new-jsonp",[t.src],p)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(u);return e?e[1]:null}function a(t,e){var n=t.match(p),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(d);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t("ee").get("jsonp"),f=t(26)(c);if(e.exports=c,o()){var u=/[?&](?:callback|cb)=([^&#]+)/,d=/(.*)\.([^.]+)/,p=/^(\w+)(\.|$)(.*)$/,l=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?f.inPlace(Node.prototype,l,"dom-"):(f.inPlace(HTMLElement.prototype,l,"dom-"),f.inPlace(HTMLHeadElement.prototype,l,"dom-"),f.inPlace(HTMLBodyElement.prototype,l,"dom-")),c.on("dom-start",function(t){r(t[0])})}},{}],10:[function(t,e,n){var r=t("ee").get("mutation"),o=t(26)(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],11:[function(t,e,n){function r(t){var e=a.context(),n=s(t,"executor-",e),r=new f(n);return a.context(r).getCtx=function(){return e},a.emit("new-promise",[r,e],e),r}function o(t,e){return e}var i=t(26),a=t("ee").get("promise"),s=i(a),c=t(23),f=NREUM.o.PR;e.exports=a,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){a.emit("propagate",[null,!o],i),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var i=e.apply(f,arguments),s=f.resolve(i);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&a.emit("propagate",[t,!0],n),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),a.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this),t[1]=s(t[1],"resolve-",this)}),a.on("executor-err",function(t,e,n){t[1](n)}),s.inPlace(f.prototype,["then"],"then-",o),a.on("then-start",function(t,e){this.promise=e,t[0]=s(t[0],"cb-",this),t[1]=s(t[1],"cb-",this)}),a.on("then-end",function(t,e,n){this.nextPromise=n;var r=this.promise;a.emit("propagate",[r,!0],n)}),a.on("cb-end",function(t,e,n){a.emit("propagate",[n,!0],this.nextPromise)}),a.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=a.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],12:[function(t,e,n){var r=t("ee").get("raf"),o=t(26)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],13:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(26)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],14:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){x.push(t),h&&(b?b.then(a):v?v(a):(E=-E,R.data=E))}function a(){for(var t=0;t<x.length;t++)r([],x[t]);x.length&&(x=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(6);var f=t("ee"),u=f.get("xhr"),d=t(26)(u),p=NREUM.o,l=p.XHR,h=p.MO,m=p.PR,v=p.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],x=[];e.exports=u;var g=window.XMLHttpRequest=function(t){var e=new l(t);try{u.emit("new-xhr",[e],e),e.addEventListener(w,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(l,g),g.prototype=l.prototype,d.inPlace(g.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!v&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],15:[function(t,e,n){function r(){var t=window.NREUM,e=t.info.accountID||null,n=t.info.agentID||null,r=t.info.trustKey||null,i="btoa"in window&&"function"==typeof window.btoa;if(!e||!n||!i)return null;var a={v:[0,1],d:{ty:"Browser",ac:e,ap:n,id:o.generateCatId(),tr:o.generateCatId(),ti:Date.now()}};return r&&e!==r&&(a.d.tk=r),btoa(JSON.stringify(a))}var o=t(21);e.exports={generateTraceHeader:r}},{}],16:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<l;r++)t.removeEventListener(p[r],this.listener,!1);e.aborted||(n.duration=s.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):a(this,t),n.cbTime=this.cbTime,d.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime]))}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return v(r)}function i(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}function a(t,e){t.params.status=e.status;var n=o(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(17),u=t(15).generateTraceHeader,d=t("ee"),p=["load","error","abort","timeout"],l=p.length,h=t("id"),m=t(20),v=t(19),w=window.XMLHttpRequest;s.features.xhr=!0,t(14),d.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,t.addEventListener("load",function(n){a(e,t)},!1),m&&(m>34||m<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),d.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),d.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=!1;if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=!!NREUM.init.distributed_tracing.enabled),n&&this.sameOrigin){var r=u();r&&e.setRequestHeader("newrelic",r)}}),d.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=v(r);i&&(n.txSize=i)}this.startTime=s.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{d.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<l;a++)e.addEventListener(p[a],this.listener,!1)}),d.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),d.on("xhr-load-added",function(t,e){var n=""+h(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),d.on("xhr-load-removed",function(t,e){var n=""+h(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),d.on("addEventListener-end",function(t,e){e instanceof w&&"load"===t[0]&&d.emit("xhr-load-added",[t[1],t[2]],e)}),d.on("removeEventListener-end",function(t,e){e instanceof w&&"load"===t[0]&&d.emit("xhr-load-removed",[t[1],t[2]],e)}),d.on("fn-start",function(t,e,n){e instanceof w&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=s.now()))}),d.on("fn-end",function(t,e){this.xhrCbStart&&d.emit("xhr-cb-time",[s.now()-this.xhrCbStart,this.onload,e],e)})}},{}],17:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],18:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[f.now()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(23),s=t(24),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){u[e]=o(p+e,!0,"api")}),u.addPageAction=o(p+"addPageAction",!0),u.setCurrentRouteName=o(p+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=o(l+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,e])}},{}],19:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],20:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],21:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(e=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i<16;i++)o.push(t().toString(16));return o.join("")}e.exports={generateUuid:r,generateCatId:o}},{}],22:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],23:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],24:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],25:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],26:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(24),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(f){p([f,"",[r,a,o],s])}u(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],s),d}finally{u(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<e.length;c++)s=e[c],a=t[s],r(a)||(t[s]=n(a,f?s+o:o,i,s))}function u(n,r,o){if(!c||e){var i=c;c=!0;try{t.emit(n,r,o,e)}catch(a){p([a,n,r,o])}c=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){p([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function p(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function n(n,r,o,i){if(!p.aborted||i){t&&t(n,r,o);for(var a=e(o),s=m(n),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[x[n]];return d&&d.push([g,n,r,a]),a}}function l(t,e){y[t]=m(t).concat(e)}function h(t,e){var n=y[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",x[n]=e,e in u||(u[e]=[])})}var y={},x={},g={on:l,addEventListener:l,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(p.aborted=!0,u=p.backlog={})}var s="nr@context",c=t("gos"),f=t(23),u={},d={},p=e.exports=o();p.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!E++){var t=b.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(x,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()+b.offset],null,"api");var n=l.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return R.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(23),u=t("ee"),d=t(22),p=window,l=p.document,h="addEventListener",m="attachEvent",v=p.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:v,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,x={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1130.min.js"},g=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),b=e.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:g,userAgent:d};t(18),l[h]?(l[h]("DOMContentLoaded",i,!1),p[h]("load",r,!1)):(l[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,R=t(25)},{}]},{},["loader",2,16,5,3,4]);</script> <meta property="og:title" content="Care2 is the world's largest social network for good, a community of over 40 million people standing together, starting petitions and sharing stories that inspire action." /><meta property="og:description" content="Largest online community empowering people to lead a healthy and green lifestyle while taking action on important causes such as human rights, animal welfare and global warming." /><meta property="og:image" content="//dingo.care2.com/petitions/care2_psite.png" /><meta property="og:type" content="website" /><meta property="og:url" content="http://www.care2.com/index.html" /> <meta property="fb:app_id" content="482659988595053"/> <meta property="twitter:card" content="summary_large_image" /><meta property="twitter:title" content="Care2 is the world's largest social network for good, a community of over 40 million people standing together, starting petitions and sharing stories that inspire action." /><meta property="twitter:description" content="Largest online community empowering people to lead a healthy and green lifestyle while taking action on important causes such as human rights, animal welfare and global warming." /><meta property="twitter:image" content="//dingo.care2.com/petitions/care2_psite.png" /><meta property="twitter:site" content="@Care2" /><meta property="twitter:creator" content="@Care2" /> <meta name="description" content="Largest online community empowering people to lead a healthy and green lifestyle while taking action on important causes such as human rights, animal welfare and global warming."/><meta name="p:domain_verify" content="34d24671362965e0c3942e7b3b484ea7"/><link rel="stylesheet" type="text/css" href="//dingo.care2.com/assets/css/main.css?1573593209" /><link rel="stylesheet" type="text/css" href="//dingo.care2.com/assets/css/home_page.css?1573593209" />
+<script type="text/javascript">
+
+        if (!window.care2_ua_header_ts) {
+            window.care2_ua_header_ts = new Date().getTime() / 1000;
+        }
+        
+</script><link rel="canonical" href="http://www.care2.com" /><meta name="viewport" content="width = device-width, user-scalable = no" /><meta name="apple-mobile-web-app-capable" content="yes" /><script>if (document.cookie.indexOf("swimlane") < 0) {document.cookie = "swimlane=" + Math.floor(Math.random() * 99) + 1;}</script><script src="//cdn.optimizely.com/js/22866392.js"></script></head><body class="care2_home_page logged-out care2"><a name="top"></a><div id="fb-root"></div><script>window.translationStrings = {"cookieNotification--message":"Care2 uses cookies to help optimize your site visit.","cookieNotification--accept":"This is fine with me","cookieNotification--learnMore":"<a id=\"learnMore\" href=\"\/\/www.care2.com\/privacy-policy\">Learn More<\/a>","onsite_feedback_form":"onsite feedback form","problem_on_this_page_blurb":"Problem on this page? Briefly let us know what isn't working for you and we'll try to make it right!","email_address":"Email Address","send_feedback":"send feedback"};</script><div id="care2_wrapper"><header class="contain_floats care2_wrapper"><a href="http://www.care2.com" class="care2_logo">Care2</a><div class="login_links_container"><form action="//www.care2.com/find/site" method="get"><input type="hidden" name="r" value="all" /><input type="text" name="q" /><button type="submit"></button></form><ul class="login_links loggedin" style="display:none"><li class="name"><label for="c2nav_dd-1" class="dropdown-text name"></label><input type="text" id="c2nav_dd-1" class="dropdown-toggle" /><div class="dropdown-content"><ul><li><a href="http://www.care2.com/passport/logoff.html">log off</a></li><li class="desktop_only"><a href="http://www.care2.com/my/petitionsite">my petitionsite</a></li></ul></div></li><li class="my"><a href="http://www.care2.com/c2c/my/">MY</a></li></ul><ul class="login_links loggedout" style="display:none"><li><a href="http://www.care2.com/passport/login.html?promo=register" class="login_link">JOIN US</a></li><li><a href="http://www.care2.com/passport/login.html?pg=https%3A%2F%2Fwww.care2.com%2F" class="login_link">SIGN IN</a></li></ul></div><a href="https://www.thepetitionsite.com/create-a-petition.html?cid=headerClickC2&src=care2&campaign=headerClickC2" class="start_petition">Start A Petition</a><nav><ul><li class="petitions"><label for="c2nav_dd-2" class="dropdown-text">Petitions</label><input type="text" id="c2nav_dd-2" class="dropdown-toggle" /><ul class="dropdown-content"><li><a href="https://www.thepetitionsite.com/create-a-petition.html">Start petition</a></li><li><a href="https://www.thepetitionsite.com/browse-petitions/">Browse petitions</a></li><li><a href="https://www.thepetitionsite.com/activist-university/">Activist University</a></li></ul></li></ul></nav></header><div id="fixed_header" class="fixed_header"><div class="care2_wrapper"><div class="left_side"><a href="#" class="shortcut_menu"></a><a href="http://www.care2.com/" class="care2_logo"></a></div><div class="right_side"><button class="show_form"></button><form action="//www.care2.com/find/site" method="get"><input type="hidden" name="r" value="all" /><input type="text" name="q" /><button type="submit"></button></form><ul class="login_links loggedout"><li><a href="http://www.care2.com/passport/login.html?promo=register" class="login_link">JOIN US</a></li><li><a href="http://www.care2.com/passport/login.html?pg=https%3A%2F%2Fwww.care2.com%2F" class="login_link">SIGN IN</a></li></ul><a href="https://www.thepetitionsite.com/create-a-petition.html" class="start_petition">START A PETITION</a></div></div></div><div id="shortcut_menu" style="display:none;"><ul><li><a href="http://www.care2.com/">care2 Home</a></li><li><a href="https://www.thepetitionsite.com/create-a-petition.html" class="emphesis">start a petition</a></li><li><a href="https://www.thepetitionsite.com/browse-petitions/">browse petitions</a></li></ul><ul><li><a href="https://www.thepetitionsite.com/animal-welfare/">Animal Welfare</a></li><li><a href="https://www.thepetitionsite.com/human-rights/">Human Rights</a></li><li><a href="https://www.thepetitionsite.com/human-rights/gay-rights/">LGBT</a></li><li><a href="https://www.thepetitionsite.com/human-rights/womens-rights/">Womens Rights</a></li><li><a href="http://www.care2.com/aboutus/">About Us</a></li></ul><a href="#" class="close">x</a></div>
+<div id="care2_main_container" class="care2_wrapper contain_floats">
+
+<!-- PAGE CONTENT BEGIN -->
+    <div class="spotlight">
+    <video autoplay muted loop id="care2SpotlightVideo">
+        <source src="//dingo.care2.com/c2/care2_vid.m4v" type="video/mp4">
+    </video>
+
+    <div class="content">
+        <p>Care2 gives you the tools to make the <em>impossible</em> <strong>possible</strong>.</p>
+
+        <a href="https://www.thepetitionsite.com/browse-petitions/#hottest" class="button">Sign Trending Petitions</a>
+    </div>
+</div>
+
+<div class="tagline"><div class="care2_wrapper">You care about&nbsp;<div class="line"><span>lion poaching</span><span>gun violence</span><span>inequality</span><span>elephants</span><span>LGBTQ rights</span><span>rape culture</span><span>pitbull bans</span><span>homelessness</span><span>trophy hunting</span><span>education</span><span>discrimination</span><span>food waste</span><span>polluted water</span><span>sexual assault</span><span>animal abuse</span><span>tampon tax</span><span>orcas in captivity</span><span>net neutrality</span><span>animal testing</span><span>trophy hunting</span><span>cat declawing</span><span>sexist dress codes</span><span>greyhound racing</span><span>animal testing</span><span>puppy mills</span><span>shark finning</span><span>fur in fashion</span><span>captive animals</span><span>police brutality</span><span>lost dogs</span><span>prison complex</span><span>circuses</span>.</div>We Care2.</div></div>
+<div class="trending_content">
+    <div class="container">
+        <div class="petitions_group">
+            <div class="petitions_list">
+                                    
+                                                    <div class="petition content_petition" data-petitionID="591532370">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/591/532/370/endangered-bear-products-are-on-sale-in-this-countrys-shops/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/370/591532-1572477296-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/591/532/370/endangered-bear-products-are-on-sale-in-this-countrys-shops/">endangered bear products are on sale in this country's shops</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="591532370" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/591/532/370/endangered-bear-products-are-on-sale-in-this-countrys-shops/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="964011643">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/964/011/643/at-this-lab-they-shoved-metal-pipes-down-dogs-throats-and-forced-monkeys-to-dangle-from-metal-tongs./">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/643/964011-1573158393-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/964/011/643/at-this-lab-they-shoved-metal-pipes-down-dogs-throats-and-forced-monkeys-to-dangle-from-metal-tongs./">at this lab, they forced monkeys to dangle from metal tongs and&hellip;</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="964011643" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/964/011/643/at-this-lab-they-shoved-metal-pipes-down-dogs-throats-and-forced-monkeys-to-dangle-from-metal-tongs./" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="134039600">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/134/039/600/the-plight-of-the-animals-suffering-in-this-countrys-zoos-will-bring-you-to-tears./">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/600/134039-1573171081-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/134/039/600/the-plight-of-the-animals-suffering-in-this-countrys-zoos-will-bring-you-to-tears./">the plight of the animals suffering in this country's zoos will&hellip;</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="134039600" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/134/039/600/the-plight-of-the-animals-suffering-in-this-countrys-zoos-will-bring-you-to-tears./" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="401131119">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/401/131/119/justice-for-kanakota.-the-elephant-that-was-worked-to-death./">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/119/401131-1572909647-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/401/131/119/justice-for-kanakota.-the-elephant-that-was-worked-to-death./">justice for kanakota. the elephant that was worked to death.</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="401131119" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/401/131/119/justice-for-kanakota.-the-elephant-that-was-worked-to-death./" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="310013236">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/310/013/236/these-baby-pigs-are-used-as-crash-test-dummies-and-are-dying-horrible-deaths/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/236/310013-1572996965-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/310/013/236/these-baby-pigs-are-used-as-crash-test-dummies-and-are-dying-horrible-deaths/">these baby pigs are used as crash test dummies and are dying&hellip;</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="310013236" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/310/013/236/these-baby-pigs-are-used-as-crash-test-dummies-and-are-dying-horrible-deaths/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="489318455">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/489/318/455/bears-continue-to-suffer-in-russian-circuses/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/455/489318-1572480421-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/489/318/455/bears-continue-to-suffer-in-russian-circuses/">bears continue to suffer in russian circuses</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="489318455" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/489/318/455/bears-continue-to-suffer-in-russian-circuses/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="522453339">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/522/453/339/these-horses-made-their-owners-millions-then-they-sent-them-to-the-slaughterhouse/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/339/522453-1571927128-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/522/453/339/these-horses-made-their-owners-millions-then-they-sent-them-to-the-slaughterhouse/">these horses made their owners millions, then they sent them to&hellip;</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="522453339" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/522/453/339/these-horses-made-their-owners-millions-then-they-sent-them-to-the-slaughterhouse/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="908988270">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/908/988/270/hold-donald-trump-jr.-accountable-for-outing-the-alleged-whistleblower-and-jeopardizing-his-safety/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/270/908988-1573525445-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/908/988/270/hold-donald-trump-jr.-accountable-for-outing-the-alleged-whistleblower-and-jeopardizing-his-safety/">hold donald trump jr. accountable for outing the alleged&hellip;</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="908988270" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/908/988/270/hold-donald-trump-jr.-accountable-for-outing-the-alleged-whistleblower-and-jeopardizing-his-safety/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="335854446">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/335/854/446/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/446/335854-1569423643-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/335/854/446/">when will thailand ban the cruel captive tiger industry? more than&hellip;</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="335854446" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/335/854/446/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="483529473">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/483/529/473/scientists-found-a-new-strain-of-ebola-then-trump-ended-funding-to-stop-it./">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/473/483529-1573590085-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/483/529/473/scientists-found-a-new-strain-of-ebola-then-trump-ended-funding-to-stop-it./">scientists found a new strain of ebola, then trump ended funding&hellip;</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="483529473" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/483/529/473/scientists-found-a-new-strain-of-ebola-then-trump-ended-funding-to-stop-it./" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="605565624">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/605/565/624/eleven-elephants-fell-to-their-deaths-in-this-national-park/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/624/605565-1570543183-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/605/565/624/eleven-elephants-fell-to-their-deaths-in-this-national-park/">eleven elephants fell to their deaths in this national park</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="605565624" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/605/565/624/eleven-elephants-fell-to-their-deaths-in-this-national-park/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="597080118">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/597/080/118/a-deadly-swim-its-time-to-ban-the-marine-life-killing-shark-nets/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/118/597080-1516305760-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/597/080/118/a-deadly-swim-its-time-to-ban-the-marine-life-killing-shark-nets/">it's time to ban the marine-life-killing shark nets</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="597080118" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/597/080/118/a-deadly-swim-its-time-to-ban-the-marine-life-killing-shark-nets/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="632552270">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/632/552/270/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/270/632552-1565961424-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/632/552/270/">children with disabilities have the right to go to school</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="632552270" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/632/552/270/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="328734326">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/328/734/326/this-politician-thinks-students-sleeping-in-their-cars-is-the-solution-to-expensive-housing/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/326/328734-1573594468-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/328/734/326/this-politician-thinks-students-sleeping-in-their-cars-is-the-solution-to-expensive-housing/">this politician thinks students sleeping in their cars is the&hellip;</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="328734326" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/328/734/326/this-politician-thinks-students-sleeping-in-their-cars-is-the-solution-to-expensive-housing/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="232325805">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/232/325/805/trump-wants-to-withhold-vital-meals-services-from-low-income-children-off-of-free-school-lunches/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/805/232325-1573192438-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/232/325/805/trump-wants-to-withhold-vital-meals-services-from-low-income-children-off-of-free-school-lunches/">trump wants to withhold vital meals services from low-income children</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="232325805" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/232/325/805/trump-wants-to-withhold-vital-meals-services-from-low-income-children-off-of-free-school-lunches/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="144248552">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/144/248/552/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/552/144248-1572899694-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/144/248/552/">support access to school breakfast</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="144248552" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/144/248/552/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="334058769">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/334/058/769/child-marriage-is-legal-in-48-states-ban-it-now/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/769/334058-1551396905-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/334/058/769/child-marriage-is-legal-in-48-states-ban-it-now/">child marriage is legal in 48 states — ban it now!</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="334058769" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/334/058/769/child-marriage-is-legal-in-48-states-ban-it-now/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="249620291">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/249/620/291/these-zoo-owners-have-abandoned-their-animals.-now-their-fate-is-up-in-the-air./">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/291/249620-1553865421-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/249/620/291/these-zoo-owners-have-abandoned-their-animals.-now-their-fate-is-up-in-the-air./">these zoo owners have abandoned their animals. now their fate is&hellip;</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="249620291" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/249/620/291/these-zoo-owners-have-abandoned-their-animals.-now-their-fate-is-up-in-the-air./" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="588676917">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/588/676/917/natural-bridge-zoo-its-time-to-send-lonely-abused-asha-to-sanctuary/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/917/588676-1539977965-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/588/676/917/natural-bridge-zoo-its-time-to-send-lonely-abused-asha-to-sanctuary/">natural bridge zoo, it's time to send lonely, abused asha to sanctuary!</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="588676917" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/588/676/917/natural-bridge-zoo-its-time-to-send-lonely-abused-asha-to-sanctuary/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="610910230">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/610/910/230/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/230/610910-1572631211-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/610/910/230/">these companies have been named the biggest plastic polluters.&hellip;</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="610910230" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/610/910/230/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="155128075">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/155/128/075/this-circus-forces-elephants-to-haul-people-around-on-sleds/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/075/155128-1546969452-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/155/128/075/this-circus-forces-elephants-to-haul-people-around-on-sleds/">this circus forces elephants to haul people around on sleds</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="155128075" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/155/128/075/this-circus-forces-elephants-to-haul-people-around-on-sleds/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="401723508">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/401/723/508/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/508/401723-1573087082-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/401/723/508/">take the pledge: affirm that you believe survivors of sexual assault</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="401723508" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/401/723/508/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="577692493">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/577/692/493/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/493/577692-1568827560-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/577/692/493/">take action against climate change</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="577692493" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/577/692/493/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="308051253">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/308/051/253/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/253/308051-1560811970-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/308/051/253/">stop puppy mill cruelty. don't shop at stores that sell puppies!</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="308051253" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/308/051/253/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="517614758">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/517/614/758/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/758/517614-1572548672-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/517/614/758/">we must protect these brave individuals</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="517614758" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/517/614/758/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="368283798">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/368/283/798/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/798/368283-1556298213-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/368/283/798/">the amazing race must apologize for promoting elephant torture!</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="368283798" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/368/283/798/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="542559582">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/542/559/582/save-polar-and-bear/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/582/542559-1551735798-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/542/559/582/save-polar-and-bear/">save polar and bear</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="542559582" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/542/559/582/save-polar-and-bear/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="932668216">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/932/668/216/michigan-make-debarking-dogs-illegal/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/216/932668-1528040057-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/932/668/216/michigan-make-debarking-dogs-illegal/">make debarking dogs illegal in michigan</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="932668216" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/932/668/216/michigan-make-debarking-dogs-illegal/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="405711579">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/405/711/579/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/579/405711-1567897888-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/405/711/579/">tell congress: protect tigers. support the big cat public safety act.</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="405711579" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/405/711/579/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="151063979">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/151/063/979/this-cafe-is-dangerously-dying-dogs-fur/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/979/151063-1573156828-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/151/063/979/this-cafe-is-dangerously-dying-dogs-fur/">this cafe is dangerously dyeing dogs' fur!</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="151063979" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/151/063/979/this-cafe-is-dangerously-dying-dogs-fur/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="395400493">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/395/400/493/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/493/395400-1568836321-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/395/400/493/">tell the trump administration: restore human rights for children!</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="395400493" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/395/400/493/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="968776218">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/968/776/218/bring-don-cherry-back-to-sportsnet/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/218/968776-1573527991-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/968/776/218/bring-don-cherry-back-to-sportsnet/">bring don cherry back to hockey</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="968776218" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/968/776/218/bring-don-cherry-back-to-sportsnet/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="961394598">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/961/394/598/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/598/961394-1572379077-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/961/394/598/">moms against mint and menthol: remove all flavored e-cigs from the market.</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="961394598" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/961/394/598/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="572204266">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/572/204/266/this-countrys-military-is-blowing-up-pigs-to-test-body-armor/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/266/572204-1556636596-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/572/204/266/this-countrys-military-is-blowing-up-pigs-to-test-body-armor/">this country's military is blowing up pigs to test body armor</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="572204266" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/572/204/266/this-countrys-military-is-blowing-up-pigs-to-test-body-armor/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="615079227">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/615/079/227/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/227/615079-1572038606-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/615/079/227/">life-saving medicines can now prevent the spread of hiv. tell all&hellip;</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="615079227" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/615/079/227/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="585342363">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/585/342/363/the-tigress-convulses-after-being-forced-to-jump-through-fire-hoop/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/363/585342-1537926081-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/585/342/363/the-tigress-convulses-after-being-forced-to-jump-through-fire-hoop/">zena the tigress was dragged by her tail during a seizure while&hellip;</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="585342363" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/585/342/363/the-tigress-convulses-after-being-forced-to-jump-through-fire-hoop/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="324351187">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/324/351/187/50-starved-polar-bears-came-into-town-and-now-they-may-be-killed/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/187/324351-1550098529-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/324/351/187/50-starved-polar-bears-came-into-town-and-now-they-may-be-killed/">50 starved polar bears came into town and now they may be killed</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="324351187" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/324/351/187/50-starved-polar-bears-came-into-town-and-now-they-may-be-killed/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="315481923">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/315/481/923/3-million-people-will-lose-access-to-food-stamps-if-trump-gets-his-way/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/923/315481-1565202293-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/315/481/923/3-million-people-will-lose-access-to-food-stamps-if-trump-gets-his-way/">3 million people will lose access to food stamps if trump gets his way</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="315481923" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/315/481/923/3-million-people-will-lose-access-to-food-stamps-if-trump-gets-his-way/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="881394542">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/takeaction/881/394/542/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/542/881394-1571785481-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/takeaction/881/394/542/">nyc: help end pet store cruelty statewide!</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="881394542" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/takeaction/881/394/542/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                                
+                                                    <div class="petition content_petition" data-petitionID="275779259">
+                                <div class="thumbnail">
+                                    <a href="https://www.thepetitionsite.com/275/779/259/our-bees-are-dying-and-this-household-herbicide-could-be-partially-to-blame/">
+                                        <img src="//dingo.care2.com/petitions/global/sign-now.jpg" class="scroll_unveil" data-src="https://dingo.care2.com/pictures/petition_images/petition/259/275779-1538154988-wide.jpg"/>
+                                    </a>
+                                </div>
+
+                                <div class="title">
+                                    <a href="https://www.thepetitionsite.com/275/779/259/our-bees-are-dying-and-this-household-herbicide-could-be-partially-to-blame/">our bees are dying and this household herbicide could be partially to blame</a>
+                                </div>
+
+                                <div class="signatures">
+                                    <span data-petitionID="275779259" class="get_signature_count"></span>
+                                    &nbsp;SUPPORTERS
+                                </div>
+
+                                <div class="button">
+                                    <a href="https://www.thepetitionsite.com/275/779/259/our-bees-are-dying-and-this-household-herbicide-could-be-partially-to-blame/" class="sign_button">Sign Now</a>
+                                </div>
+
+                            </div>
+                                                                                
+                                                                        </div>
+        </div>
+
+        <div class="tags">
+            <h3>Trending Petition Topics</h3>
+
+            <a href="https://www.thepetitionsite.com/animal-rights/">Animal Rights</a>
+<a href="https://www.thepetitionsite.com/womens-rights/">Women’s Rights</a>
+<a href="https://www.thepetitionsite.com/707/508/189/impeach-trump/">Resist Trump</a>
+<a href="https://www.thepetitionsite.com/lgbtq-rights/">LGBTQ</a>
+<a href="https://www.thepetitionsite.com/wildlife/">Wildlife</a>
+<a href="https://www.thepetitionsite.com/human-rights/">Human Rights</a>
+<a href="https://www.thepetitionsite.com/441/776/138/end-yulin-dog-meat-eating-festival/">Dog Meat</a>
+<a href="https://www.thepetitionsite.com/environment/">Environment</a>
+<a href="https://www.thepetitionsite.com/childrens-rights/">Children</a>
+<a href="https://www.thepetitionsite.com/civil-rights/">Civil Rights</a>
+<a href="https://www.thepetitionsite.com/local/US/CA/">California</a>
+<a href="https://www.thepetitionsite.com/local/CA/">Canada</a>
+<a href="https://www.thepetitionsite.com/local/GB/">UK</a>
+<a href="https://www.thepetitionsite.com/browse-petitions/">More</a>        </div>
+
+        <button type="button" class="prev"></button>
+        <button type="button" class="next"></button>
+    </div>
+</div>
+<div class="site_stats">
+    <div class="care2_wrapper">
+        <div class="members stat"><span>54,024,845</span> Care2 Members</div>
+        <div class="signatures stat"><span>942,823,580</span> Petition Signatures</div>
+        <div class="petitions_created stat"><span>439,079</span> Petitions Created</div>
+        <div class="nonprofit_partners stat"><span>2,750</span> Nonprofit Partners</div>
+    </div>
+</div>
+<div class="successes">
+    <div class="care2_wrapper">
+        <h3>New Petition Wins Every Day!</h3>
+
+        <div class="container">
+            <div class="content_group">
+                <div class="content_list">
+                                            <div class="success content">
+                            <div class="thumbnail">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-uvas-champion-basketball-team-declines-visit-to-white-house/"><img src="http://www.thepetitionsite.com/activist-university/wp-content/uploads/2019/08/3249627.large_-300x185.jpg" /></a>
+                            </div>
+
+                            <div class="title">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-uvas-champion-basketball-team-declines-visit-to-white-house/">Success! UVA’s Champion Basketball Team Declines Visit to White House</a>
+                            </div>
+                        </div>
+                                            <div class="success content">
+                            <div class="thumbnail">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-southampton-city-council-agrees-to-stop-criminalizing-homelessness/"><img src="http://www.thepetitionsite.com/activist-university/wp-content/uploads/2019/08/homeless-man-300x200.jpg" /></a>
+                            </div>
+
+                            <div class="title">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-southampton-city-council-agrees-to-stop-criminalizing-homelessness/">Success! Southampton City Council Agrees to Stop Criminalizing Homelessness</a>
+                            </div>
+                        </div>
+                                            <div class="success content">
+                            <div class="thumbnail">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-germanys-last-fur-farm-has-closed/"><img src="http://www.thepetitionsite.com/activist-university/wp-content/uploads/2019/08/fox-300x200.jpg" /></a>
+                            </div>
+
+                            <div class="title">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-germanys-last-fur-farm-has-closed/">Success! Germany’s Last Fur Farm Has Closed</a>
+                            </div>
+                        </div>
+                                            <div class="success content">
+                            <div class="thumbnail">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-care2-petitions-convince-amtrak-to-install-lactation-pods-at-5-train-stations/"><img src="http://www.thepetitionsite.com/activist-university/wp-content/uploads/2019/08/lacey-breastfeeding-300x212.jpg" /></a>
+                            </div>
+
+                            <div class="title">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-care2-petitions-convince-amtrak-to-install-lactation-pods-at-5-train-stations/">Success! Care2 Petitions Convince Amtrak to Install Lactation Pods at 5 Train Stations</a>
+                            </div>
+                        </div>
+                                            <div class="success content">
+                            <div class="thumbnail">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-starbucks-will-stop-using-plastic-straws-by-2020/"><img src="http://www.thepetitionsite.com/activist-university/wp-content/uploads/2019/08/starbucksstraw-300x185.jpg" /></a>
+                            </div>
+
+                            <div class="title">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-starbucks-will-stop-using-plastic-straws-by-2020/">Success! Starbucks Will Stop Using Plastic Straws by 2020</a>
+                            </div>
+                        </div>
+                                            <div class="success content">
+                            <div class="thumbnail">
+                                <a href="http://www.thepetitionsite.com/activist-university/care2-members-push-netflix-to-address-the-crown-gender-pay-gap-controversy/"><img src="http://www.thepetitionsite.com/activist-university/wp-content/uploads/2019/08/thecrown-300x185.jpg" /></a>
+                            </div>
+
+                            <div class="title">
+                                <a href="http://www.thepetitionsite.com/activist-university/care2-members-push-netflix-to-address-the-crown-gender-pay-gap-controversy/">Care2 Members Push Netflix to Address ‘The Crown’ Gender Pay Gap Controversy</a>
+                            </div>
+                        </div>
+                                            <div class="success content">
+                            <div class="thumbnail">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-kylo-the-hero-dog-gets-to-come-home/"><img src="http://www.thepetitionsite.com/activist-university/wp-content/uploads/2019/08/kyloherodog-300x185.jpg" /></a>
+                            </div>
+
+                            <div class="title">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-kylo-the-hero-dog-gets-to-come-home/">Success! Kylo the Hero Dog Gets to Come Home</a>
+                            </div>
+                        </div>
+                                            <div class="success content">
+                            <div class="thumbnail">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-new-york-bans-cat-declawing/"><img src="http://www.thepetitionsite.com/activist-university/wp-content/uploads/2019/08/catdeclawing-300x185.jpg" /></a>
+                            </div>
+
+                            <div class="title">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-new-york-bans-cat-declawing/">Success! New York Bans Cat Declawing</a>
+                            </div>
+                        </div>
+                                            <div class="success content">
+                            <div class="thumbnail">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-canada-bans-whale-and-dolphin-captivity/"><img src="http://www.thepetitionsite.com/activist-university/wp-content/uploads/2019/08/whale-300x185.jpg" /></a>
+                            </div>
+
+                            <div class="title">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-canada-bans-whale-and-dolphin-captivity/">Success! Canada Bans Whale and Dolphin Captivity</a>
+                            </div>
+                        </div>
+                                            <div class="success content">
+                            <div class="thumbnail">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-this-79-year-old-grandmother-wont-be-kicked-out-of-the-uk/"><img src="http://www.thepetitionsite.com/activist-university/wp-content/uploads/2019/08/carolhirst-300x185.jpg" /></a>
+                            </div>
+
+                            <div class="title">
+                                <a href="http://www.thepetitionsite.com/activist-university/success-this-79-year-old-grandmother-wont-be-kicked-out-of-the-uk/">Success! This 79-Year-Old Grandmother Won’t Be Kicked Out of the UK</a>
+                            </div>
+                        </div>
+                                    </div>
+            </div>
+
+            <button type="button" class="prev"></button>
+            <button type="button" class="next"></button>
+        </div>
+
+        <a href="https://www.thepetitionsite.com/create-a-petition.html?src=1688&campaign=home_pg" class="start_petition">
+            Start Your Own Petition
+        </a>
+    </div>
+</div>
+<div class="in_the_news">
+    <div class="care2_wrapper">
+        <h3>Care2 Petitions in the News</h3>
+
+        <a href="https://www.yahoo.com/entertainment/thousands-sign-petition-save-husky-022556547.html" class="standard"> <img src="//dingo.care2.com/care2_in_the_news/YahooNewslogo.jpg" /> </a> <a href="https://www.billboard.com/articles/columns/pop/8501543/michael-jackson-leaving-neverland-aftermath" class="standard"> <img src="//dingo.care2.com/care2_in_the_news/Billboardlogo.jpg" /> </a> <a href="https://www.forbes.com/sites/terencemoore/2019/03/25/with-nfl-owners-meeting-now-robert-kraft-should-get-blasted-by-peers/" class="standard"> <img src=" //dingo.care2.com/care2_in_the_news/Forbeslogo.jpg" /> </a> <a href="https://www.bostonherald.com/2019/03/16/krafts-heyday-may-be-sacked-by-scandal/ " class="standard"> <img src="//dingo.care2.com/care2_in_the_news/BostonHeraldlogo.jpg" /> </a> <a href="https://heavy.com/news/2019/03/richard-adams/" class="standard"> <img src="//dingo.care2.com/care2_in_the_news/heavylogo.jpg" /> </a> <a href="https://losangeles.cbslocal.com/2019/03/07/samuel-french-burglary-vandalism-store-closing/"> <img src="//dingo.care2.com/care2_in_the_news/cbs-logojpg.jpg" /> </a>
+
+
+    </div>
+</div>
+<div class="testimonials">
+    <div class="care2_wrapper">
+                    <div class="testimonial">
+                <div class="content">
+                    <div class="author">
+                        <div class="thumbnail"><img src="//dingo.care2.com/c2home/Xiuhtezcatl-Martinez-Earth-Guardians.jpeg"/></div>
+
+                        <div class="name">Meet Xiuhtezcatl Martinez</div>
+                        <div class="description">Climate Activist, Hip-Hop Artist & Leader of Earth Guardians</div>
+                    </div>
+
+                    <div class="quote">
+                        "Through Care2, I’ve been able to build a movement of people who are energized and committed to defending our planet."
+                    </div>
+                </div>
+            </div>
+                    <div class="testimonial">
+                <div class="content">
+                    <div class="author">
+                        <div class="thumbnail"><img src="//dingo.care2.com/c2home/Whitney-Clapper-Patagonia.jpeg"/></div>
+
+                        <div class="name">Meet Whitney Clapper</div>
+                        <div class="description">Global Brand + Enviro Marketing Manager, Patagonia</div>
+                    </div>
+
+                    <div class="quote">
+                        "Care2 helped us drive over 94,000 signatures on our petition to defend the Arctic. The staff mobilized supporters, creating impact that resonates."
+                    </div>
+                </div>
+            </div>
+                    <div class="testimonial">
+                <div class="content">
+                    <div class="author">
+                        <div class="thumbnail"><img src="//dingo.care2.com/c2/ani.png"/></div>
+
+                        <div class="name">Meet Ani DiFranco</div>
+                        <div class="description">Activist & Artist</div>
+                    </div>
+
+                    <div class="quote">
+                        "Care2 provides tools for people to become change-makers, to go from caring about something in this world to doing something about it. Care2 helps me spread the message to my fans that we actually do have the power to shape society. There are paths and we can lead each other down them."
+                    </div>
+                </div>
+            </div>
+                    <div class="testimonial">
+                <div class="content">
+                    <div class="author">
+                        <div class="thumbnail"><img src="//dingo.care2.com/c2/dane.png"/></div>
+
+                        <div class="name">Meet Dane Grams</div>
+                        <div class="description">Membership Director, Human Rights Campaign</div>
+                    </div>
+
+                    <div class="quote">
+                        "Care2 was able to provide us with the perfect platform to be able to communicate our message and to engage new voices in our support."
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+
+
+<!-- PAGE CONTENT END -->
+
+</div><footer><div class="quote"><div class="care2_wrapper"><div class="text">"The best way to predict the future is to create it!"<br/>- Dennis Gabor</div><a href="https://www.thepetitionsite.com/create-a-petition.html?src=care2&campaign=footer">Start A Petition</a></div></div><div class="footer_sections"><div class="care2_wrapper"><div class="footer_section footer_section_links"><ul><li><a href="http://www.care2.com/">Home</a></li><li><a href="https://www.thepetitionsite.com/create-a-petition.html?src=care2&campaign=footer">Start a Petition</a></li><li><a href="https://www.thepetitionsite.com/browse-petitions/">Sign Petitions</a></li></ul></div><div class="footer_section footer_section_petition_topics"><h3>Trending Petition Topics</h3><ul><li><a href="https://www.thepetitionsite.com/animal-rights/">Animal Rights</a></li><li><a href="https://www.thepetitionsite.com/childrens-rights/">Children's Rights</a></li><li><a href="https://www.thepetitionsite.com/civil-rights/">Civil Rights</a></li><li><a href="https://www.thepetitionsite.com/corporate-accountability/">Corporate Accountability</a></li></ul><ul><li><a href="https://www.thepetitionsite.com/education/">Education</a></li><li><a href="https://www.thepetitionsite.com/environment/">Environment</a></li><li><a href="https://www.thepetitionsite.com/health/">Health</a></li><li><a href="https://www.thepetitionsite.com/human-rights/">Human Rights</a></li></ul><ul><li><a href="https://www.thepetitionsite.com/international-development/">International Development</a></li><li><a href="https://www.thepetitionsite.com/lgbtq-rights/">LGBTQ Rights</a></li><li><a href="https://www.thepetitionsite.com/media-arts-culture/">Media, Arts, Culture</a></li><li><a href="https://www.thepetitionsite.com/politics/">Politics</a></li></ul><ul><li><a href="https://www.thepetitionsite.com/reproductive-rights/">Reproductive Rights</a></li><li><a href="https://www.thepetitionsite.com/wildlife/">Wildlife</a></li><li><a href="https://www.thepetitionsite.com/womens-rights/">Women's Rights</a></li></ul></div></div></div><div class="our_promise"><div class="care2_wrapper"><div class="promise"><p><strong>Our Promise: </strong> Welcome to Care2, the world's largest community for good. Here, you'll find over 45 million like-minded people working towards progress, kindness, and lasting impact.</p><p><strong>Care2 Stands Against: </strong> bigots, bullies, science deniers, misogynists, gun lobbyists, xenophobes, the willfully ignorant, animal abusers, frackers, and other mean people. If you find yourself aligning with any of those folks, you can move along, nothing to see here.</p><p><strong>Care2 Stands With: </strong> humanitarians, animal lovers, feminists, rabble-rousers, nature-buffs, creatives, the naturally curious, and people who really love to do the right thing. <br><strong>You are our people. You Care. We Care2.</strong></p></div><div class="social_buttons"><div class="fb-like"data-href="https://www.facebook.com/Care2"data-layout="button_count"data-action="like"data-size="large"data-show-faces="false"data-share="false"></div><br/><br/><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><a class="twitter-follow-button"href="https://twitter.com/Care2"data-show-screen-name="false"data-show-count="false"data-size="large">Follow</a><br/><br/><script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script><script type="IN/FollowCompany" data-id="27726" data-counter="right"></script></div></div></div><div class="footer_links"><ul><li><a href="http://www.care2.com/">Home</a></li><li><a href="http://www.care2.com/aboutus/">About Us</a></li><li><a href="http://www.care2services.com/">Partnerships</a></li><li><a href="#" id="media_inquiry_form">Media Inquiry</a></li><li><a href="http://www.care2.com/privacy-policy">Privacy Policy</a></li><li><a href="http://www.care2.com/help/general/tos.html">Terms of Service</a></li><li><a href="http://www.care2.com/aboutus/contactus.html">Contact Us</a></li><li><a href="http://www.care2.com/help">Help</a></li><li></li></ul></div><div class="copyright"><div class="care2_wrapper">Copyright &copy; 2019 Care2.com, inc. and its licensors.All rights reserved</div></div></footer></div><!-- begin adroll -->
+<script type="text/javascript">
+adroll_adv_id = "D4HNDFE5HFCRHKXV4IQWZM";
+adroll_pix_id = "NNXB6V7M2RETXLN63JJSYH";
+(function () {
+var oldonload = window.onload;
+window.onload = function(){
+__adroll_loaded=true;
+var scr = document.createElement("script");
+var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+scr.setAttribute('async', 'true');
+scr.type = "text/javascript";
+scr.src = host + "/j/roundtrip.js";
+((document.getElementsByTagName('head') || [null])[0] ||
+document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+if(oldonload){ oldonload() }};
+}());
+</script>
+<!-- end adroll -->
+<div id="hamburger_menu"><ul class="login_links loggedout"><li><a href="http://www.care2.com/passport/login.html?pg=https%3A%2F%2Fwww.care2.com%2F" target="_top">log in / Join</a></li></ul><ul class="login_links loggedin"><li><a href="http://www.care2.com/passport/logoff.html?pg=https%3A%2F%2Fwww.care2.com%2F" target="_top">log out</a></li></ul><div class="hamburger_menu_section care2_petitions"><ul><li><a href="https://www.thepetitionsite.com/create-a-petition.html?cid=mobilemenu&src=TPS&campaign=headerClickPS">Start A Petition</a></li><li><a href="https://www.thepetitionsite.com/browse-petitions/">Sign Petition</a></li><li class="arrow"><a href="http://www.care2.com/">CARE2 Home</a></li><li><ul class="left"><li><a href="http://www.care2.com/greenliving/food-recipes">Food +Recipes</a></li><li><a href="http://www.care2.com/greenliving/health-wellness">Health</a></li><li><a href="http://www.care2.com/greenliving/love">Love + Sex</a></li><li><a href="http://www.care2.com/greenliving/green-101">Green</a></li><li><a href="http://www.care2.com/greenliving/news-issues">News</a></li><li><a href="http://www.care2.com/greenliving/crafts-design">Crafts</a></li><li><a href="http://www.care2.com/ecards/">Ecards</a></li><li><a href="http://www.care2.com/greenliving/brands-for-good-2">Brands forGood</a></li></ul><ul><li><a href="http://www.care2.com/greenliving/garden-nature">Nature</a></li><li><a href="http://www.care2.com/greenliving/pets">Pets</a></li><li><a href="http://www.care2.com/greenliving/spirituality">Spirit</a></li><li><a href="http://www.care2.com/greenliving/healthy-home">Home</a></li><li><a href="http://www.care2.com/greenliving/life">Life</a></li><li><a href="http://www.care2.com/greenliving/family">Family</a></li><li><a href="http://www.care2.com/greenliving/personal-care">Beauty</a></li></ul></li><li><ul class="left"><li><a href="http://www.care2.com/causes/animal-welfare">Animals</a></li><li><a href="http://www.care2.com/causes/womens-rights">Women</a></li><li><a href="http://www.care2.com/causes/politics">Politics</a></li><li><a href="http://www.care2.com/causes/real-food">Food</a></li><li><a href="http://www.care2.com/causes/lgbt">LGBT</a></li><li><a href="http://www.care2.com/causes/human-rights">Human Rights</a></li><li><a href="http://www.care2.com/causes/civil-rights">Civil Rights</a></li></ul><ul><li><a href="http://www.care2.com/causes/children">Children</a></li><li><a href="http://www.care2.com/causes/education">Education</a></li><li><a href="http://www.care2.com/causes/environment">Environment</a></li><li><a href="http://www.care2.com/causes/health-policy">Health Policy</a></li><li><a href="http://www.care2.com/causes/global-warming">Global Warming</a></li><li><a href="http://www.care2.com/causes/trailblazers">Trailblazers</a></li><li><a href="http://www.care2.com/causes/canada">Canada</a></li><li><a href="http://www.care2.com/causes/uk">UK</a></li></ul></li></ul></div><div class="hamburger_menu_section new_to_care2"><h3>New to Care2? Start Here.</h3><ul><li><a href="http://www.care2.com/aboutus/">About Us</a></li></ul></div></div><script src="//dingo.care2.com/assets/js/home_page.js?1573593125" crossorigin="anonymous" charset="utf-8"></script><script type="text/javascript">
+        if (!window.care2_ua_footer_ts) {
+            window.care2_ua_footer_ts = new Date().getTime() / 1000;
+        
+            }
+</script><script>
+
+                        
+    
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ 
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+
+    ga('create', 'UA-7779329-1', 'care2.com');
+    ga('require', 'displayfeatures');
+    ga('send', 'pageview');
+
+</script>
+<script type="text/javascript">
+        if (!window.care2_ua_footer_ts) {
+            window.care2_ua_footer_ts = new Date().getTime() / 1000;
+        
+            }
+</script>
+	<!-- do not remove the below or there will be problems -->
+	<!-- aw4y1n -->
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"5c61b037c4","applicationID":"5673863","transactionName":"YFVUY0IHWUsAAkZZClkfY0VZSV5WBQRKHg1DXVo=","queueTime":0,"applicationTime":225,"atts":"TBJXFQodSkU=","errorBeacon":"bam.nr-data.net","agent":""}</script></body></html>
+
+
+

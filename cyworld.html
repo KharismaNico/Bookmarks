@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cyworld</title>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+	<meta name="description" content="싸이월드 일촌과 함께해요">
+	<meta name="viewport" id="viewport" content="width=device-width" />
+	
+	<meta property="og:site_name" content="싸이월드 메인페이지">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="싸이월드 메인페이지">
+	<meta property="og:image" content="http://c1img.cyworld.co.kr/img/myroom_main/thema_5/bg.png">
+	<!-- <meta property="og:url" content="http://devcy.cyworld.com"> -->
+	
+	<link rel='stylesheet' href='/common/css/cyworld4.css?v=20' type='text/css'>
+	<link rel="stylesheet" href="/common/css/cymain.css?v=20">
+	
+	<!--  jquery library -->
+	<script type="text/javascript" src="/common/js/jquery-2.1.4.min.js?v=20"></script>
+	<script type="text/javascript" src ="/views/cyhome/js/jquery-ui.min.js?v=20"></script>
+	<link href="/common/css/jquery-ui.css" rel="stylesheet" />	
+	
+	<!-- 보안 단계 설정 라이브러리 -->
+    	<script type="text/javascript" src="/common/js/secure/secure_cyworld.js?v=20"></script>
+	<!-- PKI 암호화 라이브러리  -->
+	<script type="text/javascript" src="/common/js/secure/rsa/base64.js?v=20"></script>
+	<script type="text/javascript" src="/common/js/secure/rsa/jsbn.js?v=20"></script>
+	<script type="text/javascript" src="/common/js/secure/rsa/prng4.js?v=20"></script>
+	<script type="text/javascript" src="/common/js/secure/rsa/rng.js?v=20"></script>
+	<script type="text/javascript" src="/common/js/secure/rsa/rsa.js?v=20"></script>
+	
+	<script>var isLogin = false;</script>
+	
+	<script>var rNumber = '5';</script>
+
+	<script type="text/javascript" src="/common/js/secure/newMainLoginCheck.js?v=20"></script>
+	<script type="text/javascript" src="/common/js/peopleData/main_5.js?v=20"></script>
+	<!-- [S] sakura effect -->
+	<link		rel="stylesheet"		href="/common/css/spring_effect.css?v=20">
+	<script	type="text/javascript"	src="/common/js/peopleData/spring_effect.js?v=20"></script>
+	<script>
+		$(window).load(function(){
+			$('body').sakura();	
+		});
+	</script>
+	<!-- [E] sakura effect -->
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64284762-12"></script>
+	
+
+
+	<script type="text/javascript" src="/common/js/main/mainCommon.js?v=20"></script>
+	<script>
+	var cover_stories = [
+	    {
+	    	"cover_image_url": "http://thumb.newsque.net/unsafe/328x454/smart/http://c1img.cyworld.com/img/cymain/covermain/2019/03/15537435343_5c9c3eae77043.jpg",
+	        "cover_title":"오늘, 싸이",
+	        "cover_display":"0",
+	        "cover_link_url":"http://clinkico.cyworld.com/",
+	        "cover_content":"",
+	        "cover_id":"293",
+	        "type_code":"todaycy",
+	        "cover_link_target":"_blank"
+	    },
+	    {
+	    	"cover_image_url": "http://thumb.newsque.net/unsafe/328x454/smart/http://c1img.cyworld.com/img/cymain/covermain/2019/05/15590300261_5cece90a9a3e7.png",
+	        "cover_title":"커버스토리",
+	        "cover_display":"0",
+	        "cover_link_url":"http://www.cyworld.com/coverstory/coverstorys.asp?coverseq=412",
+	        "cover_content":"",
+	        "cover_id":"299",
+	        "type_code":"coverstory",
+	        "cover_link_target":"_blank"
+	    },
+	    {
+	    	"cover_image_url": "http://thumb.newsque.net/unsafe/328x454/smart/http://c1img.cyworld.com/img/cymain/covermain/2019/04/15546876784_5caaa6beb3d28.png",
+	        "cover_title":"추천피플",
+	        "cover_display":"0",
+	        "cover_link_url":"http://cy.cyworld.com/home/ALG0674F/post/5CAAA5E41E01491AA85EA001/layer/share",
+	        "cover_content":"",
+	        "cover_id":"297",
+	        "type_code":"hotpeople",
+	        "cover_link_target":"_blank"
+	    },
+	]
+	</script>
+	<script src="/common/js/vue-2.5.17.min.js"></script>
+	<script src="/common/js/vue-carousel-3d-0.1.23.min.js"></script>
+	<script src="/common/js/coverstory.js?v=20"></script>
+
+</head>
+
+<body>
+<div id="coverstory">
+    <a href="#" 
+        class="coverstory-launcher" 
+        @click.prevent.stop="showCoverStory">
+        오늘, 싸이
+    </a>
+    <div class="pendulum">
+		<div class="pendulum__thread"><div class="pendulum__ball"></div></div>
+		<div class="shadow"></div>
+    </div> 
+    <div class="coverstory" :class="{'coverstory--show':show}" @click.stop="">
+        <ul class="coverstory__tab">
+            <li 
+                :key="slide.cover_id" 
+                v-for="(slide, i) in slides" 
+                class="coverstory__tab-item" 
+                :class="{ 'coverstory__tab-item--active' : activeIndex === i }" 
+                @click="gotoSide(i,slide)">
+                {{slide.cover_title}}
+            </li>
+        </ul>
+        <carousel-3d 
+            ref="coverstory" 
+            class="coverstory__carousel"            
+            :perspective="0"
+            :width="328" 
+            :height="468" 
+            :border="0"
+            :inverse-scaling="200" 
+            :space="200" 
+            :display="3"
+            :clickable="false"
+            :controls-visible="true"
+            @before-slide-change="changeSlide">
+            <slide v-for="(slide, i) in slides" :index="i" :key="slide.cover_id">
+                <div class="coverstory-card" :data-type="slide.cover_title">
+                    <a class="coverstory-card__link" :href="slide.cover_link_url" @click.prevent="gotoLink(slide,i,$event)">
+                        <img class="coverstory-card__image" :src="slide.cover_image_url">
+                        <span class="coverstory-card__content" v-if="slide.cover_display">
+                            <span class="coverstory-card__content-inner">
+                                <span 
+                                    class="coverstory-card__content-header" 
+                                    :class="['coverstory-card__content-header--' + slide.type_code]">
+                                    {{ hoverHeader[slide.type_code]['title'] }}
+                                </span>
+                                <span 
+                                    v-if="slide.cover_content.length > 0" 
+                                    class="coverstory-card__content-body" 
+                                    v-html="slide.cover_content.split('\n').join('<br>')">
+                                </span>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </slide>
+        </carousel-3d>
+        <div class="coverstory__info" @click="hideCoverStory('loginbtn')">
+		  싸이가 준비한 이야기 잘 보셨나요? <br>
+		 그럼 이제 
+		 <em class="coverstory__login" >
+		    로그인!
+		 </em> 
+        </div>
+        <div class="coverstory__btns">
+            <a href="#" class="coverstory__close coverstory__close--today" 
+                @click.prevent="hideCoverStoryWithCookie('nottoday')">
+                오늘은 그만 볼래요
+            </a>
+            <a href="#" 
+                class="coverstory__close" 
+                @click.prevent="hideCoverStory('closebtn')">
+                닫기
+            </a>
+        </div>
+    </div>
+</div>
+<span class="body_lllayer"></span>
+  
+<!-- [S] wrapper -->
+<div class="wrapper">
+
+	<div class="login_layer"></div>
+
+	<div id="minimeTopDiv" style="position: absolute; left: 50%; transform: translateX(-50%); z-index: 4; width: 1600px; height: 858px;">
+		<span class="minilayyyer"></span>
+		<!-- [S]div 위 -->
+			<div class="minimeObj" id="item1" style="position: absolute; top: 90px; left: 1017px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/1_070216wd205_mn.gif" border="0" class="peopleCy"></div>
+			<div class="minimeObj" id="item2" style="position: absolute; top: 559px; left: 350px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/1_070406oollalla_102_m.gif" border="0" class="peopleCy"></div>
+			<div class="minimeObj" id="item3" style="position: absolute; top: 528px; left: 1074px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/1_071010_mable04_mn.gif" border="0" class="peopleCy"></div>
+			<div class="minimeObj" id="item4" style="position: absolute; top: 318px; left: 320px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/0531c1_017n.gif" border="0" class="peopleCy"></div>
+			<div class="minimeObj" id="item5" style="position: absolute; top: 234px; left: 1312px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/0531c2_012.gif" border="0" class="peopleCy"></div>
+			<div class="minimeObj" id="item6" style="position: absolute; top: 767px; left: 403px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/0829d_021n.gif" border="0" class="peopleCy"></div>
+			<div class="minimeObj" id="item7" style="position: absolute; top: 146px; left: 631px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/06320h1_04n.gif" border="0" class="peopleCy"></div>
+			<div class="minimeObj" id="item8" style="position: absolute; top: 308px; left: 1052px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/06417m1_06n.gif" border="0" class="peopleCy"></div>
+			<div class="minimeObj" id="item9" style="position: absolute; top: 413px; left: 1279px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/070223climbx_106_m.gif" border="0" class="peopleCy"></div>
+			<div class="minimeObj" id="item10" style="position: absolute; top: 643px; left: 883px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/k261002_03n.gif" border="0" class="peopleCy"></div>
+		<!-- [E]div 위 -->
+
+		<div class="login_inner">
+			<form class="login_form" id="login" name="login">
+				<input type="text" id="email" name="email" placeholder="아이디(이메일)" onkeypress="javascript:enterkey();">
+				<input type="password" id="passwd" name="passwd" placeholder="비밀번호" onkeypress="javascript:enterkey();">
+				<!-- <dfn>존재하지 않는 아이디 입니다.</dfn> -->
+				<a href="javascript:checkInput();gtagFn('Login', 'Main');"><img src="http://c1img.cyworld.co.kr/img/timeimg/btn-login.png"></a>
+				<div class="register-section">
+					<ul>
+						<li><a href="javascript:gtagFn('FindToID', 'Main');">아이디/비밀번호 찾기</a></li>
+						<li><img src="http://c1img.cyworld.co.kr/img/timeimg/text-space-line.png"></li>
+						<li><a href="javascript:gtagFn('SignUp', 'Main');">회원가입</a></li>
+					</ul>
+	          		</div>
+	          		<div id="tmp"></div>
+				<!-- 로그인 후 이동 URL hidden-input -->
+				<input type="hidden" id="redirection" name="redirection" value="/cyMainS" />
+				<!-- PKI 암호화 처리된 값 전달용  hidden-input -->
+				<input type="hidden" id="passwd_rsa" name="passwd_rsa" value=""/>
+				<!-- PKI 암호화 처리된 값 아이디 값 전달용  hidden-input -->
+				<input type="hidden" id="email_rsa" name="email_rsa" value=""/>
+				<iframe src=""  name="iFram" id="iFram" border="0" width="0" height="0" frameborder="0" onload="resizeIframe(this);"></iframe>
+			</form>
+		</div>
+		<span class="minilayyyer2"></span>
+	</div>
+
+	<div style="position: absolute; left: 50%; transform: translateX(-50%);">
+		<div class="minime-layer" style="height:858px;background: url('http://c1img.cyworld.co.kr/img/myroom_main/thema_5/bg.png') center top no-repeat;">
+			<div id="minimeArea">
+				<!-- [S]dim 아래 -->
+					<div id="mysay1" class="mysay ui-draggable" style="position: absolute; top: 674px; left: 642px; cursor: move; visibility: visible; z-index: 1000;" onclick="fn_itemWord(this);">
+						ㄸㅏ뜻해
+					</div>
+					<div id="mysay2" class="mysay ui-draggable" style="position: absolute; top: 482px; left: 1241px; cursor: move; visibility: visible; z-index: 1000;" onclick="fn_itemWord(this);">
+						꽃구경 가자!!
+					</div>
+					<div id="mysay3" class="mysay ui-draggable" style="position: absolute; top: 51px; left: 1129px; cursor: move; visibility: visible; z-index: 1000;" onclick="fn_itemWord(this);">
+						겨울 먼지야 가라~
+					</div>
+					<div id="mysay4" class="mysay ui-draggable" style="position: absolute; top: 85px; left: 820px; cursor: move; visibility: visible; z-index: 1000;" onclick="fn_itemWord(this);">
+						같이 놀ㅈr
+					</div>
+					<div id="mysay5" class="mysay ui-draggable" style="position: absolute; top: 280px; left: 63px; cursor: move; visibility: visible; z-index: 1000;" onclick="fn_itemWord(this);">
+						봄맞이 집안 대청소~
+					</div>
+					<div class="minimeObj ui-draggable" id="item1" style="position: absolute; top: 574px; left: 1284px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/1_070302hpfamily204_m.gif" border="0"></div>
+					<div class="minimeObj ui-draggable" id="item2" style="position: absolute; top: 135px; left: 853px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/1_070404ggum007_mn.gif" border="0"></div>
+					<div class="minimeObj ui-draggable" id="item3" style="position: absolute; top: 554px; left: 254px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/1_070406oollalla_108_mn.gif" border="0"></div>
+					<div class="minimeObj ui-draggable" id="item4" style="position: absolute; top: 490px; left: 541px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/1_110414oollalla_101_mn.gif" border="0"></div>
+					<div class="minimeObj ui-draggable" id="item5" style="position: absolute; top: 19px; left: 462px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/1_20070321kent_007_mn.gif" border="0"></div>
+					<div class="minimeObj ui-draggable" id="item6" style="position: absolute; top: 330px; left: 121px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/0216h1_04n.gif" border="0"></div>
+					<div class="minimeObj ui-draggable" id="item7" style="position: absolute; top: 608px; left: 724px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/0531c2_002.gif" border="0"></div>
+					<div class="minimeObj ui-draggable" id="item8" style="position: absolute; top: 132px; left: 1153px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/0531c2_013.gif" border="0"></div>
+					<div class="minimeObj ui-draggable" id="item9" style="position: absolute; top: 480px; left: 1477px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/06522t2_08n.gif" border="0"></div>
+					<div class="minimeObj ui-draggable" id="item10" style="position: absolute; top: 710px; left: 956px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/050321_012.gif" border="0"></div>
+					<div class="minimeObj ui-draggable" id="item11" style="position: absolute; top: 800px; left: 1244px; visibility: visible; z-index: 5;" onclick="fn_item(this);"><img src="http://img.cyworld.nate.com/img/myroom_main/thema_5/070406oollalla_104_m.gif" border="0"></div>
+					
+		        	<!-- [E]dim 아래 -->
+			</div>
+		</div>
+	</div>
+	
+</div>
+<!-- [E] wrapper -->
+
+
+<!-- [S] dimming-layer -->
+<div class="dimming-layer">
+	<div class="footer">
+		<div class="footer-inner">
+			
+			
+			<a href="http://clinkico.cyworld.com" target="_blank"><img src="http://c1img.cyworld.co.kr/img/timeimg/common/btn_clink.png"></a>
+			<div class="app-store-link">
+				<a href="https://play.google.com/store/apps/details?id=com.btb.minihompy" target="_blank"><img src="http://c1img.cyworld.co.kr/img/timeimg/btn-google.png?2"></a>
+				<a href="https://itunes.apple.com/kr/app/id380464527/" target="_blank"><img src="http://c1img.cyworld.co.kr/img/timeimg/btn-apple.png?2"></a>
+			</div>
+			<ul class="footer-link-list">
+				<li><a href="http://www.cyworld.com/policy/legal/legal.aspx">서비스 이용약관</a></li>
+				<li><img src="http://c1img.cyworld.co.kr/img/timeimg/text-space-line.png"></li>
+				<li><a href="http://www.cyworld.com/policy/privacy/privacy.aspx" style="font-weight: bold;">개인정보처리방침</a></li>
+				<li><img src="http://c1img.cyworld.co.kr/img/timeimg/text-space-line.png"></li>
+				<li><a href="http://cy.cyworld.com/home/ALG0674F/post/5B42BCB970C1491AA85EA001">광고 및 제휴 문의</a></li>
+				<li><img src="http://c1img.cyworld.co.kr/img/timeimg/text-space-line.png"></li>
+				<li><a href="http://www.cyworld.com/policy/legal/cy_location.aspx">위치기반서비스 이용약관</a></li>
+				<li><img src="http://c1img.cyworld.co.kr/img/timeimg/text-space-line.png"></li>
+				<li><a href="https://helpdesk.cyworld.com">싸이월드 고객센터</a></li>
+			</ul>
+			<div class="footerLinkList">
+				(주)싸이월드 대표이사 전제완<dfn>ㅣ</dfn>사업자등록번호 105-87-96554<dfn>|</dfn>통신판매업 정보 2016-서울송파-1756<br />  
+				서울시 송파구 위례성대로 10, 7층(방이동, 에스타워)<dfn>|</dfn><a style="color: #dedede;" href="mailto:help@cyworld.biz">이메일 help@cyworld.biz</a><br> 
+				Copyright © Cyworld Co.,Ltd. All Rights Reserved.
+				<br><br>
+			</div>
+			
+			
+			<!-- 개인정보관리책임자 김상배 &nbsp;&nbsp; 개인정보 보호담당자 손영주 &nbsp;&nbsp; -->
+			<div id="dialog" style="display:none;">
+		 		<p></p>
+		 	</div>
+
+			
+		</div>
+	</div>
+</div>
+<!-- [E] dimming-layer -->
+
+</body>
+
+</html>
+
+<script>
+	function rightmme(){
+		if($(window).height()<1025){
+			$('body').height('1025');
+		}else {
+			$('body>span.body_lllayer').height($(window).height());
+		}
+		$(".dimming-layer").height($(".footer").height());
+	};
+	rightmme();
+	$(window).resize(function (){
+		rightmme();
+	});
+	
+	// coverstory
+	$(function(){
+	    var cs = coverstory( cover_stories );
+	    $(document).on('click', cs.hideCoverStory);
+	});
+</script>
