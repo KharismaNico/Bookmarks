@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7]><html class="iem7" ><![endif]-->
+<!--[if lte IE 6]><html class="ie6 ie6-7 ie6-8" ><![endif]-->
+<!--[if (IE 7)&(!IEMobile)]><html class="ie7 ie6-7 ie6-8" ><![endif]-->
+<!--[if IE 8]><html class="ie8 ie6-8" ><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html 
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:article="http://ogp.me/ns/article#"
+  xmlns:book="http://ogp.me/ns/book#"
+  xmlns:profile="http://ogp.me/ns/profile#"
+  xmlns:video="http://ogp.me/ns/video#"
+  xmlns:product="http://ogp.me/ns/product#"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><!--<![endif]-->
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="/sites/all/themes/custom/intel_gfx/js/vendor/font.js" type="text/javascript" />
+</script><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="https://01.org/sites/all/themes/custom/intel_gfx/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="en" href="https://01.org/linuxgraphics" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="image_src" href="https://01.org/sites/default/files/intel-graphics-for-linux-logo_92x60.png" />
+<link rel="shortlink" href="https://01.org/node/43" />
+<meta property="og:site_name" content="01.org" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://01.org/linuxgraphics" />
+<meta property="og:title" content="Intel® Graphics for Linux*" />
+<meta property="og:description" content="INDUSTRY-LEADING OPEN SOURCE GRAPHICS DRIVERS Intel® open source 3D Graphics Drivers for Linux* are the industry-leading drivers for Linux* distributions for all Intel® graphics platforms shipped over the last decade. Because these drivers are integrated into all popular Linux distributions, you can trust that your Linux system will deliver stunning, high quality graphics without needing additional hardware or extra driver software. Whether you are running the latest Android games on an Intel®-based Chromebook with Google Play Store, or a sophisticated 3D modeling application on a system with the Intel® Xeon® processor, Intel&#039;s graphics drivers put beautiful 3D graphics at your fingertips." />
+<meta property="og:updated_time" content="2020-01-20T16:50:50-08:00" />
+<meta property="og:image" content="https://01.org/sites/default/files/intel-graphics-for-linux-logo_92x60.png" />
+<meta property="article:published_time" content="2011-12-22T13:14:37-08:00" />
+<meta property="article:modified_time" content="2020-01-20T16:50:50-08:00" />
+  <title>Intel® Graphics for Linux* | 01.org</title>
+
+    <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="canonical" href="https://01.org/linuxgraphics" />
+  <link type="text/css" rel="stylesheet" href="https://01.org/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://01.org/sites/default/files/css/css_ZbiIhe19LRlfApaS5zSWzflzDxQOCTVt7hh3QXH2MEY.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://01.org/sites/default/files/css/css_hYLlP-1Zj1Efo21fLuKX5xx-nyJ79wtcZsY23oBsWDo.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://01.org/sites/default/files/css/css_qwUMug3QAPjzIxDUxrbyJoxQ-U8k9Jf7Sc7RBf3BBTQ.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://01.org/sites/default/files/css/css_lyBvx1f7TmDLnR81KR5B1eOtrTKJheGmNWuNpDts7Hk.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://01.org/sites/default/files/css/css_5aQvY9eDN5XIiayMtb_05FejVu1px73z0dS0wFjNJKo.css" media="all" />
+  <script type="text/javascript" src="https://01.org/sites/default/files/js/js_iNAOkEESozL_iYM5wM6IpXxKWlfzWF3WfXXR59vwSo8.js"></script>
+<script type="text/javascript" src="https://01.org/sites/default/files/js/js_doTGqSAUfzvx5V0SA20huBMGoBeKTgfvzrDoUdMOi5Y.js"></script>
+<script type="text/javascript" src="https://01.org/sites/default/files/js/js_uvgUomgWRDecmOPO_7f75pcoYGSMgROXSc-zcnF9t5Y.js"></script>
+<script type="text/javascript" src="https://01.org/sites/default/files/js/js_b9cr6mbcGs0Moz5voismE2CFpjp2d5guyaiRjoJWmnQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+      // close script tag for SecKit protection
+      //--><!]]>
+      </script>
+      <script type="text/javascript" src="/sites/all/modules/contrib/seckit/js/seckit.document_write.js"></script>
+      <link type="text/css" rel="stylesheet" id="seckit-clickjacking-no-body" media="all" href="/sites/all/modules/contrib/seckit/css/seckit.no_body.css" />
+      <!-- stop SecKit protection -->
+      <noscript>
+      <link type="text/css" rel="stylesheet" id="seckit-clickjacking-noscript-tag" media="all" href="/sites/all/modules/contrib/seckit/css/seckit.noscript_tag.css" />
+      <div id="seckit-noscript-tag">
+        <h1>Sorry, you need to enable JavaScript to visit this website.</h1>
+      </div>
+      </noscript>
+      <script type="text/javascript">
+      <!--//--><![CDATA[//><!--
+      // open script tag to avoid syntax errors
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://01.org/sites/default/files/js/js_zsU7pE_En9PuEzx00IjN_iCxIwgABAiEwJNkh1iTG9k.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var switchTo5x = true;
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+if (stLight !== undefined) { stLight.options({"publisher":"dr-42089df0-992e-a2c0-1b1c-33cef1194fca","version":"5x"}); }
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://01.org/sites/default/files/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-8768382-7", {"cookieDomain":".01.org"});ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var switchTo5x = true;
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+if (stLight !== undefined) { stLight.options({"publisher":"dr-42089df0-992e-a2c0-1b1c-33cef1194fca","version":"5x"}); }
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://01.org/sites/default/files/js/js_OSFBfQ9lKpc4-kaCchmGk_xMYSK_E19jgyD5Cu7vqZg.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"intel_gfx","theme_token":"hVnh-2f9wwGd233-dMeB5sKXArj0fGJ5cOTHL5H0ajs","js":{"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/libraries\/prettify\/prettify.js":1,"sites\/all\/libraries\/prettify\/lang-css.js":1,"sites\/all\/libraries\/prettify\/lang-lisp.js":1,"sites\/all\/libraries\/prettify\/lang-ml.js":1,"sites\/all\/libraries\/prettify\/lang-sql.js":1,"sites\/all\/modules\/contrib\/waypoints\/waypoints.min.js":1,"sites\/all\/modules\/contrib\/comment_notify\/comment_notify.js":1,"sites\/all\/modules\/contrib\/extlink\/extlink.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/contrib\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/contrib\/prettify\/prettify.loader.js":1,"0":1,"sites\/all\/modules\/contrib\/field_group\/field_group.js":1,"1":1,"https:\/\/ws.sharethis.com\/button\/buttons.js":1,"2":1,"sites\/all\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"3":1,"4":1,"5":1,"sites\/all\/themes\/custom\/intel_gfx\/js\/vendor\/modernizr.js":1,"sites\/all\/themes\/custom\/intel_gfx\/js\/vendor\/slick.min.js":1,"sites\/all\/themes\/custom\/intel_gfx\/js\/intel_gfx.min.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/contrib\/comment_notify\/comment_notify.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/features\/otc_webapps\/otcorg_webapps.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/video_filter\/video_filter.css":1,"sites\/all\/modules\/contrib\/extlink\/extlink.css":1,"modules\/forum\/forum.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/panels\/css\/panels.css":1,"sites\/all\/modules\/contrib\/rate\/rate.css":1,"sites\/all\/libraries\/fontawesome\/css\/font-awesome.css":1,"sites\/all\/themes\/custom\/intel_gfx\/css\/intel_gfx.css":1,"sites\/all\/themes\/custom\/intel_gfx\/css\/vendor\/slick\/slick.css":1,"sites\/all\/themes\/custom\/intel_gfx\/css\/vendor\/slick\/slick-theme.css":1,"sites\/all\/themes\/custom\/intel_gfx\/bower_components\/animate.css\/animate.min.css":1,"sites\/all\/themes\/custom\/otcorg_new_theme\/css\/node-project.css":1,"sites\/all\/modules\/contrib\/prettify\/styles\/stackoverflow.css":1}},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"prettify":{"linenums":false,"match":".content","nocode":"no-code","custom":[],"markup":{"code":true,"pre":true,"precode":false}},"field_group":{"div":"full","html-element":"secondary_teaser"},"better_exposed_filters":{"views":{"intel_gfx":{"displays":{"panel_pane_intel_gfx_home_hero":{"filters":[]},"panel_pane_intel_gfx_home_news_and_blogs":{"filters":[]},"panel_pane_intel_gfx_feature_list":{"filters":[]},"block_intel_gfx_downloads_latest":{"filters":[]},"block_project_header_left":{"filters":[]}}}}},"extlink":{"extTarget":"_blank","extClass":"ext","extLabel":"(link is external)","extImgClass":0,"extSubdomains":1,"extExclude":"","extInclude":"","extCssExclude":"header, footer, .project-header-actions,.slider-item-actions,.highlight-button,h1, h2, h3, h4, h5, h6","extCssExplicit":"main","extAlert":0,"extAlertText":"This link will take you to an external web site.","mailtoClass":0,"mailtoLabel":"(link sends e-mail)"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip|bz2|rpm|deb|pptx|asc","trackColorbox":1,"trackDomainMode":"1"},"currentPath":"node\/43","currentPathIsAdmin":false,"ogContext":{"groupType":"node","gid":"43"}});
+//--><!]]>
+</script>
+  </head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-43 node-type-project section-projects og-context og-context-node og-context-node-43 i18n-en intel_gfx" >
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TSR2CX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;j.type='text/javascript';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TSR2CX');</script>
+<!-- End Google Tag Manager -->
+      
+<div class="st-container">
+  <div id="o-wrapper" class="o-wrapper">
+    <div id="floating-menus">
+                </div>
+
+    
+    <header class="_background--dark">
+      <div id="header-top">
+        <div class="site-name"><a href="/">01.org</a></div>
+                  <div class="site-top">  <div class="region region-header-top">
+    <div id="block-system-user-menu" class="block block-system block-menu">
+
+    
+  <div class="content">
+    <ul class="custom-nav" ><li class="first leaf"><a href="/search" title="Search on the site.">Search</a></li>
+<li class="last leaf"><a href="/user/login" title="">Log in</a></li>
+</ul>  </div>
+</div>
+  </div>
+</div>
+              </div>
+        <div class="region region-header">
+    <div id="block-views-f5ab0f5f876c24569675fbfc03b2171b" class="block block-views">
+
+    
+  <div class="content">
+    <div class="view view-intel-gfx view-id-intel_gfx view-display-id-block_project_header_left view-dom-id-9afeaecb234c9768329911599233e5af">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+      
+  <div class="views-field views-field-field-project-logo">        <div class="field-content"><a href="/linuxgraphics" class="active"><img typeof="foaf:Image" src="https://01.org/sites/default/files/styles/intel_gfx_logo/public/intel-graphics-for-linux-logo_92x60.png?itok=7tF33v8e" width="92" height="60" alt="Intel® Graphics for Linux*" title="Intel® Graphics for Linux*" /></a></div>  </div>  
+  <h3 class="views-field views-field-title cp--project__name">        <span class="field-content"><a href="/linuxgraphics" class="active">Intel® Graphics for Linux*</a></span>  </h3>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-otcorg-projects-project-navigation" class="block block-otcorg-projects">
+
+    
+  <div class="content">
+    <ul class="custom-nav" ><li class="first expanded"><a href="/linuxgraphics/about"><span>About</span></a><ul class="custom-nav" ><li class="first last leaf"><a href="/linuxgraphics/faq"><span>FAQ</span></a></li>
+</ul></li>
+<li class="expanded"><a href="/linuxgraphics/documentation"><span>Documentation</span></a><ul class="custom-nav" ><li class="first expanded"><a href="/linuxgraphics/documentation/hardware-specification-prms"><span>Hardware Specification - PRMs</span></a><ul class="custom-nav" ><li class="first leaf"><a href="/linuxgraphics/hardware-specification-prms/2016-intelr-processors-based-kaby-lake-platform"><span>2016 Intel(r) processors based Kaby Lake platform</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/hardware-specification-prms/2015-2016-intel-processors-based-skylake-platform"><span>2015-2016 Intel Processors based on Skylake Platform</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/hardware-specification-prms/2014-2015-intel-processors-based-cherry-trail/braswell"><span>2014-2015 Intel Processors based on Cherry Trail / Braswell Platform</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/hardware-specification-prms/2014-2015-intel-processors-based-broadwell-platform"><span>2014-2015 Intel Processors based on Broadwell Platform</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/hardware-specification-prms/2013-intel-core-processor-family"><span>2013 Intel Core Processor Family</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/driver-documentation-prms/2012-intel-core-processor-family"><span>2012 Intel Core Processor Family</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/driver-documentation-prms/2011-intel-core-processor-family"><span>2011 Intel Core Processor Family</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/driver-documentation-prms/2010-intel-core-processor-family"><span>2010 Intel Core Processor Family</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/driver-documentation-prms/intel%C2%AE-g45-express-chipset"><span>Intel® G45 Express Chipset</span></a></li>
+<li class="last leaf"><a href="/linuxgraphics/documentation/driver-documentation-prms/intel%C2%AE-965-express-chipset-family-and-intel%C2%AE-g35-express"><span>Intel® 965 Express Chipset Family and Intel® G35 Express Chipset Graphics Controller PRM</span></a></li>
+</ul></li>
+<li class="expanded"><a href="/linuxgraphics/documentation/code-documentation"><span>Code Documentation</span></a><ul class="custom-nav" ><li class="first leaf"><a href="https://01.org/linuxgraphics/gfx-docs/drm/"><span>Linux Kernel GPU Driver Developer's Guide</span></a></li>
+<li class="leaf"><a href="https://www.mesa3d.org/sourcedocs.html"><span>Mesa's Source Code Documentation</span></a></li>
+<li class="leaf"><a href="https://drm.pages.freedesktop.org/igt-gpu-tools/"><span>IGT GPU Tools Reference Manual</span></a></li>
+<li class="leaf"><a href="https://drm.pages.freedesktop.org/maintainer-tools/index.html"><span>Linux DRM Maintainer's Guide</span></a></li>
+<li class="last leaf"><a href="/linuxgraphics/code-documentation/guc-kmd-api"><span>GuC-KMD API</span></a></li>
+</ul></li>
+<li class="leaf"><a href="https://01.org/linuxgraphics/documentation/development/source-code"><span>Source Code</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/driver-documentation-prms/2014-intel-processors-based-bay-trail-platform"><span>2014 Intel Processors based on the Bay Trail Platform</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/build-guide-0"><span>Build Guide</span></a></li>
+<li class="expanded"><a href="/linuxgraphics/documentation/bugs-and-debugging"><span>Bugs and Debugging</span></a><ul class="custom-nav" ><li class="first leaf"><a href="/linuxgraphics/documentation/how-report-bugs"><span>How to report bugs</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/bugs-and-debugging/how-get-kernel-backtrace"><span>How to get Kernel backtrace</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/bugs-and-debugging/learn-more-about-gfx-bug-handling"><span>Learn more about GFX bug handling</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/bugs-and-debugging/tips-may-help-solve-your-issue-less-time"><span>Tips that may help to solve  your issue in less time</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/how-get-gpu-error-state"><span>How to get the GPU error state</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/development/how-dump-video-bios"><span>How to dump Video BIOS</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/development/how-debug-suspend-resume-issues"><span>How to debug suspend-resume issues</span></a></li>
+<li class="last leaf"><a href="/linuxgraphics/documentation/using-intel-reg-dumper"><span>Using intel-reg-dumper</span></a></li>
+</ul></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/intel%C2%AE-integrated-graphics-device-opregion-specification"><span>Intel® Integrated Graphics Device - OpRegion Specification</span></a></li>
+<li class="last expanded"><a href="https://01.org/linuxgraphics/documentation"><span>Archived documentation</span></a><ul class="custom-nav" ><li class="first leaf"><a href="/linuxgraphics/documentation/how-set-dual-head-intel-graphics-randr-1.2/3-pipes"><span>3-pipes</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/documentation/how-set-dual-head-intel-graphics-randr-1.2"><span>How to Set up Dual Head for Intel Graphics with RandR 1.2</span></a></li>
+<li class="last leaf"><a href="https://01.org/linuxgraphics/https/01.org/linuxgraphics/forum/graphics-installer-discussions"><span>Intel® Graphics Installer 1.4.0 for Linux*: Issue with signatures has been fixed</span></a></li>
+</ul></li>
+</ul></li>
+<li class="expanded"><a href="/linuxgraphics/downloads/stack"><span>Downloads</span></a><ul class="custom-nav" ><li class="first leaf"><a href="/linuxgraphics/downloads/stack"><span>Stack Recipes</span></a></li>
+<li class="leaf"><a href="/linuxgraphics/downloads/firmware"><span>Firmware</span></a></li>
+<li class="last leaf"><a href="/linuxgraphics/downloads/update-tool"><span>Update Tool</span></a></li>
+</ul></li>
+<li class="leaf"><a href="/linuxgraphics/blogs-and-news"><span>Blogs and news</span></a></li>
+<li class="expanded"><a href="/linuxgraphics/community"><span>Community</span></a><ul class="custom-nav" ><li class="first expanded"><a href="/linuxgraphics/developer-community"><span>Developer Community</span></a><ul class="custom-nav" ><li class="first leaf"><a href="http://mesa3d.org/" target="_blank"><span>Mesa3D.ORG</span></a></li>
+<li class="leaf"><a href="http://mesa3d.org/lists.html" target="_blank"><span>Mesa 3D Mailing List</span></a></li>
+<li class="last leaf"><a href="http://webchat.freenode.net/" target="_blank"><span>#dri-devel channel on irc.freenode.net</span></a></li>
+</ul></li>
+<li class="last expanded"><a href="/linuxgraphics/forum"><span>Forums</span></a><ul class="custom-nav" ><li class="first leaf"><a href="/linuxgraphics/forum/update-support-tool-forum-archived" title="UPDATE SUPPORT TOOL FORUM - ARCHIVED"><span>UPDATE SUPPORT TOOL FORUM - ARCHIVED</span></a></li>
+<li class="last leaf"><a href="/linuxgraphics/forum/archived-forum"><span>Archived Forum</span></a></li>
+</ul></li>
+</ul></li>
+<li class="last expanded"><a href="/linuxgraphics/support"><span>Support</span></a><ul class="custom-nav" ><li class="first leaf"><a href="/linuxgraphics/faq"><span>FAQ</span></a></li>
+<li class="last expanded"><a href="/linuxgraphics/developer-community"><span>Developer Community</span></a><ul class="custom-nav" ><li class="first leaf"><a href="http://mesa3d.org/"><span>Mesa3D.ORG</span></a></li>
+<li class="leaf"><a href="http://mesa3d.org/lists.html"><span>Mesa 3D Mailing List</span></a></li>
+<li class="last leaf"><a href="http://webchat.freenode.net/"><span>#dri-devel channel on irc.freenode.net</span></a></li>
+</ul></li>
+</ul></li>
+</ul>  </div>
+</div>
+  </div>
+      <button href="#" id="cp-menu--mobile" class="_hide--lg"><span class="fa fa-bars"></span></button>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+              <div id="main-content">
+          <div class="container">
+                        <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div class="one-column at-panel panel-display clearfix" >
+  <div class="region region-one-main">
+    <div class="region-inner clearfix">
+      <div class="panel-pane pane-entity-field pane-node-field-paragraph-slider"  >
+  
+      
+  
+  <div class="pane-content">
+    
+<div class="paragraphs-items paragraphs-items-field-paragraph-slider paragraphs-items-field-paragraph-slider-full paragraphs-items-full">
+  <div class="field field-name-field-paragraph-slider field-type-paragraphs field-label-hidden"><div class="field-items"><div class="field-item even"><div class="entity entity-paragraphs-item paragraphs-item-slider" about="" typeof="">
+  <div class="content">
+    <div class="field field-name-field-slider-image field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="https://01.org/sites/default/files/styles/project_slider_image/public/teapot-image_1200-x_550v7_0.png?itok=AHEqqp7h" width="1200" height="550" alt="" /></div></div></div><div class="project-slider-content fadeInUp animated"><div class="field field-name-field-slider-title field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">Meet the new Intel® Linux* Graphics mark — the Teapot!</div></div></div><div class="project-slider-actions"><div class="field field-name-field-secondary-link field-type-link-field field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://01.org/linuxgraphics/blogs/ajmathes/2017/meet-new-intel-linux-gaphics-mark-teapot">Learn more</a></div></div></div></div></div>  </div>
+</div>
+</div><div class="field-item odd"><div class="entity entity-paragraphs-item paragraphs-item-slider" about="" typeof="">
+  <div class="content">
+    <div class="field field-name-field-slider-image field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="https://01.org/sites/default/files/styles/project_slider_image/public/talos_screenshot_1200_x_550_black_fade.png?itok=kmAOFBXz" width="1200" height="550" alt="" /></div></div></div><div class="project-slider-content fadeInUp animated"><div class="field field-name-field-slider-image-reference field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">The Talos Principle* from Croteam* shown here running on a Linux* distribution</div></div></div><div class="field field-name-field-slider-title field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">Intel® Graphics for Linux*</div></div></div><div class="field field-name-field-slider-summary field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even">Industry-leading, open source Linux* 3D drivers for Intel® Graphics</div></div></div></div>  </div>
+</div>
+</div><div class="field-item even"><div class="entity entity-paragraphs-item paragraphs-item-slider" about="" typeof="">
+  <div class="content">
+    <div class="field field-name-field-slider-image field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="https://01.org/sites/default/files/styles/project_slider_image/public/image_1_1200_x_550.png?itok=2ijiHzEc" width="1200" height="550" alt="" /></div></div></div><div class="project-slider-content fadeInUp animated"><div class="field field-name-field-slider-image-reference field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">The Talos Principle* from Croteam* shown here running on a Linux* distribution</div></div></div><div class="field field-name-field-slider-title field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">Intel® Graphics for Linux*</div></div></div><div class="field field-name-field-slider-summary field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even">Versatile, powerful drivers for premium 3D graphics on your favorite Linux OS</div></div></div></div>  </div>
+</div>
+</div><div class="field-item odd"><div class="entity entity-paragraphs-item paragraphs-item-slider" about="" typeof="">
+  <div class="content">
+    <div class="field field-name-field-slider-image field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="https://01.org/sites/default/files/styles/project_slider_image/public/image-11_1200_x_550_2.png?itok=5pdK_C9i" width="1200" height="550" alt="" /></div></div></div><div class="project-slider-content fadeInUp animated"><div class="field field-name-field-slider-image-reference field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">The Talos Principle* from Croteam* shown here running on a Linux* distribution</div></div></div><div class="field field-name-field-slider-title field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">Intel® Graphics for Linux*</div></div></div><div class="field field-name-field-slider-summary field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even">Stunning, high quality graphics built right into your system</div></div></div></div>  </div>
+</div>
+</div></div></div></div>
+  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-custom pane-1"  >
+  
+      
+  
+  <div class="pane-content">
+    <p><a class="mouse-scroll" href="#"></a></p>
+  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-entity-field pane-node-body"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><h2>INDUSTRY-LEADING OPEN SOURCE GRAPHICS DRIVERS</h2>
+
+<p>Intel® open source 3D Graphics Drivers for Linux* are the industry-leading drivers for Linux* distributions for all Intel® graphics platforms shipped over the last decade. Because these drivers are integrated into all popular Linux distributions, you can trust that your Linux system will deliver stunning, high quality graphics without needing additional hardware or extra driver software. Whether you are running the latest Android games on an Intel®-based Chromebook with Google Play Store, or a sophisticated 3D modeling application on a system with the Intel® Xeon® processor, Intel's graphics drivers put beautiful 3D graphics at your fingertips. </p>
+</div></div></div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-views-panes pane-intel-gfx-panel-pane-intel-gfx-home-hero"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="view view-intel-gfx view-id-intel_gfx view-display-id-panel_pane_intel_gfx_home_hero view-dom-id-326ec7d7c7ebd71736223758fbae7601">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+    <div  about="/linuxgraphics/blogs/imad/2017/all-advanced-graphics-features-all-certified-all-open" typeof="sioc:Item foaf:Document" class="ds-1col node node-blogs node-promoted view-mode-secondary_hero clearfix">
+
+  
+  <div class="field field-name-field-blog-image field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/linuxgraphics/blogs/imad/2017/all-advanced-graphics-features-all-certified-all-open"><img typeof="foaf:Image" src="https://01.org/sites/default/files/khronos-blog-certification-linuxgraphics.png" width="1200" height="550" alt="Khronos Group Logo" title="Khronos Group " /></a></div></div></div><div class="required-fields group-blogs-details field-group-html-element"><div class="field field-name-title-field field-type-text field-label-hidden"><div class="field-items"><div class="field-item even"><h3><a href="/linuxgraphics/blogs/imad/2017/all-advanced-graphics-features-all-certified-all-open">All the Advanced Graphics Features, All Certified, All Open</a></h3>
+</div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Today I am proud to announce that Intel is among a select group of graphics platform suppliers with drivers certified for the most advanced versions of all three open industry-defined 3D graphics APIs on Linux*: OpenGL* 4.5, OpenGL ES* 3.2 and Vulkan* 1.0.</p>
+</div></div></div><div class="field field-name-node-link field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/linuxgraphics/blogs/imad/2017/all-advanced-graphics-features-all-certified-all-open" class="cp-btn__secondary">Read more</a></div></div></div></div></div>
+
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-views-panes pane-intel-gfx-panel-pane-intel-gfx-home-news-and-blogs"  >
+  
+        <h2 class="pane-title">
+      Blogs &amp; News    </h2>
+    
+  
+  <div class="pane-content">
+    <div class="view view-intel-gfx view-id-intel_gfx view-display-id-panel_pane_intel_gfx_home_news_and_blogs view-dom-id-537e250512a41e0d2db9e8b261b0fe8c">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+    <div  about="/linuxgraphics/blogs/kaveh/2017/introduction-intel%C2%AE-graphics-linux" typeof="sioc:Item foaf:Document" class="ds-1col node node-blogs node-sticky view-mode-secondary_teaser clearfix">
+
+  
+  <div class="group-left field-group-html-element col-sm-4 node-type"><div class="field field-name-field-blog-type field-type-taxonomy-term-reference field-label-hidden"><div class="field-items"><div class="field-item even">Blog</div></div></div></div><div class="group-right field-group-html-element col-sm-20 node-details"><div class="field field-name-title-field field-type-text field-label-hidden"><div class="field-items"><div class="field-item even"><h3 class="cp-node--title"><a href="/linuxgraphics/blogs/kaveh/2017/introduction-intel%C2%AE-graphics-linux">Introduction to Intel® Graphics for Linux </a></h3>
+</div></div></div><div class="field field-name-author field-type-ds field-label-inline clearfix"><div class="field-label">Author:&nbsp;</div><div class="field-items"><div class="field-item even">Kaveh Nasri</div></div></div><div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Jan 11, 2017</div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><div>Intel®'s open source 3D graphics driver for Linux* operating systems, is among the most widely deployed graphics driver stacks in the industry.</div></div></div></div><div class="field field-name-node-link field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/linuxgraphics/blogs/kaveh/2017/introduction-intel%C2%AE-graphics-linux" class="">Read more</a></div></div></div></div></div>
+
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-node"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><ul class="expand-collapse">
+<li>
+<h3>Already integrated into your system</h3>
+<p>As the only industry-certified fully open source graphics driver, Intel's graphics drivers are already integrated into all popular Linux distributions, which means you’ll get the latest advancements without ever needing to install a separate driver. We develop this driver in collaboration with a community of developers around the industry based on standard specifications from the Khronos Industry Consortium*. Our operating system (OS) partners seamlessly integrate the driver into their OS in a way that every system with Intel graphics can display every detail, every shadow, and every animation in vivid 3D.</p>
+</li>
+<li>
+<h3>Any platform, any Linux-based OS</h3>
+<p>Intel® 3D Graphics Drivers are versatile and powerful do-it-all drivers that deliver premium 3D graphics for Linux, Android*, Chrome*, and SteamOS* systems. They enable advanced graphics features on a wide variety of clients, servers, and embedded devices running Intel integrated graphics. No matter the platform, Intel’s 3D drivers use the power of Intel graphics silicon to bring the most advanced graphics applications to life.</p>
+</li>
+<li>
+<h3>Built for your system, updated with your system</h3>
+<p>It is incredibly easy to acquire the Intel® 3D Graphics Drivers for Linux: chances are, you already have our driver integrated into the operating system you’re using now! The best way to keep your graphics driver updated will vary depending on your OS. Some OSes, like Chrome OS*, automatically update their graphics stack with the latest supported version for your device. Other OSes, like Fedora*, include the latest supported version of the driver with major or intermediate OS updates. The bottom line is that if your OS is up to date, you have the latest Intel® Graphics Driver validated with that OS!</p>
+</li>
+<li>
+<h3>Open source, industry certified, developer friendly</h3>
+<p>Most users and organizations will find no need to do anything other than use the built-in drivers included with their OS. But we also know that some advanced users might want to experiment with the source code comprising the full graphics stack to test individual components in a custom software stack. Developers who would like to join the developer communities supporting the various components (including Mesa, Linux kernel, display server, etc.) can download the source code for the in-development versions of all the components. The user space portion of our 3D driver includes the implementation of all three 3D APIs specified by the Khronos* industry consortium: OpenGL*, OpenGL ES*, and Vulkan*. To learn more, check out our Community, Support, and News and Blogs pages.</p>
+</li>
+</ul>
+</div></div></div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-views pane-intel-gfx"  >
+  
+        <h2 class="pane-title">
+      Graphics Stack Recipe For OS Builders    </h2>
+    
+  
+  <div class="pane-content">
+    <div class="view view-intel-gfx view-id-intel_gfx view-display-id-block_intel_gfx_downloads_latest page-group-downloads-list view-dom-id-32387b73d2fdba7ff3a50a7caffc5f08">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+    <div  about="/linuxgraphics/downloads/2018q1-intel-graphics-stack-recipe" typeof="sioc:Item foaf:Document" class="ds-1col node node-otcorg-download view-mode-secondary_teaser clearfix">
+
+  
+  <div class="field field-name-title-field field-type-text field-label-hidden"><div class="field-items"><div class="field-item even"><h3><a href="/linuxgraphics/downloads/2018q1-intel-graphics-stack-recipe">2018Q1 Intel Graphics Stack Recipe</a></h3>
+</div></div></div><div class="field field-name-field-download-type field-type-taxonomy-term-reference field-label-hidden"><div class="field-items"><div class="field-item even">Stack Recipe</div></div></div><div class="field field-name-field-download-version field-type-taxonomy-term-reference field-label-inline clearfix"><div class="field-label">Version:&nbsp;</div><div class="field-items"><div class="field-item even">2018Q1</div></div></div><div class="field field-name-field-release-date field-type-datetime field-label-inline clearfix"><div class="field-label">Release Date:&nbsp;</div><div class="field-items"><div class="field-item even"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2018-04-13T00:00:00-07:00">Apr 13, 2018</span></div></div></div></div>
+
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+  
+  </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+                    </div>
+        </div>
+    </main>
+    <!-- END MAIN -->
+    <footer>
+      <div class="container">
+        <div class="mobile-menu"></div>
+        <div id="footer-menu">
+          <ul class="navbar-menu"><li class="menu-778 first"><a href="/about/privacy-policy" title="">Privacy Policy</a></li>
+<li class="menu-779"><a href="https://www.intel.com/content/www/us/en/legal/terms-of-use.html">Terms of Service</a></li>
+<li class="menu-780"><a href="/about/contact-us" title="">Contact Us</a></li>
+<li class="menu-5163"><a href="http://www.intel.com/content/www/us/en/jobs/jobs-at-intel.html" target="_blank">Jobs</a></li>
+<li class="menu-5189"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank">*Trademarks</a></li>
+<li class="menu-5190 last"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank">Cookies</a></li>
+</ul>        </div>
+        <div class="social-bar">
+          <div class="container">
+              <div class="region region-social-media">
+    <div id="block-menu-menu-social-media" class="block block-menu">
+
+    
+  <div class="content">
+    <ul class="custom-nav" ><li class="first leaf"><a href="https://www.facebook.com/IntelDeveloperZone" title="Intel Developer Zone | Facebook" id="social-media-icon-facebook" name="Intel Developer Zone | Facebook" class="tool-icon" target="_blank">Facebook</a></li>
+<li class="leaf"><a href="https://plus.google.com/+IntelSoftware/posts" title="Intel Opensource | Google Plus" id="social-media-icon-gplus" name="Intel Opensource | Google Plus" class="tool-icon" target="_blank">Google-plus</a></li>
+<li class="leaf"><a href="https://twitter.com/intelsoftware" title="Intel Opensource | Twitter" id="social-media-icon-twitter" name="Intel Opensource | Twitter" class="tool-icon" target="_blank">Twitter</a></li>
+<li class="leaf"><a href="https://www.linkedin.com/grp/home?gid=3078126" title="Intel Developer Zone | LinkedIn" id="social-media-icon-linkedin" name="Intel Developer Zone | LinkedIn" class="tool-icon" target="_blank">Linkedin</a></li>
+<li class="leaf"><a href="https://www.youtube.com/user/intelswnetwork" title="Intel Network | YouTube" id="social-media-icon-youtube" name="Intel Network | YouTube" class="tool-icon" target="_blank">Youtube</a></li>
+<li class="last leaf"><a href="https://github.com/01org" title="01.org | GitHub" id="social-media-icon-github" name="01.org | GitHub" class="tool-icon" target="_blank">Github</a></li>
+</ul>  </div>
+</div>
+  </div>
+          </div>
+        </div>
+      </div>
+            <div class="footer-copyright">
+        <div class="container">
+          <small>Copyright © 2020 Intel Corporation. All rights reserved</small> <br>
+          <small>*Other names and brands may be claimed as the property of others</small>
+                  </div>
+      </div>
+    </footer>
+  </div>
+</div>
+  </body>
+</html>
