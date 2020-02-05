@@ -1,0 +1,187 @@
+<html lang="en">
+
+<head>
+    <title>Cinder</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css">
+
+    <link rel="shortcut icon" href="/static/favicon.png">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+
+    <script src="/static/scripts/jquery.min.js"></script>
+    <script src="/static/scripts/modernizr.min.js"></script>
+    <script src="/static/scripts/bootstrap.min.js"></script>
+    <script src="/static/scripts/libcinder.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-68329198-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    
+
+<script>
+    $( document ).ready( function() {
+
+        var images = $( "#cover-images > div" );
+        var count = images.length;
+        var index =  Math.floor( Math.random() * count );
+
+        function rotate( timeout ) {
+            var timeout = ( typeof timeout !== "undefined" ) ? timeout : 3500;
+            var duration = 450;
+            var image = images.eq( index );
+            var next_image;
+
+            if( index < ( count - 1 ) ) {
+                next_image = images.eq( index + 1 );
+                next_image.fadeIn( duration, function() {
+                    image.hide();
+                    index += 1; } );
+            } else {
+                next_image = images.eq( 0 );
+                image.fadeOut( duration );
+                next_image.fadeIn( duration );
+                index = 0;
+            }
+
+            setTimeout( function() { $( "#project-name" ).html( next_image.attr( "name" ) ); }, 250 );
+            setTimeout( rotate, timeout );
+        }
+
+        if( images.length == 0 ) {
+            $( "#cover-images" ).append( "<div style='background-image: url(/static/images/homepage/Hero1.jpg); display: block;'></div>" );
+        } else {
+            rotate();
+        }
+    } );
+</script>
+
+<style>
+    #cover-images {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 773px;
+        width: 100%;
+        z-index: -1;
+    }
+
+    #cover-images > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        height: inherit;
+        width: inherit;
+        background-size: cover;
+    }
+</style>
+
+<div class="homepage">
+
+    <div class="nav-frontpage">
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Cinder</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                    <li><a href="/learn">Learn</a></li>
+                    <li><a href="/docs">Docs</a></li>
+                    <li><a href="http://discourse.libcinder.org">Forum</a></li>
+                    <li><a href="/download">Download</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="cover-images">
+        
+    </div>
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 id="responsive_headline" class="frontpage_title">A Powerful, <br>Intuitive Toolbox</h1>
+                    <p id="responsive_sub_headline">Cinder is a free and open source library for professional-quality creative coding in C++.</p>
+                    <div class="row hero-cta">
+                        <div class="col-md-4">
+                            <p><a class="btn btn-primary btn-lg" role="button" href="/about">See What Cinder Can Do</a></p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><a class="btn btn-primary btn-lg" role="button" href="/download">Download Cinder</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row project-name-row">
+                <p id="project-name"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body front-page-container">
+        <div class="row">
+            <div class="col-md-4 front-sections">
+                <h2>Download</h2>
+                <p>Cinder is available under the BSD License for OS X and Windows. The latest version is 0.9.1</p>
+                <p><a href="/static/releases/cinder_0.9.1_mac.zip"><span data-title="Cinder for OS X">Cinder for OS X</span></a></p>
+                <p><a href="/static/releases/cinder_0.9.1_vc2013.zip"><span data-title="Visual C++ 2013">Visual C++ 2013</span></a></p>
+                <p><a class="btn btn-default" href="/download" role="button">All Cinder Versions</a></p>
+            </div>
+            <div class="col-md-4 front-sections">
+                <h2>Github</h2>
+                <p>To keep up-to-date with Cinder’s development, consider working from the github repository directly.</p>
+
+                <p><a href="/docs/guides/git/index.html">This guide</a> walks you through getting setup with Cinder and Github.</p>
+                <p><a class="btn btn-default" href="https://github.com/cinder/Cinder" role="button">Cinder on GitHub</a></p>
+            </div>
+            <div class="col-md-4 front-sections">
+                <h2>Sponsors</h2>
+                <p>Cinder is developed by the generous contributions of its global user community.</p>
+
+                <p>In addition, we owe a huge debt to <a href="http://barbariangroup.com">The Barbarian Group</a>, who have been Cinder's biggest fans and supporters.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; Copyright 2017. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</body>
+
+</html>

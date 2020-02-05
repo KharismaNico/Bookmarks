@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>yasmine - yasmine - the C++ UML state machine framework</title>
+
+    <meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+
+<link rel="stylesheet" href="assets/css/content-style.css">
+    <link rel="stylesheet" href="assets/css/search.css">
+
+<link rel="stylesheet" href="assets/css/theme.main.css">
+<link rel="stylesheet" href="assets/css/theme.colors.css">
+<link rel="stylesheet" type="text/css" href="assets/css/theme_switcher.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/seadex_theme_base.css" />
+
+<script type="text/javascript" src="assets/js/theme_switch.js"></script>
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.scrollTo.min.js"></script>
+
+<script type="text/javascript" src="assets/js/scroll-tree.js"></script>
+
+<script type="text/javascript" src="assets/js/theme.main.js"></script>
+
+<script type="text/javascript" src="assets/js/seadex_cookie.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+
+<script>
+// Set to the same value as the web property used on the site
+var gaProperty = 'UA-79843146-2';				  
+
+// Disable tracking if the opt-out cookie exists.
+var disableStr = 'ga-disable-' + gaProperty;
+if (document.cookie.indexOf(disableStr + '=true') > -1) {
+  window[disableStr] = true;
+}
+
+// Opt-out function
+function gaOptout() {
+  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+  window[disableStr] = true;
+}
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-79843146-2', 'auto', 
+  { 
+  anonymizeIp: true 
+  });
+  ga('send', 'pageview');
+
+</script>
+<noscript>
+	<link rel="stylesheet" href="assets/css/seadex_no_script.css">
+</noscript>
+<link link rel="icon" type="image/png" href="s_dark.png">
+            <!-- ES5 support for older browsers, needed by lunr -->
+        <script src="js/augment.js"></script>
+        <script id="worker" type="javascript/worker">
+
+        startIndex = function() {
+            idx = lunr.Index.load(lunrIndex);
+            idx.pipeline.remove(lunr.stopWordFilter);
+            postMessage({type: "setup-complete"});
+        }
+
+        onmessage = function (event) {
+            var message = event.data;
+
+            if ((message.type === 'setup') && message.baseUrl) {
+                var url = message.baseUrl;
+                importScripts(url + 'js/lunr.js');
+                importScripts(url + 'js/lunr-extras.js');
+                importScripts(url + 'js/lunr-index.js');
+                importScripts(url + 'js/lunr-data.js');
+                startIndex();
+            }
+
+            if (idx && (message.type === 'search-request') && message.query) {
+                var searchWord = message.query;
+                var results = idx.search(searchWord).map(function (result) {
+                    return lunrData.filter(function (d) {
+                        return d.id === parseInt(result.ref, 10)
+                    })[0]
+                });
+                postMessage({type: 'search-results', results: results, query: searchWord, queryId: message.queryId});
+            }
+        }
+
+    </script>
+    </head>
+
+<body pageid="1704130" onload="change_logo()">
+
+<div id="ht-loader"></div>
+
+<div>
+   	<header id="ht-headerbar">
+<noscript> 
+        <div class="javascript_is_disabled">
+			<h1>For full functionality of this site it is necessary to enable JavaScript.</h1> 
+			<h2>Diese Seite benutzt Cookies, um Ihnen das bestmögliche Nutzungserlebnis zu bieten.<a href="http://seadex.de/Datenschutz.html"> Hinweise zum Datenschutz ansehen.</a> </h2>
+		</div>
+</noscript>
+
+    <div class="ht-headerbar-left">
+        <a href="" id="ht-menu-toggle" class="sp-aui-icon-small sp-aui-iconfont-appswitcher"></a>
+    </div>
+    <div class="ht-headerbar-right">
+            <div class="sp-aui-icon-small ht-search-index-loader ht-header-icon"></div>
+		
+		<div class="seadex_div" style="padding-top: 5px; height=30px">
+			<div class="toggle-button" onclick="switch_theme_depending_on_file()">
+				<button></button>
+			</div>
+		</div>
+		
+        <div id="ht-search">
+            <div class="ht-search-input" style="display: none;">
+              	<a href="#" class="sp-aui-icon-small sp-aui-iconfont-remove ht-search-clear"></a>
+
+                <form action="#" method="GET" id="search">
+                    <input class="search-input" type="text" placeholder="Search" tabindex="-1" autocomplete="off" name="q" value="">
+                    <input type="hidden" name="max" value="15" />
+                    <input type="submit" style="display:none" tabindex="-4"/>
+                </form>
+
+                <a href="#" id="ht-search-button" class="ht-header-icon ht-header-icon-svg">
+                                        <svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g>
+                            <path d="M29.572,28.802 L28.801,29.571 C28.515,29.857 28.187,30 27.816,30 C27.445,30 27.116,29.857 26.831,29.571 L21.392,24.134 C20.193,24.762 18.908,25.076 17.538,25.076 C15.396,25.076 13.605,24.348 12.163,22.892 C10.721,21.436 10,19.651 10,17.538 C10,15.397 10.721,13.605 12.163,12.163 C13.605,10.721 15.396,10 17.538,10 C19.651,10 21.434,10.721 22.89,12.163 C24.347,13.605 25.075,15.397 25.075,17.538 C25.075,18.937 24.761,20.222 24.132,21.393 L29.572,26.832 C29.857,27.118 30,27.446 30,27.817 C30,28.188 29.857,28.517 29.572,28.802 L29.572,28.802 Z M13.662,21.414 C14.732,22.485 16.024,23.02 17.538,23.02 C19.051,23.02 20.343,22.485 21.413,21.414 C22.484,20.344 23.019,19.052 23.019,17.538 C23.019,16.025 22.484,14.733 21.413,13.662 C20.343,12.592 19.051,12.056 17.538,12.056 C16.024,12.056 14.732,12.592 13.662,13.662 C12.591,14.733 12.056,16.025 12.056,17.538 C12.056,19.052 12.591,20.344 13.662,21.414 L13.662,21.414 Z"></path>
+                        </g>
+                    </svg>
+              	</a>
+
+                <div class="ht-search-dropdown ht-dropdown">
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+		<div class="download_yasmine" onclick="javascript:location.href='http://yasmine.seadex.de/Downloads.html'"><button id="download_button">Download</button></div>
+    </div>
+    </header>   	<aside id="ht-sidebar">
+    <div class="ht-sidebar-content">
+        <div class="ht-sidebar-content-scroll-container">
+            <header class="ht-sidebar-header">
+                <h1 class="ht-logo">
+                    <span class="ht-logo-label">HY</span>
+					<a target="_blank" href="http://www.seadex.de"/>
+                    <img class="space-logo" src="HY" />
+                </h1>
+                <a href="yasmine.html" class="ht-space-link">
+                    <h2>yasmine - the C++ UML state machine framework</h2>
+                </a>
+            </header>
+
+            <nav class="ht-pages-nav">
+                <ul class="ht-pages-nav-top">
+                                            <div class="seadex_nav">
+						    <li class="collapsed">
+        <a class="ht-nav-page-link" href="The_yasmine_ecosystem.html">The yasmine ecosystem</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="libyasmine_%28core_library%29_features.html">libyasmine (core library) features</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="In_development_and_planned_features.html">In development and planned features</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Versioning.html">Versioning</a>
+
+            </li>
+                            </ul>
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="leaf">
+        <a class="ht-nav-page-link" href="Quality.html">Quality</a>
+
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="collapsed">
+        <a class="ht-nav-page-link" href="libyasmine_%28documentation%29.html">libyasmine (documentation)</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Building_yasmine.html">Building yasmine</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Microsoft_Visual_Studio.html">Microsoft Visual Studio</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="CMake.html">CMake</a>
+
+            </li>
+                            </ul>
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Integrating_yasmine.html">Integrating yasmine</a>
+
+            </li>
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Concepts.html">Concepts</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="State_machine.html">State machine</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Assembly.html">Assembly</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Checking_for_defects.html">Checking for defects</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Starting%2C_stopping_and_interrupting.html">Starting, stopping and interrupting</a>
+
+            </li>
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Event_processing.html">Event processing</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Transition_search.html">Transition search</a>
+
+            </li>
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Transition_execution.html">Transition execution</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Transition_conflict.html">Transition conflict</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Transition_sort.html">Transition sort</a>
+
+            </li>
+                            </ul>
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Event_collector.html">Event collector</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Unhandled_event_handler.html">Unhandled event handler</a>
+
+            </li>
+                            </ul>
+            </li>
+                            </ul>
+            </li>
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="States.html">States</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Simple_state.html">Simple state</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Asynchronous_simple_state.html">Asynchronous simple state</a>
+
+            </li>
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Composite_state.html">Composite state</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Region.html">Region</a>
+
+            </li>
+                            </ul>
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Final_state.html">Final state</a>
+
+            </li>
+                            </ul>
+            </li>
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Pseudostates.html">Pseudostates</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Initial_pseudostate.html">Initial pseudostate</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Terminate_pseudostate.html">Terminate pseudostate</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Choice.html">Choice</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Junction.html">Junction</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Join.html">Join</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Fork.html">Fork</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Entry_point.html">Entry point</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Exit_point.html">Exit point</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Shallow_history.html">Shallow history</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Deep_history.html">Deep history</a>
+
+            </li>
+                            </ul>
+            </li>
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Events.html">Events</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Creating_event_classes.html">Creating event classes</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Firing_events.html">Firing events</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Accessing_events_in_behaviors_and_guards.html">Accessing events in behaviors and guards</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Time-based_event_creation.html">Time-based event creation</a>
+
+            </li>
+                            </ul>
+            </li>
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Other_elements.html">Other elements</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Transition.html">Transition</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Guard.html">Guard</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Trigger.html">Trigger</a>
+
+            </li>
+                            </ul>
+            </li>
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Behavior.html">Behavior</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Asynchronous_behavior.html">Asynchronous behavior</a>
+
+            </li>
+                            </ul>
+            </li>
+                            </ul>
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Raising_and_handling_errors.html">Raising and handling errors</a>
+
+            </li>
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Exceptions.html">Exceptions</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Behavior_exception.html">Behavior exception</a>
+
+            </li>
+                            </ul>
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Logging.html">Logging</a>
+
+            </li>
+                            </ul>
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Collection_headers.html">Collection headers</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Preprocessor_definitions.html">Preprocessor definitions</a>
+
+            </li>
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Examples.html">Examples</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Hello%2C_yasmine%21.html">Hello, yasmine!</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="The_classic_farmroad_example.html">The classic farmroad example</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Forty_two_%2842%29.html">Forty two (42)</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Events_with_parameters_example.html">Events with parameters example</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Sub_state_machine_with_variables_example.html">Sub state machine with variables example</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Event_collector_example.html">Event collector example</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Unhandled_event_handler_example.html">Unhandled event handler example</a>
+
+            </li>
+                            </ul>
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Reference.html">Reference</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Changelog.html">Changelog</a>
+
+            </li>
+                            </ul>
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="collapsed">
+        <a class="ht-nav-page-link" href="yasmine_model.html">yasmine model</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Changelog_%28yasmine_model%29.html">Changelog (yasmine model)</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="The_ym_JSON_format.html">The ym JSON format</a>
+
+            </li>
+                            </ul>
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="collapsed">
+        <a class="ht-nav-page-link" href="ygen_-_the_yasmine_generator.html">ygen - the yasmine generator</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="ygen_command_line_parameters.html">ygen command line parameters</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Example.html">Example</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Changelog_%28ygen%29.html">Changelog (ygen)</a>
+
+            </li>
+                            </ul>
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="collapsed">
+        <a class="ht-nav-page-link" href="ygen_ui_-_the_visual_generator.html">ygen_ui - the visual generator</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="ygen_ui_-_Documentation.html">ygen_ui - Documentation</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Replacing_Qt_with_another_build.html">Replacing Qt with another build</a>
+
+            </li>
+                            </ul>
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="collapsed">
+        <a class="ht-nav-page-link" href="yasmine%27s_EA_addin.html">yasmine's EA addin</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="yasmine%27s_EA_addin_documentation.html">yasmine's EA addin documentation</a>
+
+            </li>
+                            </ul>
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="collapsed">
+        <a class="ht-nav-page-link" href="License.html">License</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Commercial_license_%28Deutsch_German%29.html">Commercial license (Deutsch/German)</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Commercial_license_%28Englisch_English%29.html">Commercial license (Englisch/English)</a>
+
+            </li>
+                            </ul>
+            </li>
+                                        <li class="collapsed">
+        <a class="ht-nav-page-link" href="Private_and_academic_license_%28Deutsch_German%29.html">Private and academic license (Deutsch/German)</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Private_and_academic_license_%28Englisch_English%29.html">Private and academic license (Englisch/English)</a>
+
+            </li>
+                            </ul>
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Appendix_%28Anhang%29.html">Appendix (Anhang)</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Registration.html">Registration</a>
+
+            </li>
+                            </ul>
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="collapsed">
+        <a class="ht-nav-page-link" href="Downloads.html">Downloads</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="yasmine_downloads.html">yasmine downloads</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="ygen_ui_downloads.html">ygen_ui downloads</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="EA_addin_downloads.html">EA addin downloads</a>
+
+            </li>
+                            </ul>
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="collapsed">
+        <a class="ht-nav-page-link" href="Contact_%26_support.html">Contact &amp; support</a>
+
+                    <span class="sp-toggle sp-aui-icon-small ht-pages-nav-toggle">
+                <svg id="icon-minus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+                <svg id="icon-plus" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#CCCCCC">
+                        <rect x="11" y="7" width="2" height="10"></rect>
+                        <rect x="7" y="11" width="10" height="2"></rect>
+                    </g>
+                </svg>
+            </span>
+
+            <ul class="nav ht-pages-nav-sub">
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Commercial_support.html">Commercial support</a>
+
+            </li>
+                                        <li class="leaf">
+        <a class="ht-nav-page-link" href="Show_your_appreciation.html">Show your appreciation</a>
+
+            </li>
+                            </ul>
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="leaf">
+        <a class="ht-nav-page-link" href="Resources.html">Resources</a>
+
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="leaf">
+        <a class="ht-nav-page-link" href="Forum.html">Forum</a>
+
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="leaf">
+        <a class="ht-nav-page-link" href="Impressum_%28imprint%29.html">Impressum (imprint)</a>
+
+            </li>
+						</div>
+                                            <div class="seadex_nav">
+						    <li class="leaf">
+        <a class="ht-nav-page-link" href="Datenschutz_%28privacy%29.html">Datenschutz (privacy)</a>
+
+            </li>
+						</div>
+                                    </ul>
+            </nav>
+        </div>
+    </div>
+
+</aside></div>
+
+<div id="ht-wrap-container">
+
+            
+    <div id="ht-sidebar-dragbar">
+    <div class="ht-sidebar-drag-handle">
+        <span class="drag-handle-1"></span>
+        <span class="drag-handle-2"></span>
+        <span class="drag-handle-3"></span>
+    </div>
+</div>
+    <article id="ht-content" class="ht-content">
+        <header class="ht-content-header">
+            <div id="ht-breadcrumb">
+    <ul>
+        <li><a href="yasmine.html">yasmine - the C++ UML state machine framework</a></li>
+                                        </ul>
+</div>            <h1 id="src-1704130"> <span>yasmine</span></h1>
+        </header>
+
+        <div id="main-content" class="wiki-content sp-grid-section" data-index-for-search="true">
+
+    <p  >yasmine is a C++ state machine framework developed by <a  class="external-link" target="_blank" href="http://www.seadex.de">Seadex</a>. The latest stable version is 1.5.3.    </p>
+    <p  >The very <a   href="yasmine_downloads.html">first beta version</a> (0.1.0) was released on June 20, 2016. Originally only supporting C++11 support for C++03 was added with Beta 6 (0.6.0). Version 1.0.0, the first stable version, was released January 20, 2017. The complete <a   href="Versioning.html">version history</a> is available for you, too.    </p>
+    <p  >yasmine is not just     <span style="color: #ffcc00;">
+<strong class=" ">y</strong></span>et     <span style="color: #ffcc00;">
+<strong class=" ">a</strong></span>nother     <span style="color: #ffcc00;">
+<strong class=" ">s</strong></span>tate     <span style="color: #ffcc00;">
+<strong class=" ">m</strong></span>ach<span style="color: #ffcc00;"><strong class=" ">ine</strong>    </span>
+ framework! It is an easy to use high level UML state machine abstraction that nicely integrates with modern object oriented C++ code.    </p>
+    <p  >She is also highly portable. yasmine is in active use under Linux and Windows. Hardware platforms she's running on include x86, ARM, and Blackfin. Builds are actively tested for MSVC, gcc, and Clang.    </p>
+    <p  >We created her, because we often use state machines in the projects we work on. And using existing solutions was not quite satisfying. Some didn't feel like they integrated into modern C++ code nicely (coded in C, switch case based, ...), others required the overhead of big frameworks. Then in some cases pulling in closed source libraries is a problem, because risk assessment is tricky (medical applications). And then there are solutions that seem quite nice, but never matured, are not maintained or poorly maintained, or poorly documented.    </p>
+    <p  >yasmine adheres as closely as possible to the UML state machine semantics. Key features are hierarchical states, orthogonal regions, and the support of run-to-completion semantics. For detailed information read more about her <a   href="libyasmine_%28core_library%29_features.html">features</a> in the documentation. We are creating a whole <a   href="The_yasmine_ecosystem.html">ecosystem </a>around the core library, that makes creating and maintaining state machine easier and more comfortable.    </p>
+    <p  >The core library <a   href="libyasmine_%28documentation%29.html">libyasmine</a> itself, the model library <a   href="yasmine_model.html">yasmine_model</a>, and the command line state machine generator <a   href="ygen_-_the_yasmine_generator.html">ygen </a>are free for commercial and non-commercial use (see <a   href="License.html">License </a>for details). <a   href="ygen_ui_-_the_visual_generator.html">ygen_ui</a>, the generator with graphical user interface, and the <a   href="yasmine%27s_EA_addin.html">Enterprise Architect addin</a> are commercial products which require you to buy a license for them. Currently beta versions of ygen_ui and of the EA addin can be obtained from the <a   href="Downloads.html">downloads section</a>. The beta versions are <i class=" ">free</i> for evaluation and test purposes.    </p>
+    <p  >Also <a   href="Commercial_support.html">Commercial support</a> by <a  class="external-link" target="_blank" href="http://www.seadex.de">Seadex </a>can be obtained (development, training, technical support).    </p>
+    <p  >You can also visit our forums at <a  class="external-link" target="_blank" href="http://seadex.de/forums/viewforum.php?f=4">http://seadex.de/forums</a> and post there if you have a suggestion, a question or want to give us any other kind of feedback. Also if you find yasmine useful, we would be glad if you would <a   href="Show_your_appreciation.html">show your appreciation</a>!    </p>
+    <p  >Credit goes to <i class=" "><strong class=" ">Jonathon Reach</strong></i><strong class=" "> </strong>for his effort of reading the entire documentation and for supplying us with lots of suggestions. This helped to improve these pages a lot. Thanks!    </p>
+    <div class="section section-1" id="src-1704130_yasmine-Advantagesofusingyasmine">
+        <h1 class="heading "><span>Advantages of using yasmine</span></h1>
+<ul class=" "><li class=" ">    <p  >She provides a complete implementation of UML state machine semantics (which extend FSM (Finite State Machine) semantics significantly).    </p>
+</li><li class=" ">    <p  >yasmine is a modern C++ implementation using C++11 (C++03 support is available, too).    </p>
+</li><li class=" ">    <p  >Because it's C++ (and not C) the code integrates nicely into OO code.    </p>
+</li><li class=" ">    <p  >She's well documented (If you think something is missing or unclear), please let us know.    </p>
+</li><li class=" ">    <p  >Because she is open source you can check her implementation out. Also this guarantees long term usability and availability.    </p>
+</li><li class=" ">    <p  >You can get support from Seadex. We appreciate your feedback and are open for feature requests and glad about bug reports.    </p>
+</li><li class=" ">    <p  >The library enables you to create state machines at runtime.    </p>
+</li><li class=" ">    <p  >yasmine will keep improving. The ecosystem around yasmine will grow, we will add even more tests, and also add to the documentation.    </p>
+</li><li class=" ">    <p  >No additional dependencies are introduced in an C++11 environment. yasmine only uses the C++11 standard library - nothing else.<br/>If you need support for C++03, then <a  class="external-link" target="_blank" href="http://www.boost.org/">Boost </a>is required to bridge some of the gaps the lacking C++11 support causes.    </p>
+</li></ul>    </div>
+    <div class="section section-1" id="src-1704130_yasmine-Whatyasmineisnot">
+        <h1 class="heading "><span>What yasmine is not</span></h1>
+    <p  >She's not a minimum foot print library that prioritizes on running on every system no matter how few resources are available. yasmine is not resource hungry, but she cannot (and does not want to) compete with switch-case-based bare-metal no-abstraction libraries.    </p>
+    </div>
+    <div class="section section-1" id="src-1704130_yasmine-News">
+        <h1 class="heading "><span>News</span></h1>
+<ul class=" "><li class=" ">    <p  >14.08.2018 yasmine <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.5.3">1.5.3</a> is available for download. This version contains minor bug fixes. The entire changelog is located <a   href="Changelog.html#src-4554987_Changelog-1.3.7">here</a>.    </p>
+</li><li class=" ">    <p  >23.07.2018 yasmine <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.5.2">1.5.2</a> is available for download. This version contains minor bug fixes. The entire changelog is located <a   href="Changelog.html#src-4554987_Changelog-1.3.6">here</a>.    </p>
+</li><li class=" ">    <p  >16.05.2018 yasmine <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.5.1">1.5.1</a> is available for download. This version contains minor bug fixes. The entire changelog is located <a   href="Changelog.html#src-4554987_Changelog-1.3.5">here</a>.    </p>
+</li><li class=" ">    <p  >18.12.2017 yasmine <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.5.0">1.5.0</a> is available for download. This version contains improvements and bug fixes. The entire changelog is located <a   href="Changelog.html#src-4554987_Changelog-1.3.4">here</a>.    </p>
+</li><li class=" ">    <p  >10.11.2017 yasmine <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.4.3">1.4.3</a> is available for download. This version contains bug fixes. The entire changelog is located <a   href="Changelog.html#src-4554987_Changelog-1.3.3">here</a>.    </p>
+</li><li class=" ">    <p  >26.10.2017 yasmine <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.4.2">1.4.2</a> is available for download. This version contains minor bug fixes. The entire changelog is located <a   href="Changelog.html#src-4554987_Changelog-1.3.2">here</a>.    </p>
+</li><li class=" ">    <p  >16.10.2017 Version <a   href="Downloads.html#src-9863479_Downloads-1.4.1">1.4.1</a> of yasmine is ready for download. A big refactoring of CMake files (in order to promote and ease cross compiling) and other minor bug fixes are available in this version. You can see the entire changelog <a   href="Changelog.html#src-4554987_Changelog-1.3.1">here</a>.    </p>
+</li><li class=" ">    <p  >21.09.2017 yasmine <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.4.0">1.4.0</a> is available for download. This version contains new features for state machine and support for Visual Studio 2017. The entire changelog is located <a   href="Changelog.html#src-4554987_Changelog-1.3.0">here</a>.    </p>
+</li><li class=" ">    <p  ><strong class=" ">14.09.2017 Beta versions of ygen_ui (graphical state machine generator) and the EA addin (state machine model export) are available for <a   href="Downloads.html">download</a>.</strong>    </p>
+</li><li class=" ">    <p  >22.08.2017 Version <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.3.3">1.3.3</a> of yasmine is ready for download. This version contains bug fixes and CMake files improvements. The changelog can be seen <a   href="Changelog.html#src-4554987_Changelog-1.2.3">here</a>.    </p>
+</li><li class=" ">    <p  >17.08.2017 yasmine <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.3.2">1.3.2</a> is available for download. This version contains minor bug fixes. The entire changelog is located <a   href="Changelog.html#src-4554987_Changelog-1.2.2">here</a>.    </p>
+</li><li class=" ">    <p  >14.08.2017 yasmine <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.3.1">1.3.1</a> is available for download. This version contains CMake files improvements: set compiler standard using CPP_VERSION. The entire changelog is located <a   href="Changelog.html#src-4554987_Changelog-1.2.1">here</a>.<strong class=" "><br/></strong>    </p>
+</li><li class=" ">    <p  >26.06.2017 yasmine <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.3.0">1.3.0</a> is available for download. This version contains a new feature (unhandled event handler) and a new example. The entire changelog is located <a   href="Changelog.html#src-4554987_Changelog-1.2.0">here</a>.    </p>
+</li><li class=" ">    <p  >23.05.2017 First screen shots of ygen_ui are available <a   href="ygen_ui_-_the_visual_generator.html">here</a>.    </p>
+</li><li class=" ">    <p  >28.04.2017 Version <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.2.1">1.2.1</a> of yasmine is ready for download. This version contains CMake file improvements.    </p>
+</li><li class=" ">    <p  >25.04.2017 Version <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.2.0">1.2.0</a> of yasmine is ready for download. This version contains the first releases of <a   href="yasmine_model.html">yasmine_model</a> library and <a   href="ygen_-_the_yasmine_generator.html">ygen</a> - a console application that generates C++ code for a state machine. libyasmine is now at version 1.1.2 with minor changes. You can see the entire changelog <a   href="Changelog.html#src-4554987_Changelog-1.1.2">here</a>.    </p>
+</li><li class=" ">    <p  >07.04.2017 yasmine<a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.1.1"> 1.1.1</a> is available for download. This version is released because of an internal restructuring of libyasmine. The libraries <a  class="external-link" target="_blank" href="http://essentials.seadex.de">essentials</a> and <a  class="external-link" target="_blank" href="http://hermes.seadex.de">hermes</a> were extracted from yasmine and are now used by libyasmine. There are also other minor changes which can be seen <a   href="Changelog.html#src-4554987_Changelog-1.1.1">here</a>.    </p>
+</li><li class=" ">    <p  >06.03.2017 Version <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.1.0">1.1.0</a> of yasmine is ready for download. This version contains new features and a <a   href="Event_collector_example.html">new example</a>. You can see the entire changelog <a   href="Changelog.html#src-4554987_Changelog-1.1.0">here</a>.<strong class=" "><strong class=" "><br/></strong></strong>    </p>
+</li><li class=" ">    <p  >08.02.2017 Version <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.0.1">1.0.1</a> of yasmine is ready for download. This version contains a bug fix. The changelog can be seen <a   href="Changelog.html#src-4554987_Changelog-1.0.1">here</a>.    </p>
+</li><li class=" ">    <p  ><strong class=" ">20.01.2017 We are glad to announce the first stable release of yasmine - version <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-1.0.0">1.0.0</a>. The new features of this version can be found in the <a   href="Changelog.html#src-4554987_Changelog-1.0.0">changelog</a>.</strong>    </p>
+</li><li class=" ">    <p  >12.12.2016 yasmine <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-0.6.1">0.6.1 (Beta 7)</a> was released (download). The changelog can be found <a   href="Changelog.html#src-4554987_Changelog-0.6.1">here</a>.    </p>
+</li><li class=" ">    <p  >09.12.2016 yasmine <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-0.6.0">0.6.0 (Beta 6)</a> is available for download. Compatibility with C++03 is most noticeable change of this release. Also support for events with parameters was improved. Also new <a   href="Examples.html">examples</a> are available. The entire changelog is located <a   href="Changelog.html">here</a>.    </p>
+</li><li class=" ">    <p  >07.11.2016 Version <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-0.5.0">0.5.0 (Beta 5)</a> is online. CMake support was added to ease building on Non-Windows platforms (e.g. Linux). You can see the entire changelog <a   href="Changelog.html">here</a>.    </p>
+</li><li class=" ">    <p  >07.10.2016 The 5th release of yasmine - version 0.4.0 (Beta 4) is available for <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-0.4.0">download</a>. The changelog can be found <a   href="Changelog.html">here</a>.    </p>
+</li><li class=" ">    <p  >19.09.2016 As for today yasmine is also available on <a  class="external-link" target="_blank" href="https://github.com/SeadexGmbH/yasmine">GitHub</a>.    </p>
+</li><li class=" ">    <p  >16.09.2016 A new version of yasmine is available for <a   href="yasmine_downloads.html#src-3408088_yasminedownloads-0.3.0">download</a>: yasmine 0.3.0 (Beta 3). The changelog can be found <a   href="Changelog.html">here</a>.    </p>
+</li><li class=" ">    <p  >19.08.2016 yasmine 0.2.0 (Beta 2) was released (<a   href="yasmine_downloads.html">download</a>).    </p>
+</li><li class=" ">    <p  ><strong class=" ">04.08.2016 2nd license update. <strong class=" ">For details please refer to our <a   href="License.html">License</a> page.</strong></strong>    </p>
+</li><li class=" ">    <p  >22.07.2016 New release of yamine is available (0.1.1 (Beta 1)) (<a   href="yasmine_downloads.html">download</a>).    </p>
+</li><li class=" ">    <p  >20.07.2016 License update: We have changed our licenses. They are now even less restrictive! For details please read our <a   href="License.html">License</a> page.    </p>
+</li><li class=" ">    <p  ><strong class=" ">20.06.2016 First release of yamine 0.1.0 (Beta 0) (<a   href="yasmine_downloads.html">download</a>)!</strong>    </p>
+</li></ul>    </div>
+        </div>
+
+    </article>
+
+
+            <nav id="ht-post-nav">
+                    <a href="The_yasmine_ecosystem.html" class="ht-post-nav-next">
+            <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                <g id="ht-icon-next" sketch:type="MSArtboardGroup">
+                    <path fill="#000000" d="M16,8 L16,6 L6,6 L6,16 L8,16 L8,8 L16,8 Z" id="Rectangle-2"
+                          sketch:type="MSShapeGroup"
+                          transform="translate(11.000000, 11.000000) rotate(-225.000000) translate(-11.000000, -11.000000) "></path>
+                </g>
+            </svg>
+            <span>The yasmine ecosystem</span>
+        </a>
+    </nav>    
+            
+            <article id="html-search-results" class="ht-content" style="display: none;">
+            <header class="ht-content-header">
+                <div id="ht-spacetitle">
+                    <ul>
+                        <li><a href="yasmine.html">yasmine - the C++ UML state machine framework</a></li>
+                    </ul>
+                </div>
+                <h1>Search results</h1>
+            </header>
+            <div id="search-results"></div>
+        </article>
+    
+    <footer id="ht-footer">
+    <a href="#" id="ht-jump-top" class="sp-aui-icon-small sp-aui-iconfont-arrows-up"></a>
+</footer></div>
+
+<div>
+    <div id="ht-mq-detect"></div>
+</div>
+
+    <script src="js/lunr.js"></script>
+    <script src="js/lunr-extras.js"></script>
+    <script src="assets/js/scroll-search.js"></script>
+
+</body>
+</html>

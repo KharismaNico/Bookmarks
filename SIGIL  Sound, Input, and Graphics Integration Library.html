@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+    <head>
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="icon" type="image/png" href="images/favicon.png">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <title>SIGIL: Sound, Input, and Graphics Integration Library</title>
+    </head>
+
+    <body class="bgstyle">
+    <div id="main">
+
+        <h1>SIGIL</h1>
+        <p>(Latest version is 0.9.0 (stable))</p>
+        <p>SIGIL stands for <strong>Sound</strong>, <strong>Input</strong>, and <strong>Graphics Integration Library</strong>. It is meant to be a mind-bogglingly simple alternative to other, more complex libraries when all you want is to make a small game, teach basic 2D graphics, or otherwise remove the complexities of media programming from your C or C++ code. It's also <strong>cross-platform!</strong></p>
+
+        <p>It's designed to be <strong>really</strong> easy to use. Here is a simple example program demonstrating sprites, text, rectangles, and lines.</p>
+
+        <div style="max-width:925px">
+            <div style="float:right"><img src="images/sigil_example.png" alt="a screenshot of a simple SIGIL application"></div>
+			<br>
+            <div class="codeblock">
+
+                <span class="preprocessor">#include "sl.h"</span><br>
+                <br>
+                <span class="reserved">int</span> main(<span class="reserved">int</span> args, <span class="reserved">char</span> *argv[])<br>
+                {<br>
+                &emsp;&emsp;<span class="comment">// set up our window and a few resources we need</span><br>
+                &emsp;&emsp;slWindow(400, 400, <span class="string">"Simple SIGIL Example"</span>, <span class="reserved">false</span>);<br>
+                &emsp;&emsp;slSetFont(slLoadFont(<span class="string">"ttf/white_rabbit.ttf"</span>), 24);<br>
+                &emsp;&emsp;slSetTextAlign(SL_ALIGN_CENTER);<br>
+                &emsp;&emsp;<span class="reserved">int</span> tex = slLoadTexture(<span class="string">"png/glow.png"</span>);<br>
+                <br>
+                &emsp;&emsp;<span class="reserved">while</span>(!slShouldClose() &amp;&amp; !slGetKey(SL_KEY_ESCAPE))<br>
+                &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;&emsp;<span class="comment">// background glow</span><br>
+                &emsp;&emsp;&emsp;&emsp;slSetForeColor(0.1, 0.9, 0.2, 0.4);&emsp;&emsp;<br>
+                &emsp;&emsp;&emsp;&emsp;slSprite(tex, 200, 240, 300, 200);<br>
+                <br>
+                &emsp;&emsp;&emsp;&emsp;<span class="comment">// large text and fat line</span><br>
+                &emsp;&emsp;&emsp;&emsp;slSetForeColor(0.0, 0.8, 0.2, 1.0);<br>
+                &emsp;&emsp;&emsp;&emsp;slSetFontSize(24);<br>
+                &emsp;&emsp;&emsp;&emsp;slText(200, 250, <span class="string">"SIGIL:"</span>);<br>
+                &emsp;&emsp;&emsp;&emsp;slRectangleFill(200, 240, 100, 7);<br>
+                <br>
+                &emsp;&emsp;&emsp;&emsp;<span class="comment">// smaller subtext</span><br>
+                &emsp;&emsp;&emsp;&emsp;slSetFontSize(14);<br>
+                &emsp;&emsp;&emsp;&emsp;slText(200, 220, <span class="string">"Sprites, text, sound, input, and more!"</span>);<br>
+                &emsp;&emsp;&emsp;&emsp;slLine(48, 210, 352, 210);<br>
+                <br>
+                &emsp;&emsp;&emsp;&emsp;slRender();&emsp;&emsp;&emsp;&emsp;<span class="comment">// draw everything</span><br>
+                &emsp;&emsp;}<br>
+                &emsp;&emsp;slClose();&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="comment">// close the window and shut down SIGIL</span><br>
+                &emsp;&emsp;<span class="reserved">return</span> 0;<br>
+                }
+
+            </div>
+        </div>
+
+        <h2>Cool! What platforms does SIGIL support?</h2>
+        <p>At the moment, SIGIL supports <strong>MinGW32</strong>, <strong>MSVC 10 2010</strong> (32- and 64-bit), <strong>MSVC 11 2012</strong> (32- and 64-bit), <strong>MSVC 12 2013</strong> (32- and 64-bit), <strong>MSVC 14 2015</strong> (32- and 64-bit), <strong>Linux GCC</strong>, and the <strong>Raspberry Pi</strong>. Other platforms may work, but they are not officially supported (yet).</p>
+
+        <h2>Where can I download SIGIL?</h2>
+        <p>The SIGIL header is <a href="files/sl.h">available here</a>. Precompiled libs are provided for the following platforms (header files are also included in these .zip files):</p>
+        <ul>
+            <li><a href="files/sigil-mingw32-0.9.0.zip">MinGW32</a></li>
+            <li><a href="files/sigil-vc2010-0.9.0.zip">MSVC 10 2010 32-bit</a> or <a href="files/sigil-vc2010-win64-0.9.0.zip">64-bit</a></li>
+            <li><a href="files/sigil-vc2012-0.9.0.zip">MSVC 11 2012 32-bit</a> or <a href="files/sigil-vc2012-win64-0.9.0.zip">64-bit</a></li>
+            <li><a href="files/sigil-vc2013-0.9.0.zip">MSVC 12 2013 32-bit</a> or <a href="files/sigil-vc2013-win64-0.9.0.zip">64-bit</a></li>
+            <li><a href="files/sigil-vc2015-0.9.0.zip">MSVC 14 2015 32-bit</a> or <a href="files/sigil-vc2015-win64-0.9.0.zip">64-bit</a></li>
+			<li><a href="files/sigil-linux-gcc-0.9.0.zip">Linux GCC</a></li>
+			<li><a href="files/sigil-rpi-0.9.0.zip">Raspberry Pi</a></li>
+        </ul>
+
+        <h2>I want source code!</h2>
+        <p>Calm down! Source code is <a href="https://gitlab.com/geoff-nagy/sigil/tree/master">available on GitLab<img class="external" src="images/external.png" alt="opens in new window"></a>.</p>
+
+        <h2>How do I use SIGIL?</h2>
+        <p>Using SIGIL in your program only requires you to&nbsp;&nbsp;<span class="inlinecode">#include</span> <span class="inlinecode">"sl.h"</span> and link against the provided libraries. The SIGIL header file is <a href="files/sl.h">available here</a>. For more details, consult the documentation below:</p>
+		<ul>
+            <li><a href="docs/SIGIL_API.pdf">SIGIL API Documentation</a></li>
+			<li>How to integrate SIGIL into your programs:
+            <ul>
+                <li><a href="docs/SIGIL_MinGW_CodeBlocks.pdf">using MinGW32</a> (with the <a href="http://codeblocks.org/home">CodeBlocks IDE<img class="external" src="images/external.png" alt="opens in new window"></a>)</li>
+                <li><a href="docs/SIGIL_MSVC.pdf">using Visual Studio</a></li>
+                <li><a href="docs/SIGIL_Linux_CodeBlocks.pdf">using Linux GCC</a> (with the <a href="http://codeblocks.org/home">CodeBlocks IDE<img class="external" src="images/external.png" alt="opens in new window"></a>)</li>
+                <li>on the Raspberry Pi, you can use the Linux CodeBlocks guide above, or start with a <a href="docs/Makefile">sample Makefile</a>.</li>
+            </ul></li>
+		</ul>
+
+    	<h2>Do you provide any examples?</h2>
+        <p>You bet! There are several self-contained SIGIL example projects <a href="https://gitlab.com/geoff-nagy/sigil/tree/master/examples">available on GitLab<img class="external" src="images/external.png" alt="opens in new window"></a>, for every compiler that SIGIL supports.</p>
+
+		<h2>Is SIGIL still under development?</h2>
+		<p>SIGIL is feature-complete and stable. Further development will only occur in the form of bugfixes or maintenance, as required.</p>
+
+        <h2>I have a question/bug report/semi-helpful comment. Who do I pester about this?</h2>
+        <p>You can contact the project developer/maintainer, Geoff, at <a href="mailto:geoff@libsigil.com">geoff@libsigil.com</a>.</p>
+
+        <hr>
+        <p><em>Page last updated June 18, 2019.</em></p>
+        <p>
+            <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" ></a>
+        </p>
+
+    </div>
+    </body>
+
+</html>

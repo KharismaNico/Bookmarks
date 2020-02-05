@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>	
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">	
+<META NAME="Generator" CONTENT="U++ HTML Package">	
+<TITLE>Ultimate++ is a C++ cross-platform rapid application development framework :: Ultimate++</TITLE>
+<STYLE TYPE="text/css"><!--
+.A{margin:0px 0px 0px 0px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;}
+.B{font-size:12pt;}
+.C{margin:0px 0px 2px 0px;text-indent:0px;text-align:left;color:#000000;font-family:serif;font-size:24pt;font-weight:bold;font-style:normal;text-decoration:none;}
+.D{margin:0px 0px 0px 0px;text-indent:0px;text-align:right;color:#000000;font-family:serif;font-size:8pt;font-weight:bold;font-style:normal;text-decoration:none;}
+.E{border-collapse:collapse;table-layout:auto;border: 0px solid #000000;}
+.F{padding: 0px 0px 0px 0px;border-left: 0px solid #000000;border-top: 0px solid #000000;border-right: 0px solid #000000;border-bottom: 0px solid #000000;background-color:#FFFFFF;vertical-align:top;}
+.G{margin:8px 11px 8px 0px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;line-height:150%}
+.H{font-weight:bold;}
+.I{margin:8px 11px 8px 0px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:10pt;font-weight:bold;font-style:normal;text-decoration:none;line-height:150%}
+.J{display:list-item;list-style-type:disc;margin:8px 11px 8px 52px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;line-height:150%}
+.K{margin:0px 0px 2px 0px;text-indent:0px;text-align:right;color:#0000ff;font-family:serif;font-size:6pt;font-weight:bold;font-style:italic;text-decoration:none;}
+.L{margin:8px 0px 8px 0px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;line-height:150%}
+.M{margin:0px 0px 0px 12px;text-indent:0px;text-align:center;color:#000000;font-family:sans-serif;font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;}
+.N{margin:8px 0px 8px 12px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;line-height:150%}
+.O{margin:8px 0px 8px 12px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;line-height:150%}
+.P{font-weight:normal;}
+.Q{margin:0px 0px 0px 0px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;}
+.R{padding: 5px 5px 5px 5px;border-left: 1px solid #A5A5A5;border-top: 1px solid #A5A5A5;border-right: 1px solid #A5A5A5;border-bottom: 1px solid #A5A5A5;background-color:#F0F0F0;vertical-align:middle;}
+.S{margin:0px 0px 0px 0px;text-indent:0px;text-align:center;color:#000000;font-family:sans-serif;font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;}
+.T{margin:0px 0px 0px 0px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:6pt;font-weight:normal;font-style:normal;text-decoration:none;}
+.U{padding: 5px 5px 5px 5px;border-left: 1px solid #A5A5A5;border-top: 1px solid #A5A5A5;border-right: 0px solid #000000;border-bottom: 1px solid #A5A5A5;background-color:#F0F0F0;vertical-align:middle;}
+.V{margin:0px 0px 0px 0px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:10pt;font-weight:bold;font-style:normal;text-decoration:none;}
+.W{padding: 5px 5px 5px 5px;border-left: 0px solid #000000;border-top: 1px solid #A5A5A5;border-right: 1px solid #A5A5A5;border-bottom: 1px solid #A5A5A5;background-color:#F0F0F0;vertical-align:middle;}
+.X{margin:0px 0px 0px 0px;text-indent:0px;text-align:right;color:#727272;font-family:sans-serif;font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;}
+.Y{padding: 5px 5px 5px 5px;border-left: 0px solid #000000;border-top: 0px solid #000000;border-right: 0px solid #000000;border-bottom: 0px solid #000000;background-color:#FFFFFF;vertical-align:middle;}
+.Z{padding: 5px 5px 5px 5px;border-left: 1px solid #A5A5A5;border-top: 1px solid #A5A5A5;border-right: 1px solid #A5A5A5;border-bottom: 1px solid #A5A5A5;background-color:#FFFFFF;vertical-align:middle;}
+.AA{display:list-item;list-style-type:disc;margin:0px 0px 5px 20px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;line-height:150%}
+.AB{padding: 5px 5px 5px 5px;border-left: 0px solid #000000;border-top: 0px solid #000000;border-right: 1px solid #A5A5A5;border-bottom: 0px solid #000000;background-color:#FFFFFF;vertical-align:middle;}
+.AC{padding: 5px 5px 5px 5px;border-left: 0px solid #000000;border-top: 1px solid #A5A5A5;border-right: 1px solid #A5A5A5;border-bottom: 1px solid #A5A5A5;background-color:#FFFFFF;vertical-align:top;}
+.AD{padding: 5px 0px 5px 5px;border-left: 1px solid #A5A5A5;border-top: 1px solid #A5A5A5;border-right: 1px solid #A5A5A5;border-bottom: 1px solid #A5A5A5;background-color:#FFFFFF;vertical-align:top;}
+.AE{padding: 5px 5px 5px 5px;border-left: 0px solid #000000;border-top: 1px solid #A5A5A5;border-right: 0px solid #000000;border-bottom: 1px solid #A5A5A5;background-color:#FFFFFF;vertical-align:middle;}
+.AF{margin:0px 0px 0px 0px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:4pt;font-weight:bold;font-style:normal;text-decoration:none;}
+.AG{margin:0px 0px 0px 0px;text-indent:0px;text-align:right;color:#727272;font-family:sans-serif;font-size:4pt;font-weight:normal;font-style:normal;text-decoration:none;}
+.AH{padding: 5px 5px 5px 5px;border-left: 0px solid #000000;border-top: 1px solid #A5A5A5;border-right: 0px solid #000000;border-bottom: 0px solid #000000;background-color:#FFFFFF;vertical-align:middle;}
+.AI{padding: 5px 0px 5px 5px;border-left: 1px solid #A5A5A5;border-top: 1px solid #A5A5A5;border-right: 0px solid #000000;border-bottom: 1px solid #A5A5A5;background-color:#F0F0F0;vertical-align:middle;}
+.AJ{padding: 5px 5px 5px 5px;border-left: 1px solid #A5A5A5;border-top: 1px solid #A5A5A5;border-right: 1px solid #A5A5A5;border-bottom: 1px solid #A5A5A5;background-color:#FFFFFF;vertical-align:top;}
+.AK{display:list-item;list-style-type:disc;margin:0px 0px 5px 58px;text-indent:0px;text-align:left;color:#000000;font-family:sans-serif;font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;line-height:150%}
+.AL{padding: 5px 0px 5px 5px;border-left: 0px solid #000000;border-top: 1px solid #A5A5A5;border-right: 0px solid #000000;border-bottom: 1px solid #A5A5A5;background-color:#FFFFFF;vertical-align:middle;}
+.AM{padding: 5px 0px 5px 5px;border-left: 0px solid #000000;border-top: 1px solid #A5A5A5;border-right: 0px solid #000000;border-bottom: 0px solid #000000;background-color:#FFFFFF;vertical-align:middle;}
+.AN{padding: 5px 0px 5px 5px;border-left: 0px solid #000000;border-top: 1px solid #A5A5A5;border-right: 1px solid #A5A5A5;border-bottom: 1px solid #A5A5A5;background-color:#F0F0F0;vertical-align:middle;}
+.AO{margin:0px 0px 0px 0px;text-indent:0px;text-align:center;color:#727272;font-family:sans-serif;font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;}
+.AP{padding: 0px 0px 0px 5px;border-left: 1px solid #A5A5A5;border-top: 1px solid #A5A5A5;border-right: 0px solid #000000;border-bottom: 1px solid #A5A5A5;background-color:#F0F0F0;vertical-align:middle;}
+.AQ{padding: 0px 0px 0px 0px;border-left: 0px solid #000000;border-top: 1px solid #A5A5A5;border-right: 1px solid #A5A5A5;border-bottom: 1px solid #A5A5A5;background-color:#F0F0F0;vertical-align:middle;}
+.AR{margin:0px 0px 0px 0px;text-indent:0px;text-align:center;color:#000000;font-family:sans-serif;font-size:10pt;font-weight:bold;font-style:normal;text-decoration:none;}
+.AS{margin:0px 0px 0px 0px;text-indent:0px;text-align:right;color:#c0c0c0;font-family:sans-serif;font-size:8pt;font-weight:normal;font-style:normal;text-decoration:none;}
+a.l1         { text-decoration:none; font-size: 8pt; font-family: sans-serif; font-weight: normal; }
+a.l1:link    { color:#000000; }
+a.l1:visited { color:#000080; }
+a.l1:hover   { color:#9933CC; }
+a.l1:active  { color:#000000; }
+a.l2         { text-decoration:none; font-size: 12pt; font-family: sans-serif; font-variant: small-caps; }
+a.l2:link    { color:#0066FF; }
+a.l2:visited { color:#FF6600; }
+a.l2:hover   { color:#BC0624; }
+a.l2:active  { color:#BC0024; }
+
+-->
+</STYLE>
+<META NAME="keywords" CONTENT="framework, toolkit, widget, c++, visual, studio, dev-cpp, builder, ide, class, component,wxwidgets, qt, rapid, application, development, rad, mfc, linux, gui, sdl, directx, desktop"><META name="robots" content="index,follow">
+<LINK rel="alternate" type="application/rss+xml" title="SVN changes" href="svnchanges.xml">
+<LINK rel="shortcut icon" type="image/png" href="favicon.png">
+</HEAD><BODY BGCOLOR="#D2D9D2" ALINK="#800000" LINK="#000000" VLINK="#000080"><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"><TR><TD COLSPAN="3"><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF" style="border: 1px solid #6E89AE;padding-left: 10px;padding-right: 0px;padding-top: 0px;padding-bottom: 0px;"><TR><TD><A HREF="index.html"><IMG SRC="0i.png" ALT="" BORDER="0"></A>
+</TD>
+<TD ALIGN="RIGHT" VALIGN="BOTTOM" STYLE="padding-bottom: 5px; background-image: url('1i.png')"><span style="font-size: 14pt; font-family: sans-serif;"><script type="text/javascript"><!--
+google_ad_client = "pub-1082147624384270";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+google_color_border = "336699";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript"
+  src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+&nbsp;&nbsp;</span>
+</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"><TR><TD COLSPAN="3" BGCOLOR="#D2D9D2" HEIGHT="6"></TD>
+</TR>
+<TR><TD VALIGN="TOP" ALIGN="CENTER"><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="160"><TR><TD ALIGN="CENTER"><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF" style="border-style: solid; border-width: 1px; border-color: #6E89AE;padding: 0px"><TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px;"><A HREF="www$uppweb$overview$en-us.html" CLASS="l1">Overview</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="www$uppweb$examples$en-us.html" CLASS="l1">Examples</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="www$uppweb$ss$en-us.html" CLASS="l1">Screenshots</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="www$uppweb$comparison$en-us.html" CLASS="l1">Comparisons</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="www$uppweb$apps$en-us.html" CLASS="l1">Applications</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="www$uppweb$download$en-us.html" CLASS="l1">Download</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="www$uppweb$documentation$en-us.html" CLASS="l1">Documentation</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="www$uppweb$Tutorials$en-us.html" CLASS="l1">Tutorials</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="www$uppweb$bazaar$en-us.html" CLASS="l1">Bazaar</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="www$uppweb$Roadmap$en-us.html" CLASS="l1">Status & Roadmap</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="www$uppweb$FAQ$en-us.html" CLASS="l1">FAQ</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="app$ide$About$en-us.html" CLASS="l1">Authors & License</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="https://www.ultimatepp.org/forums" CLASS="l1">Forums</A>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:12px; padding-right:0px; padding-top:6px; padding-bottom:6px; border-top: 1px solid #6E89AE;"><A HREF="www$uppweb$Funding$en-us.html" CLASS="l1">Funding Ultimate++</A>
+</TD>
+</TR>
+</TABLE>
+<TABLE BORDER="0" WIDTH="100%"><TR><TD></TD>
+</TR>
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF" style="border-style: solid; border-width: 1px; border-color: #6E89AE;padding: 0px"><TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('3i.png'); border: 0px solid black;padding-left:12px; padding-right:0px; padding-top:1px; padding-bottom:1px;color:#FFFFFF;"><B><span style="font-size: 8pt; font-family: sans-serif;">Search on this site</span>
+</B>
+</TD>
+</TR>
+<TR><TD WIDTH="100%" VALIGN="MIDDLE" STYLE="background-image: url('2i.png'); border: 0px solid black; padding-left:6px; padding-right:0px; padding-top:4px; padding-bottom:4px;border-top: 1px solid #6E89AE;"><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"><TR><TD><IMG SRC="4i.png" ALT="" BORDER="0"></TD>
+<TD><FORM ACTION="https://www.google.com/search" METHOD="GET" STYLE="margin:0px;padding:0px;"><INPUT TYPE="HIDDEN" NAME="ie" VALUE="UTF-8"><INPUT TYPE="HIDDEN" NAME="oe" VALUE="UTF-8"><INPUT TYPE="TEXT" NAME="q" SIZE="15" MAXLENGTH="256" placeholder="Site search"><INPUT TYPE="HIDDEN" NAME="domains" VALUE="www.ultimatepp.org"><INPUT TYPE="HIDDEN" NAME="sitesearch" VALUE="www.ultimatepp.org"></FORM>
+</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+</TABLE>
+<TABLE BORDER="0" WIDTH="100%"><TR><TD></TD>
+</TR>
+</TABLE>
+<br><div id="fb-root"></div>
+<script type="text/javascript">(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-like" data-href="https://www.facebook.com/pages/Upp-Framework/262346610476027?sk=wall" data-send="false" data-layout="button_count" data-width="160" data-show-faces="false" data-font="arial"></div>
+<br><br><script type="text/javascript"><!--
+google_ad_client = "pub-1082147624384270";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+google_color_border = "336699";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript"
+  src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><br><br><script type="text/javascript"><!--
+google_ad_client = "pub-1082147624384270";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al_s";
+google_ad_channel = "";
+google_color_border = "336699";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript"
+  src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br><br><script type="text/javascript"><!--
+google_ad_client = "pub-1082147624384270";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+google_color_border = "336699";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript"
+  src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><br><br><br><br><br><br><A HREF="https://sourceforge.net/projects/upp/"><IMG SRC="https://sourceforge.net/sflogo.php?group_id=93970&amp;type=2" ALT="SourceForge.net Logo" BORDER="0" WIDTH="125" HEIGHT="37"></A>
+<br><br><I><span style="font-size: 8pt; font-family: sans-serif;"><FONT COLOR="#808080">Last update 01/19/2020</FONT>
+</span>
+</I>
+</TD>
+</TR>
+</TABLE>
+</TD>
+<TD VALIGN="TOP" BGCOLOR="#D2D9D2"><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="6"><TR><TD></TD>
+</TR>
+</TABLE>
+</TD>
+<TD VALIGN="TOP" WIDTH="100%" BGCOLOR="#D2D9D2"><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%" style="border-style: solid; border-width: 1px; border-color: #6E89AE;padding: 10px;;"><TR><TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"><TR><TD><p class="C">Ultimate++ is a C++ cross-platform rapid application development framework</p>
+<p class="D">&nbsp;</p>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td width="100%"><table width="100%" class="E"><colgroup><col width="67%"><col width="32%"></colgroup>
+<tr><td class="F"><p class="G"><span class="H">U++</span> is a C++ cross-platform rapid application development framework focused on programmers productivity. It includes a set of libraries (GUI, SQL, etc.), and an integrated development environment.</p>
+<p class="G">Rapid development is achieved by the <a href="www$uppweb$overview$en-us.html">smart and aggressive use of C++</a> rather than through fancy code generators. In this respect, U++ competes with popular scripting languages while preserving C/C++ runtime characteristics.</p>
+<p class="G">The U++ integrated development environment, TheIDE, introduces modular concepts to C++ programming. It features BLITZ-build technology to speedup C++ rebuilds up to 4 times, Visual designers for U++ libraries, a <a href="app$ide$Topic$en-us.html">Topic++</a> system for documenting code and creating rich text resources for applications (like help and code documentation) and <a href="app$ide$Assist$en-us.html">Assist++</a> - a powerful C++ code analyzer that provides features like code completion, navigation and transformation.</p>
+<p class="G">TheIDE can work with GCC, Clang, MinGW and Visual C++ and contains a full featured debugger. TheIDE can also be used to develop non-U++ applications.</p>
+<p class="G">U++ supports following platforms on the production level: Windows, macOS, GNU/Linux &amp; FreeBSD.</p>
+<p class="I">What you can get with the Ultimate++ download in plain English?</p>
+<p class="J">Very effective C++ library for cross-platform development in source form.</p>
+<p class="J">A good integrated development environment, designed for developing large C++ applications.</p>
+<p class="G">You can use both, or you can use whichever you need.</p>
+</td>
+<td class="F"><p class="K">&nbsp;</p>
+<p class="L">&nbsp;</p>
+<p class="M"><a href="L$index.html_0.png"><img src="index.html_0.png" border="0" alt=""></a></p>
+<p class="N">&nbsp;</p>
+<p class="O"><span class="P">Current release: </span>2019.2 (rev. 13664)</p>
+<p class="O"><span class="P">License: </span>BSD</p>
+</td>
+</tr>
+</table></td>
+</tr></table>
+<p class="Q">&nbsp;</p>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td width="100%"><table width="100%" class="E"><colgroup><col width="100%"></colgroup>
+<tr><td class="R"><p class="S">U++ Resources</p>
+</td>
+</tr>
+</table></td>
+</tr></table>
+<p class="T">&nbsp;</p>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td width="100%"><table width="100%" class="E"><colgroup><col width="12%"><col width="19%"><col width="1%"><col width="16%"><col width="16%"><col width="1%"><col width="13%"><col width="19%"></colgroup>
+<tr><td class="U"><p class="V">Getting Started</p>
+</td>
+<td class="W"><p class="X">5 minutes to learn the basics...</p>
+<p class="X">... and more</p>
+</td>
+<td class="Y"><p class="X">&nbsp;</p>
+</td>
+<td class="U"><p class="V">Users</p>
+</td>
+<td class="W" colspan=4><p class="X">&nbsp;</p>
+</td>
+</tr>
+<tr><td class="Z" colspan=2><p class="AA"><a href="app$ide$GettingStarted$en-us.html">Getting started with TheIDE</a></p>
+<p class="AA"><a href="srcdoc$CtrlLib$Tutorial$en-us.html">GUI Tutorial</a></p>
+<p class="AA"><a href="www$uppweb$comparison$en-us.html">Comparisons</a></p>
+<p class="AA"><a href="www$uppweb$overview$en-us.html">Overview</a></p>
+<p class="AA"><a href="www$uppweb$tutoring$en-us.html">Tutoring Plan</a></p>
+</td>
+<td class="AB"><p class="X">&nbsp;</p>
+</td>
+<td class="AC" colspan=3><p class="AA"><a href="www$uppweb$documentation$en-us.html">Documentation</a></p>
+<p class="AA"><a href="www$uppweb$examples$en-us.html">Examples</a></p>
+<p class="AA"><a href="www$uppweb$Tutorials_en-us.html">Tutorials</a></p>
+<p class="AA"><a href="www$uppweb$SupportedPlatforms$en-us.html">Supported Platforms</a></p>
+<p class="AA"><a href="www$uppweb$UppTechnologies$en-us.html">U++ Technologies</a></p>
+</td>
+<td class="AD" colspan=2><p class="AA"><a href="www$uppweb$apps$en-us.html">Applications</a></p>
+<p class="AA"><a href="www$uppweb$AssociatedProjects_en-us.html">Associated Projects</a></p>
+<p class="AA"><a href="www$uppweb$FAQ$en-us.html">FAQ</a></p>
+<p class="AA"><a href="http://www.ultimatepp.org/forums">Forums</a></p>
+</td>
+</tr>
+<tr><td class="AE" colspan=2><p class="AF">&nbsp;</p>
+</td>
+<td class="Y"><p class="AG">&nbsp;</p>
+</td>
+<td class="AE" colspan=2><p class="AF">&nbsp;</p>
+</td>
+<td class="AH" rowspan=6><p class="AF">&nbsp;</p>
+</td>
+<td class="AE" colspan=2><p class="AF">&nbsp;</p>
+</td>
+</tr>
+<tr><td class="U"><p class="V">Developers</p>
+</td>
+<td class="W" colspan=4><p class="X">If you feel like contributing to web or code this is your place</p>
+</td>
+<td class="AI"><p class="V">Download U++</p>
+</td>
+<td class="W"><p class="X">Let's go!</p>
+</td>
+</tr>
+<tr><td class="AJ" colspan=3><p class="AA"><a href="http://www.ultimatepp.org/redmine/projects/upp">Project management (Redmine)</a></p>
+<p class="AA"><a href="www$uppweb$svnInstall$en-us.html">SVN install and permissions</a></p>
+<p class="AA"><a href="www$uppweb$GITRepository_en-us.html">GIT repository</a></p>
+<p class="AA"><a href="www$uppweb$bugreports$en-us.html">Bug reports and patch submission</a></p>
+<p class="AA"><a href="www$uppweb$contribweb$en-us.html">Web page</a></p>
+<p class="AA">New development ideas</p>
+<p class="AK"><a href="www$uppweb$currenttopics$en-us.html">Current topics</a></p>
+<p class="AK"><a href="gsoc$uppweb$ideas2014$en-us.html">GSoC ideas</a></p>
+</td>
+<td class="AJ" colspan=2><p class="AA"><a href="www$uppweb$codestyle$en-us.html">Code style</a></p>
+<p class="AA"><a href="www$uppweb$slack$en-us.html">Team collaboration (Slack)</a></p>
+<p class="AA"><a href="www$uppweb$bazaar$en-us.html">Bazaar</a></p>
+<p class="AA"><a href="app$ide$About$en-us.html">Authors &amp; License</a></p>
+</td>
+<td class="AJ" colspan=2><p class="AA"><a href="www$uppweb$download$en-us.html">Download</a></p>
+<p class="AA"><a href="https://sourceforge.net/projects/upp/files/latest/download">Current release</a>: 13664</p>
+<p class="AA"><a href="http://www.ultimatepp.org/www$uppweb$nightly$en-us.html">Latest svn</a>: 13916</p>
+</td>
+</tr>
+<tr><td class="AL" colspan=2><p class="AF">&nbsp;</p>
+</td>
+<td class="AM" rowspan=3><p class="AF">&nbsp;</p>
+</td>
+<td class="AL" colspan=2><p class="AF">&nbsp;</p>
+</td>
+<td class="AL" colspan=2><p class="AF">&nbsp;</p>
+</td>
+</tr>
+<tr><td class="AI"><p class="V">Students</p>
+</td>
+<td class="AN"><p class="AO">&nbsp;</p>
+</td>
+<td class="AP"><p class="V">Other</p>
+</td>
+<td class="AQ"><p class="AR">&nbsp;</p>
+</td>
+<td class="U"><p class="V">Supporting U++</p>
+</td>
+<td class="W"><p class="X">Sometimes more than code is needed...</p>
+</td>
+</tr>
+<tr><td class="Z" colspan=2><p class="AA"><a href="gsoc$uppweb$gsoc2014$en-us.html">Google Summer of Code resources</a></p>
+<p class="AA"><a href="www$uppweb$LearnCpp$en-us.html">Learn C/C++ with TheIDE</a></p>
+</td>
+<td class="AD" colspan=2><p class="AA"><a href="www$uppweb$extlinks$en-us.html">External links</a></p>
+</td>
+<td class="AJ" colspan=2><p class="AA"><a href="www$uppweb$Funding$en-us.html">Funding U++</a></p>
+</td>
+</tr>
+</table></td>
+</tr></table>
+<p class="Q">&nbsp;</p>
+<p class="AS">Page updated at 01/19/2020 06:21:56 UTC.</p>
+</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+</TABLE>
+<TABLE BORDER="0" WIDTH="100%"><TR><TD></TD>
+</TR>
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%" style="border-style: solid; border-width: 1px; border-color: #6E89AE;padding: 10px;;"><TR><TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"><TR><TD><p class="A"><span class="B"> </span><a href="www$uppweb$contribweb$en-us.html">Do you want to contribute?</a></p>
+</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+</TABLE>
+<script type="text/javascript">var a={'index.html':'English'};var p=window.location.pathname.split("/");p=p[p.length-1];var s='<select id="lang" onchange="window.location=document.getElementById(\'lang\').value;">';for(l in a){if(p==l){d=" selected=1"}else{d=""}s+='<option value="'+l+'"'+d+'>'+a[l]+'</option>'}s+='</select>';var d=document.createElement('div');d.innerHTML=s;var c=document.getElementById('langs');c.replaceChild(d,c.firstChild);document.getElementById('langbox').style.display='block';</script></BODY>
